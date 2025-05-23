@@ -271,7 +271,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: 'For further information, interviews, or demonstrations, please contact us at hello@wrlds.com or visit our <Link to="/projects/firecat">FireCat 6th Sense project page</Link>, or visit 6th Sense product page here: https://www.fire-cat.eu/products/6th-sense/'
+        content: 'For further information, interviews, or demonstrations, please contact us at hello@wrlds.com or visit our FireCat 6th Sense project page, or visit 6th Sense product page here: https://www.fire-cat.eu/products/6th-sense/'
       }
     ]
   },
@@ -372,7 +372,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: "Have an idea or ready to scale an existing product? We'd love to hear from you and help bring your vision to life. <Link to=\"/contact\">Reach out</Link> and let's get started!"
+        content: "Have an idea or ready to scale an existing product? We'd love to hear from you and help bring your vision to life. Reach out and let's get started!"
       }
     ]
   },
@@ -484,7 +484,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: 'Interested in exploring how sensor-driven innovation can benefit your business? <Link to="/contact">Reach out to us</Link> at WRLDS and discover how to integrate smart, efficient, and data-driven solutions into your product development strategy.'
+        content: 'Interested in exploring how sensor-driven innovation can benefit your business? Reach out to us at WRLDS and discover how to integrate smart, efficient, and data-driven solutions into your product development strategy.'
       }
     ]
   }
