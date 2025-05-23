@@ -11,64 +11,6 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { LoadingAnimation } from '@/components/LoadingAnimation';
 
-// Helper function to render content with links
-const renderContentWithLinks = (content: string) => {
-  if (!content) return null;
-
-  // Regular expression to find link tags in the content
-  const linkRegex = /<Link to="([^"]+)">([^<]+)<\/Link>/g;
-  // Regular expression to find URLs
-  const urlRegex = /(https?:\/\/[^\s]+)/g;
-  const parts = [];
-  let lastIndex = 0;
-  let processedContent = content;
-  let match;
-
-  // First, find all link tags and split the content
-  while ((match = linkRegex.exec(processedContent)) !== null) {
-    // Add the text before the link
-    if (match.index > lastIndex) {
-      parts.push(processedContent.substring(lastIndex, match.index));
-    }
-
-    // Add the link component
-    parts.push(<Link key={match.index} to={match[1]} className="text-purple-600 hover:text-purple-800 underline">
-        {match[2]}
-      </Link>);
-    lastIndex = match.index + match[0].length;
-  }
-
-  // Add the remaining text after the last link
-  if (lastIndex < processedContent.length) {
-    const remainingText = processedContent.substring(lastIndex);
-
-    // Then find and convert URLs in the remaining text
-    let urlLastIndex = 0;
-    let urlParts = [];
-    let urlMatch;
-    while ((urlMatch = urlRegex.exec(remainingText)) !== null) {
-      // Add the text before the URL
-      if (urlMatch.index > urlLastIndex) {
-        urlParts.push(remainingText.substring(urlLastIndex, urlMatch.index));
-      }
-
-      // Add the URL as an external link
-      urlParts.push(<a key={`url-${urlMatch.index}`} href={urlMatch[0]} target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 underline">
-          {urlMatch[0]}
-        </a>);
-      urlLastIndex = urlMatch.index + urlMatch[0].length;
-    }
-
-    // Add any remaining text
-    if (urlLastIndex < remainingText.length) {
-      urlParts.push(remainingText.substring(urlLastIndex));
-    }
-
-    // Add all URL parts to main parts array
-    parts.push(...urlParts);
-  }
-  return parts.length > 0 ? parts : content;
-};
 const BlogPostDetail = () => {
   const {
     slug
@@ -454,7 +396,7 @@ const BlogPostDetail = () => {
                     Have an idea or ready to scale an existing product? We'd love to hear from you and help bring your vision to life. Reach out and let's get started!
                   </p>
                   <Link to="/contact">
-                    
+                    <Button size="lg">Get in Touch</Button>
                   </Link>
                 </motion.div>
               </motion.div> : isSensorPost ? 
@@ -480,7 +422,7 @@ const BlogPostDetail = () => {
                   }} className={cn("mb-8", section.type === 'quote' && "my-10")}>
                     {section.type === 'paragraph' && (
                       <p className="text-gray-800 mb-4 leading-relaxed">
-                        {renderContentWithLinks(section.content)}
+                        {section.content}
                       </p>
                     )}
                     
@@ -561,7 +503,7 @@ const BlogPostDetail = () => {
             delay: 0.1 * index
           }} className={cn("mb-8", section.type === 'quote' && "my-10")}>
                     {section.type === 'paragraph' && <p className="text-gray-700 mb-4 leading-relaxed">
-                      {renderContentWithLinks(section.content)}
+                      {section.content}
                     </p>}
                     {section.type === 'heading' && <div className="flex items-center gap-3 mt-12 mb-6">
                         <div className="w-1.5 h-7 bg-purple-500 rounded-full"></div>
