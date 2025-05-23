@@ -381,7 +381,7 @@ export const blogPosts: BlogPost[] = [
     slug: 'leveraging-sensor-technology-product-development',
     title: 'Leveraging Sensor Technology to Accelerate Product Development',
     excerpt: 'Discover how embedding smart sensors into prototypes can streamline testing, save time, and dramatically improve product quality—delivering faster innovations with fewer resources.',
-    date: 'May 21, 2025',
+    date: 'May 23, 2025',
     author: 'WRLDS Technologies',
     category: 'Innovation',
     imageUrl: '/lovable-uploads/1cd5a3da-7a58-4374-abc1-d7b02b0c5fd5.png',
@@ -421,18 +421,6 @@ export const blogPosts: BlogPost[] = [
       {
         type: 'paragraph',
         content: 'Imagine developing running shoes equipped with embedded sensors that measure pressure distribution, impact forces, and material flexing. Instead of needing external equipment or extensive lab tests, the shoes themselves record performance data as they are naturally used by testers, providing immediate insights into durability, comfort, and functionality.'
-      },
-      {
-        type: 'subheading',
-        content: 'Case Study: Smart Athletic Wear'
-      },
-      {
-        type: 'list',
-        items: [
-          'Pressure sensors in shoe soles identified uneven weight distribution, leading to an improved design that reduced injury risk by 27%',
-          'Fabric strain sensors in athletic shirts detected movement restrictions, resulting in a redesign that improved range of motion by 15%',
-          'Temperature and moisture sensors in sportswear fabrics helped optimize material choices, creating apparel that kept athletes 22% cooler during intense activity'
-        ]
       },
       {
         type: 'heading',

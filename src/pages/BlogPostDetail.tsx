@@ -5,7 +5,7 @@ import SEO from '@/components/SEO';
 import { useEffect, useState } from 'react';
 import { blogPosts } from '@/data/blogPosts';
 import { motion } from 'framer-motion';
-import { BookOpen, Calendar, Clock, MessageSquare, Share, Tag, Lightbulb, ArrowRight, FileText, Rocket, Settings, CheckCircle } from 'lucide-react';
+import { BookOpen, Calendar, Clock, MessageSquare, Share, Tag, Lightbulb, ArrowRight, FileText, Rocket, Settings, CheckCircle, BarChart, Zap, Target, DollarSign } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -85,6 +85,7 @@ const BlogPostDetail = () => {
     }, 300);
     return () => clearTimeout(timer);
   }, [slug]);
+  
   if (!post) {
     return <PageLayout>
         <SEO title="Post Not Found - WRLDS Technologies" description="The requested blog post could not be found." />
@@ -135,6 +136,9 @@ const BlogPostDetail = () => {
 
   // Special rendering for the process blog post with the updated design
   const isProcessPost = slug === 'from-idea-to-launch-development-process';
+  
+  // Determine if this is the sensor technology post
+  const isSensorPost = slug === 'leveraging-sensor-technology-product-development';
 
   // Extract keywords from post content
   const extractKeywords = () => {
@@ -144,11 +148,14 @@ const BlogPostDetail = () => {
     }
     return keywords;
   };
+  
   return <PageLayout>
       <SEO title={`${post.title} - WRLDS Technologies`} description={post.excerpt} imageUrl={post.imageUrl} type="article" isBlogPost={true} publishDate={formatDateForISO(post.date)} modifiedDate={formatDateForISO(post.date)} author={post.author} category={post.category} keywords={extractKeywords()} />
       
-      <div className="w-full pt-32 pb-16 bg-gradient-to-b from-gray-900 to-black text-white relative" style={{
-      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('${post.imageUrl}')`,
+      <div className={cn("w-full pt-32 pb-16 relative", isSensorPost ? "bg-black text-white" : "bg-gradient-to-b from-gray-900 to-black text-white")} style={{
+      backgroundImage: isSensorPost 
+        ? `linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9)), url('${post.imageUrl}')`
+        : `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('${post.imageUrl}')`,
       backgroundPosition: 'center',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat'
@@ -197,7 +204,7 @@ const BlogPostDetail = () => {
         }} transition={{
           duration: 0.6
         }} className="prose prose-lg max-w-none">
-                {/* Custom rendering for process post */}
+                {/* Process post rendering */}
                 <motion.div initial={{
             opacity: 0,
             y: 10
@@ -450,6 +457,90 @@ const BlogPostDetail = () => {
                     
                   </Link>
                 </motion.div>
+              </motion.div> : isSensorPost ? 
+              <motion.div initial={{
+                opacity: 0
+              }} animate={{
+                opacity: 1
+              }} transition={{
+                duration: 0.6,
+                delay: 0.2
+              }} className="prose prose-lg max-w-none prose-neutral">
+                {/* Sensor post with black and white style */}
+                {post.content.map((section, index) => (
+                  <motion.div key={index} initial={{
+                    opacity: 0,
+                    y: 10
+                  }} animate={{
+                    opacity: 1,
+                    y: 0
+                  }} transition={{
+                    duration: 0.4,
+                    delay: 0.1 * index
+                  }} className={cn("mb-8", section.type === 'quote' && "my-10")}>
+                    {section.type === 'paragraph' && (
+                      <p className="text-gray-800 mb-4 leading-relaxed">
+                        {renderContentWithLinks(section.content)}
+                      </p>
+                    )}
+                    
+                    {section.type === 'heading' && (
+                      <div className="flex items-center gap-3 mt-12 mb-6 border-b border-gray-200 pb-2">
+                        {section.content === 'The Shift from Manual Testing to Sensor-Driven Insights' && (
+                          <Lightbulb size={24} className="text-gray-800" />
+                        )}
+                        {section.content === 'Real-time Performance Measurement Made Easy' && (
+                          <Zap size={24} className="text-gray-800" />
+                        )}
+                        {section.content === 'Faster Iterations Through Automated Testing and AI' && (
+                          <BarChart size={24} className="text-gray-800" />
+                        )}
+                        {section.content === 'Key Business Benefits' && (
+                          <Target size={24} className="text-gray-800" />
+                        )}
+                        {section.content === 'Ready to Transform Your Product Development?' && (
+                          <Rocket size={24} className="text-gray-800" />
+                        )}
+                        <h2 className="text-2xl font-bold text-gray-900">{section.content}</h2>
+                      </div>
+                    )}
+                    
+                    {section.type === 'subheading' && (
+                      <h3 className="text-xl font-bold mt-8 mb-3 text-gray-800 flex items-center gap-2">
+                        {section.content === 'Reduced Testing Costs' && (
+                          <DollarSign size={18} className="text-gray-700" />
+                        )}
+                        {section.content === 'Shorter Time-to-Market' && (
+                          <Clock size={18} className="text-gray-700" />
+                        )}
+                        {section.content === 'Enhanced Product Quality' && (
+                          <CheckCircle size={18} className="text-gray-700" />
+                        )}
+                        {section.content === 'Stronger Decision-Making' && (
+                          <Target size={18} className="text-gray-700" />
+                        )}
+                        {section.content}
+                      </h3>
+                    )}
+                    
+                    {section.type === 'list' && (
+                      <ul className="list-disc pl-5 my-4 space-y-2">
+                        {section.items?.map((item, itemIndex) => (
+                          <li key={itemIndex} className="text-gray-700">{item}</li>
+                        ))}
+                      </ul>
+                    )}
+                    
+                    {section.type === 'quote' && (
+                      <blockquote className="border-l-4 border-gray-600 pl-5 py-2 my-8 bg-gray-50 rounded-r-lg italic text-gray-700">
+                        <div className="flex">
+                          <MessageSquare size={20} className="text-gray-600 mr-3 mt-1 flex-shrink-0" />
+                          <p className="text-lg m-0">{section.content}</p>
+                        </div>
+                      </blockquote>
+                    )}
+                  </motion.div>
+                ))}
               </motion.div> : <motion.div initial={{
           opacity: 0
         }} animate={{
