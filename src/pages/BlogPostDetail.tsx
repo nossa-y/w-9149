@@ -69,12 +69,14 @@ const renderContentWithLinks = (content: string) => {
   }
   return parts.length > 0 ? parts : content;
 };
-
 const BlogPostDetail = () => {
-  const { slug } = useParams<{ slug: string }>();
+  const {
+    slug
+  } = useParams<{
+    slug: string;
+  }>();
   const post = blogPosts.find(post => post.slug === slug);
   const [isLoading, setIsLoading] = useState(true);
-
   useEffect(() => {
     window.scrollTo(0, 0);
     // Simulate loading for smoother transitions
@@ -83,7 +85,6 @@ const BlogPostDetail = () => {
     }, 300);
     return () => clearTimeout(timer);
   }, [slug]);
-
   if (!post) {
     return <PageLayout>
         <SEO title="Post Not Found - WRLDS Technologies" description="The requested blog post could not be found." />
@@ -134,37 +135,24 @@ const BlogPostDetail = () => {
 
   // Special rendering for the process blog post with the updated design
   const isProcessPost = slug === 'from-idea-to-launch-development-process';
-  
-  // Check if this is the sensor technology post
-  const isSensorPost = slug === 'leveraging-sensor-technology-accelerate-product-development';
 
   // Extract keywords from post content
   const extractKeywords = () => {
     const keywords = ['smart textiles', 'product development', post.category.toLowerCase()];
     if (post.title.includes('Development Process')) {
       keywords.push('development process', 'manufacturing', 'prototyping', 'smart product design');
-    } else if (post.title.includes('Sensor Technology')) {
-      keywords.push('sensor technology', 'product testing', 'data-driven development', 'smart sensors');
     }
     return keywords;
   };
-
-  // Use the athlete image for sensor technology post, otherwise use post's image
-  const heroImageUrl = isSensorPost ? '/lovable-uploads/592d51b7-9d17-418a-a9f1-5bd974723d49.png' : post.imageUrl;
-
   return <PageLayout>
-      <SEO title={`${post.title} - WRLDS Technologies`} description={post.excerpt} imageUrl={heroImageUrl} type="article" isBlogPost={true} publishDate={formatDateForISO(post.date)} modifiedDate={formatDateForISO(post.date)} author={post.author} category={post.category} keywords={extractKeywords()} />
+      <SEO title={`${post.title} - WRLDS Technologies`} description={post.excerpt} imageUrl={post.imageUrl} type="article" isBlogPost={true} publishDate={formatDateForISO(post.date)} modifiedDate={formatDateForISO(post.date)} author={post.author} category={post.category} keywords={extractKeywords()} />
       
-      <div className={cn(
-        "w-full pt-32 pb-16 text-white relative",
-        isSensorPost ? "bg-black" : "bg-gradient-to-b from-gray-900 to-black"
-      )} style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, ${isSensorPost ? '0.6' : '0.7'}), rgba(0, 0, 0, ${isSensorPost ? '0.8' : '0.8'})), url('${heroImageUrl}')`,
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        filter: isSensorPost ? 'grayscale(100%)' : 'none'
-      }}>
+      <div className="w-full pt-32 pb-16 bg-gradient-to-b from-gray-900 to-black text-white relative" style={{
+      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('${post.imageUrl}')`,
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat'
+    }}>
         <div className="container mx-auto px-4">
           <motion.div initial={{
           opacity: 0,
@@ -176,44 +164,21 @@ const BlogPostDetail = () => {
           duration: 0.6
         }} className="max-w-3xl mx-auto">
             <div className="flex items-center gap-2 mb-4">
-              <Badge variant="secondary" className={cn(
-                "flex items-center gap-1.5",
-                isSensorPost 
-                  ? "bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 border border-white/30" 
-                  : "bg-white/10 backdrop-blur-sm text-white hover:bg-white/20"
-              )}>
+              <Badge variant="secondary" className="bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 flex items-center gap-1.5">
                 <Tag size={14} />
                 {post.category}
               </Badge>
-              <Badge variant="outline" className={cn(
-                "backdrop-blur-sm flex items-center gap-1.5",
-                isSensorPost
-                  ? "border-white/30 text-white/90 bg-black/20"
-                  : "border-white/10 text-white/80"
-              )}>
+              <Badge variant="outline" className="border-white/10 text-white/80 backdrop-blur-sm flex items-center gap-1.5">
                 <Calendar size={14} />
                 {post.date}
               </Badge>
-              <Badge variant="outline" className={cn(
-                "backdrop-blur-sm flex items-center gap-1.5",
-                isSensorPost
-                  ? "border-white/30 text-white/90 bg-black/20"
-                  : "border-white/10 text-white/80"
-              )}>
+              <Badge variant="outline" className="border-white/10 text-white/80 backdrop-blur-sm flex items-center gap-1.5">
                 <Clock size={14} />
                 {readingTime} min read
               </Badge>
             </div>
-            <h1 className={cn(
-              "font-bold mb-6",
-              isSensorPost 
-                ? "text-3xl md:text-4xl lg:text-6xl text-white drop-shadow-2xl" 
-                : "text-3xl md:text-4xl lg:text-5xl"
-            )}>{post.title}</h1>
-            <div className={cn(
-              "flex items-center",
-              isSensorPost ? "text-white/90" : "text-gray-300"
-            )}>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">{post.title}</h1>
+            <div className="flex items-center text-gray-300">
               <BookOpen size={18} className="mr-2" />
               <span>By {post.author}</span>
             </div>
@@ -232,7 +197,7 @@ const BlogPostDetail = () => {
         }} transition={{
           duration: 0.6
         }} className="prose prose-lg max-w-none">
-                {/* Keep existing process post content */}
+                {/* Custom rendering for process post */}
                 <motion.div initial={{
             opacity: 0,
             y: 10
@@ -493,7 +458,7 @@ const BlogPostDetail = () => {
           duration: 0.6,
           delay: 0.2
         }} className="prose prose-lg max-w-none">
-                {/* Standard post rendering with enhanced styling for sensor post */}
+                {/* Standard post rendering */}
                 {post.content.map((section, index) => <motion.div key={index} initial={{
             opacity: 0,
             y: 10
@@ -503,100 +468,39 @@ const BlogPostDetail = () => {
           }} transition={{
             duration: 0.4,
             delay: 0.1 * index
-          }} className={cn(
-            "mb-8", 
-            section.type === 'quote' && "my-10",
-            isSensorPost && section.type === 'heading' && "relative"
-          )}>
-                    {section.type === 'paragraph' && <p className={cn(
-                      "mb-4 leading-relaxed",
-                      isSensorPost ? "text-gray-800 text-lg" : "text-gray-700"
-                    )}>
+          }} className={cn("mb-8", section.type === 'quote' && "my-10")}>
+                    {section.type === 'paragraph' && <p className="text-gray-700 mb-4 leading-relaxed">
                       {renderContentWithLinks(section.content)}
                     </p>}
-                    {section.type === 'heading' && <div className={cn(
-                      "flex items-center gap-3 mt-12 mb-6",
-                      isSensorPost && "relative"
-                    )}>
-                        {isSensorPost && <div className="absolute -left-4 top-0 bottom-0 w-1 bg-black rounded-full"></div>}
-                        <div className={cn(
-                          "rounded-full",
-                          isSensorPost 
-                            ? "w-2 h-8 bg-black" 
-                            : "w-1.5 h-7 bg-purple-500"
-                        )}></div>
-                        <h2 className={cn(
-                          "font-bold",
-                          isSensorPost 
-                            ? "text-2xl md:text-3xl text-black" 
-                            : "text-2xl text-gray-900"
-                        )}>{section.content}</h2>
+                    {section.type === 'heading' && <div className="flex items-center gap-3 mt-12 mb-6">
+                        <div className="w-1.5 h-7 bg-purple-500 rounded-full"></div>
+                        <h2 className="text-2xl font-bold text-gray-900">{section.content}</h2>
                       </div>}
-                    {section.type === 'subheading' && <h3 className={cn(
-                      "font-bold mt-8 mb-3 flex items-center gap-2",
-                      isSensorPost 
-                        ? "text-xl text-black" 
-                        : "text-xl text-gray-800"
-                    )}>
-                        <div className={cn(
-                          "rounded-full",
-                          isSensorPost 
-                            ? "w-3 h-3 bg-gray-600" 
-                            : "w-2 h-2 bg-purple-400"
-                        )}></div>
+                    {section.type === 'subheading' && <h3 className="text-xl font-bold mt-8 mb-3 text-gray-800 flex items-center gap-2">
+                        <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
                         {section.content}
                       </h3>}
                     {section.type === 'list' && <ul className="list-disc pl-5 my-4 space-y-2">
-                        {section.items?.map((item, itemIndex) => <li key={itemIndex} className={cn(
-                          isSensorPost ? "text-gray-800" : "text-gray-700"
-                        )}>{item}</li>)}
+                        {section.items?.map((item, itemIndex) => <li key={itemIndex} className="text-gray-700">{item}</li>)}
                       </ul>}
-                    {section.type === 'quote' && <blockquote className={cn(
-                      "pl-5 py-2 my-8 rounded-r-lg italic",
-                      isSensorPost 
-                        ? "border-l-4 border-black bg-gray-100 text-gray-900" 
-                        : "border-l-4 border-purple-500 bg-purple-50 text-gray-700"
-                    )}>
+                    {section.type === 'quote' && <blockquote className="border-l-4 border-purple-500 pl-5 py-2 my-8 bg-purple-50 rounded-r-lg italic text-gray-700">
                         <div className="flex">
-                          <MessageSquare size={20} className={cn(
-                            "mr-3 mt-1 flex-shrink-0",
-                            isSensorPost ? "text-black" : "text-purple-500"
-                          )} />
+                          <MessageSquare size={20} className="text-purple-500 mr-3 mt-1 flex-shrink-0" />
                           <p className="text-lg m-0">{section.content}</p>
                         </div>
                       </blockquote>}
                   </motion.div>)}
-                
-                {/* Add visual divider for sensor post */}
-                {isSensorPost && <div className="my-12 flex justify-center">
-                  <div className="w-24 h-px bg-gradient-to-r from-transparent via-black to-transparent"></div>
-                </div>}
               </motion.div>}
             
             <Separator className="my-8" />
             
-            <div className={cn(
-              "flex flex-col sm:flex-row items-center justify-between py-6 rounded-lg p-6 shadow-sm",
-              isSensorPost 
-                ? "bg-black text-white" 
-                : "bg-gray-50"
-            )}>
+            <div className="flex flex-col sm:flex-row items-center justify-between py-6 bg-gray-50 rounded-lg p-6 shadow-sm">
               <div>
-                <p className={cn(
-                  "text-sm font-medium",
-                  isSensorPost ? "text-gray-300" : "text-gray-600"
-                )}>Category: {post.category}</p>
+                <p className="text-sm text-gray-600 font-medium">Category: {post.category}</p>
               </div>
-              {isSensorPost && <Link to="/contact">
-                <Button variant="outline" className="mt-4 sm:mt-0 bg-white text-black hover:bg-gray-100 border-white">
-                  Start Your Project
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>}
             </div>
           </div>}
       </div>
     </PageLayout>;
 };
-
 export default BlogPostDetail;

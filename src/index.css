@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -260,29 +261,4 @@
 
 .animate-pulse-slow {
   animation: pulse-slow 4s ease-in-out infinite;
-}
-
-/* Black and white theme for sensor technology post */
-.sensor-post-filter {
-  filter: grayscale(100%) contrast(1.2);
-}
-
-.sensor-post-accent {
-  background: linear-gradient(45deg, #000000, #333333);
-}
-
-.sensor-post-divider {
-  background: linear-gradient(90deg, transparent, #000000, transparent);
-  height: 1px;
-  width: 100%;
-}
-
-/* Enhanced contrast for better readability in black and white */
-.sensor-post-text {
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.sensor-post-hero {
-  background-blend-mode: overlay;
-  background-color: rgba(0, 0, 0, 0.3);
 }
