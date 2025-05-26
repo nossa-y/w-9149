@@ -10,13 +10,46 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/h
 import { Progress } from "@/components/ui/progress";
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Button } from "@/components/ui/button";
+import { useScrollHijack } from '@/hooks/useScrollHijack';
+
 const Features = () => {
   const featuresRef = useRef<HTMLDivElement>(null);
+  const hijackSectionRef = useRef<HTMLDivElement>(null);
   const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
   const [progressValue, setProgressValue] = useState(0);
   const [currentSprint, setCurrentSprint] = useState(1);
   const totalSprints = 3;
   const isMobile = useIsMobile();
+
+  const features = [
+    {
+      icon: <Activity className="w-10 h-10 text-white transition-transform duration-300 transform" />,
+      title: "Sports Performance",
+      description: "Specialized fabrics that analyze form, provide instant feedback, and help prevent injuries in athletic equipment.",
+      image: "/lovable-uploads/48e540e5-6a25-44e4-b3f7-80f3bfc2777a.png"
+    },
+    {
+      icon: <Shield className="w-10 h-10 text-white transition-transform duration-300 transform" />,
+      title: "Military & Defense",
+      description: "Tactical gear with embedded sensors for soldier health monitoring, environmental awareness, and enhanced safety.",
+      image: "/lovable-uploads/48ecf6e2-5a98-4a9d-af6f-ae2265cd4098.png"
+    },
+    {
+      icon: <HardHat className="w-10 h-10 text-white transition-transform duration-300 transform" />,
+      title: "Industrial Safety",
+      description: "Protective workwear that detects hazards, monitors fatigue, and prevents workplace injuries through early intervention.",
+      image: "/lovable-uploads/cf8966e3-de0d-445f-9fbd-ee6c48daa7ff.png"
+    },
+    {
+      icon: <Zap className="w-10 h-10 text-white transition-transform duration-300 transform" />,
+      title: "Thermal Regulation",
+      description: "Adaptive heating and cooling textiles that respond to body temperature and environmental conditions.",
+      image: "/lovable-uploads/6739bd63-bf19-4abd-bb23-0b613bbf7ac8.png"
+    }
+  ];
+
+  const { isHijacked, currentIndex } = useScrollHijack(hijackSectionRef, features.length);
+
   const scrollToContact = (e: React.MouseEvent) => {
     e.preventDefault();
     const contactSection = document.getElementById('contact-info');
@@ -26,6 +59,7 @@ const Features = () => {
       });
     }
   };
+
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -49,6 +83,7 @@ const Features = () => {
     }
     return () => observer.disconnect();
   }, []);
+  
   useEffect(() => {
     let interval: NodeJS.Timeout;
     const animateProgress = () => {
@@ -72,27 +107,7 @@ const Features = () => {
       if (interval) clearInterval(interval);
     };
   }, []);
-  const features = [{
-    icon: <Activity className="w-10 h-10 text-white transition-transform duration-300 transform" />,
-    title: "Sports Performance",
-    description: "Specialized fabrics that analyze form, provide instant feedback, and help prevent injuries in athletic equipment.",
-    image: "/lovable-uploads/48e540e5-6a25-44e4-b3f7-80f3bfc2777a.png"
-  }, {
-    icon: <Shield className="w-10 h-10 text-white transition-transform duration-300 transform" />,
-    title: "Military & Defense",
-    description: "Tactical gear with embedded sensors for soldier health monitoring, environmental awareness, and enhanced safety.",
-    image: "/lovable-uploads/48ecf6e2-5a98-4a9d-af6f-ae2265cd4098.png"
-  }, {
-    icon: <HardHat className="w-10 h-10 text-white transition-transform duration-300 transform" />,
-    title: "Industrial Safety",
-    description: "Protective workwear that detects hazards, monitors fatigue, and prevents workplace injuries through early intervention.",
-    image: "/lovable-uploads/cf8966e3-de0d-445f-9fbd-ee6c48daa7ff.png"
-  }, {
-    icon: <Zap className="w-10 h-10 text-white transition-transform duration-300 transform" />,
-    title: "Thermal Regulation",
-    description: "Adaptive heating and cooling textiles that respond to body temperature and environmental conditions.",
-    image: "/lovable-uploads/6739bd63-bf19-4abd-bb23-0b613bbf7ac8.png"
-  }];
+
   const sensorCaseStudies = [{
     image: "/lovable-uploads/843446fe-638e-4efb-b885-ed3cd505325a.png",
     title: "Firefighter Safety",
@@ -132,6 +147,7 @@ const Features = () => {
     name: "Review",
     icon: <RefreshCcw className="h-4 w-4" />
   }];
+
   return <>
       <section id="features" className="relative bg-white overflow-hidden py-10 md:py-[50px] w-full">
         <div className="w-full px-4 sm:px-6 lg:px-8" ref={featuresRef}> 
@@ -144,28 +160,119 @@ const Features = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {features.map((feature, index) => <div key={index} className="feature-item rounded-xl overflow-hidden transform hover:-translate-y-1 transition-all duration-300 h-[280px] relative shadow-lg" style={{
-            transitionDelay: `${index * 100}ms`
-          }} onMouseEnter={() => setHoveredFeature(index)} onMouseLeave={() => setHoveredFeature(null)}>
+          {/* Scroll-hijacked features section */}
+          <div 
+            ref={hijackSectionRef}
+            className={cn(
+              "relative transition-all duration-500",
+              isHijacked ? "fixed inset-0 z-50 bg-black" : "grid grid-cols-1 md:grid-cols-2 gap-5"
+            )}
+            style={{ height: isHijacked ? '100vh' : 'auto' }}
+          >
+            {isHijacked && (
+              <div className="absolute top-4 right-4 z-10 text-white text-sm opacity-70">
+                {currentIndex + 1} / {features.length}
+              </div>
+            )}
+            
+            {features.map((feature, index) => (
+              <div 
+                key={index} 
+                className={cn(
+                  "feature-item rounded-xl overflow-hidden transform transition-all duration-500 relative shadow-lg",
+                  isHijacked 
+                    ? cn(
+                        "absolute inset-0 w-full h-full",
+                        index === currentIndex 
+                          ? "opacity-100 translate-x-0" 
+                          : index < currentIndex 
+                            ? "opacity-0 -translate-x-full" 
+                            : "opacity-0 translate-x-full"
+                      )
+                    : "hover:-translate-y-1 h-[280px]"
+                )}
+                style={{
+                  transitionDelay: isHijacked ? '0ms' : `${index * 100}ms`
+                }}
+                onMouseEnter={() => !isHijacked && setHoveredFeature(index)} 
+                onMouseLeave={() => !isHijacked && setHoveredFeature(null)}
+              >
                 <div className="absolute inset-0 w-full h-full">
-                  <img src={feature.image} alt={feature.title} className="w-full h-full object-cover grayscale" />
-                  <div className={cn("absolute inset-0 bg-black/60 transition-opacity duration-300", hoveredFeature === index ? "opacity-50" : "opacity-70")}></div>
+                  <img 
+                    src={feature.image} 
+                    alt={feature.title} 
+                    className={cn(
+                      "w-full h-full object-cover transition-all duration-300",
+                      isHijacked ? "grayscale-0" : "grayscale"
+                    )} 
+                  />
+                  <div className={cn(
+                    "absolute inset-0 transition-opacity duration-300",
+                    isHijacked 
+                      ? "bg-black/40" 
+                      : hoveredFeature === index 
+                        ? "bg-black/50" 
+                        : "bg-black/70"
+                  )}></div>
                 </div>
                 
-                <div className="relative z-10 p-6 flex flex-col h-full justify-between">
-                  <div>
-                    <div className="mb-4 inline-block p-3 bg-gray-800/40 backdrop-blur-sm rounded-lg transition-all duration-300 transform hover:scale-110">
-                      <div className={`transform transition-transform duration-300 ${hoveredFeature === index ? 'rotate-12' : ''}`}>
+                <div className={cn(
+                  "relative z-10 flex flex-col justify-center",
+                  isHijacked 
+                    ? "p-16 h-full text-center items-center" 
+                    : "p-6 h-full justify-between"
+                )}>
+                  <div className={isHijacked ? "space-y-8" : ""}>
+                    <div className={cn(
+                      "inline-block p-3 bg-gray-800/40 backdrop-blur-sm rounded-lg transition-all duration-300 transform",
+                      isHijacked 
+                        ? "mb-6 scale-150" 
+                        : hoveredFeature === index 
+                          ? "mb-4 hover:scale-110" 
+                          : "mb-4"
+                    )}>
+                      <div className={`transform transition-transform duration-300 ${!isHijacked && hoveredFeature === index ? 'rotate-12' : ''}`}>
                         {feature.icon}
                       </div>
                     </div>
-                    <h3 className="text-xl font-semibold mb-2 text-white">{feature.title}</h3>
-                    <p className="text-white/90 text-sm">{feature.description}</p>
+                    <h3 className={cn(
+                      "font-semibold text-white",
+                      isHijacked ? "text-4xl mb-6" : "text-xl mb-2"
+                    )}>
+                      {feature.title}
+                    </h3>
+                    <p className={cn(
+                      "text-white/90",
+                      isHijacked ? "text-lg max-w-2xl" : "text-sm"
+                    )}>
+                      {feature.description}
+                    </p>
                   </div>
-                  <div className={`h-0.5 bg-white/70 mt-3 transition-all duration-500 ${hoveredFeature === index ? 'w-full' : 'w-0'}`}></div>
+                  {!isHijacked && (
+                    <div className={`h-0.5 bg-white/70 mt-3 transition-all duration-500 ${hoveredFeature === index ? 'w-full' : 'w-0'}`}></div>
+                  )}
                 </div>
-              </div>)}
+              </div>
+            ))}
+            
+            {isHijacked && (
+              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white text-center">
+                <div className="flex space-x-2 mb-4">
+                  {features.map((_, index) => (
+                    <div 
+                      key={index}
+                      className={cn(
+                        "w-2 h-2 rounded-full transition-all duration-300",
+                        index === currentIndex ? "bg-white w-8" : "bg-white/50"
+                      )}
+                    />
+                  ))}
+                </div>
+                <p className="text-sm opacity-70">
+                  {isMobile ? "Swipe" : "Scroll"} to continue • Press ESC to exit
+                </p>
+              </div>
+            )}
           </div>
 
           <div className="mt-16 mb-8 feature-item">
