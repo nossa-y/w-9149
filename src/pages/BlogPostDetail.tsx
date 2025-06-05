@@ -915,7 +915,8 @@ const BlogPostDetail = () => {
                     </Button>
                   </Link>
                 </motion.div>
-              </motion.div> : <motion.div initial={{
+              </motion.div> : 
+              <motion.div initial={{
           opacity: 0
         }} animate={{
           opacity: 1
