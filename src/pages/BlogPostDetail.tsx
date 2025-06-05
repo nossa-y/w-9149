@@ -147,13 +147,15 @@ const BlogPostDetail = () => {
         {isLoading ? <div className="flex justify-center py-20">
             <LoadingAnimation />
           </div> : <div className="max-w-3xl mx-auto">
-            {isProcessPost ? <motion.div initial={{
-          opacity: 0
-        }} animate={{
-          opacity: 1
-        }} transition={{
-          duration: 0.6
-        }} className="prose prose-lg max-w-none">
+            {isProcessPost ? 
+              <motion.div initial={{
+                opacity: 0
+              }} animate={{
+                opacity: 1
+              }} transition={{
+                duration: 0.6,
+                delay: 0.2
+              }} className="prose prose-lg max-w-none">
                 {/* Process post rendering */}
                 <motion.div initial={{
             opacity: 0,
