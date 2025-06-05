@@ -22,14 +22,126 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: '4',
+    slug: 'leveraging-sensor-technology-product-development',
+    title: 'Leveraging Sensor Technology to Accelerate Product Development',
+    excerpt: 'Discover how embedding smart sensors into prototypes can streamline testing, save time, and dramatically improve product quality—delivering faster innovations with fewer resources.',
+    date: 'May 23, 2025',
+    author: 'WRLDS Technologies',
+    category: 'Innovation',
+    imageUrl: '/lovable-uploads/1cd5a3da-7a58-4374-abc1-d7b02b0c5fd5.png',
+    content: [
+      {
+        type: 'paragraph',
+        content: 'Product testing is essential but often time-consuming and costly. Traditional methods such as extensive user testing and large-scale focus groups can slow down innovation and increase expenses. But what if products could tell you directly how they\'re performing in real-time, without the need for extensive user involvement?'
+      },
+      {
+        type: 'paragraph',
+        content: 'By embedding smart sensors into prototypes, companies can gather accurate, objective data instantly—simplifying tests, saving time, and improving overall product quality.'
+      },
+      {
+        type: 'heading',
+        content: 'The Shift from Manual Testing to Sensor-Driven Insights'
+      },
+      {
+        type: 'paragraph',
+        content: 'Traditional product testing relies heavily on user feedback through surveys, focus groups, and interviews. While valuable, these methods are often slow and subjective.'
+      },
+      {
+        type: 'quote',
+        content: 'When products can speak for themselves through data, they reveal truths that even the most detailed user interviews might miss.'
+      },
+      {
+        type: 'paragraph',
+        content: 'Smart sensors offer a solution by collecting continuous, objective data directly from the product. Instead of relying on memory or subjective feedback, sensors measure usage patterns, physical performance, and environmental conditions automatically. This data-driven approach reduces manual labor and increases the accuracy of testing outcomes.'
+      },
+      {
+        type: 'heading',
+        content: 'Real-time Performance Measurement Made Easy'
+      },
+      {
+        type: 'paragraph',
+        content: 'Integrating sensors directly into products simplifies the testing process. Whether measuring pressure, temperature, vibration, or movement, the product becomes its own test equipment.'
+      },
+      {
+        type: 'paragraph',
+        content: 'Imagine developing running shoes equipped with embedded sensors that measure pressure distribution, impact forces, and material flexing. Instead of needing external equipment or extensive lab tests, the shoes themselves record performance data as they are naturally used by testers, providing immediate insights into durability, comfort, and functionality.'
+      },
+      {
+        type: 'heading',
+        content: 'Faster Iterations Through Automated Testing and AI'
+      },
+      {
+        type: 'paragraph',
+        content: 'Once sensor data flows in, artificial intelligence (AI) and automated systems can rapidly analyze it, identifying patterns or potential issues instantly. This speeds up product iteration significantly.'
+      },
+      {
+        type: 'quote',
+        content: 'In product development, speed is often the difference between market leadership and playing catch-up. Sensor-driven testing gives you that crucial time advantage.'
+      },
+      {
+        type: 'paragraph',
+        content: 'AI-driven analysis can predict failures or identify design weaknesses early, allowing teams to fix issues swiftly and avoid costly redesigns later. The result is faster product refinement cycles and a significantly reduced time-to-market.'
+      },
+      {
+        type: 'heading',
+        content: 'Key Business Benefits'
+      },
+      {
+        type: 'subheading',
+        content: 'Reduced Testing Costs'
+      },
+      {
+        type: 'paragraph',
+        content: 'Sensor-driven testing significantly reduces the need for extensive physical prototypes and manual labor, directly lowering testing expenses.'
+      },
+      {
+        type: 'subheading',
+        content: 'Shorter Time-to-Market'
+      },
+      {
+        type: 'paragraph',
+        content: 'Real-time data collection and quick feedback loops help accelerate the product development cycle, enabling faster market launches without compromising quality.'
+      },
+      {
+        type: 'subheading',
+        content: 'Enhanced Product Quality'
+      },
+      {
+        type: 'paragraph',
+        content: 'Early detection of performance issues means problems are solved quickly, resulting in higher-quality final products that satisfy customer expectations.'
+      },
+      {
+        type: 'subheading',
+        content: 'Stronger Decision-Making'
+      },
+      {
+        type: 'paragraph',
+        content: 'Objective data collected through sensors provides clear insights, replacing guesswork with informed, strategic decisions about product design and development priorities.'
+      },
+      {
+        type: 'heading',
+        content: 'Ready to Transform Your Product Development?'
+      },
+      {
+        type: 'paragraph',
+        content: 'Sensor technology is revolutionizing product testing and development processes. By embedding sensors directly into products and utilizing real-time analytics, your company can reduce costs, shorten development cycles, and deliver superior products.'
+      },
+      {
+        type: 'paragraph',
+        content: 'Interested in exploring how sensor-driven innovation can benefit your business? Reach out to us at WRLDS and discover how to integrate smart, efficient, and data-driven solutions into your product development strategy.'
+      }
+    ]
+  },
+  {
     id: '5',
     slug: 'smart-ppe-revolution-safety-technology',
     title: 'The Smart PPE Revolution: How Intelligent Textiles Are Transforming Workplace Safety',
     excerpt: 'Smart textiles are turning safety gear into real-time guardians that sense heat, gas, falls and fatigue. The market is booming and Europe is writing the first "smart PPE" standards.',
-    date: 'May 30, 2025',
+    date: 'June 5, 2025',
     author: 'WRLDS Technologies',
     category: 'Innovation',
-    imageUrl: '/lovable-uploads/843446fe-638e-4efb-b885-ed3cd505325a.png',
+    imageUrl: '/lovable-uploads/idea_to_launch_blog_post_pic',
     content: [
       {
         type: 'paragraph',
@@ -623,118 +735,6 @@ export const blogPosts: BlogPost[] = [
       {
         type: 'paragraph',
         content: "Have an idea or ready to scale an existing product? We'd love to hear from you and help bring your vision to life. Reach out and let's get started!"
-      }
-    ]
-  },
-  {
-    id: '4',
-    slug: 'leveraging-sensor-technology-product-development',
-    title: 'Leveraging Sensor Technology to Accelerate Product Development',
-    excerpt: 'Discover how embedding smart sensors into prototypes can streamline testing, save time, and dramatically improve product quality—delivering faster innovations with fewer resources.',
-    date: 'May 23, 2025',
-    author: 'WRLDS Technologies',
-    category: 'Innovation',
-    imageUrl: '/lovable-uploads/1cd5a3da-7a58-4374-abc1-d7b02b0c5fd5.png',
-    content: [
-      {
-        type: 'paragraph',
-        content: 'Product testing is essential but often time-consuming and costly. Traditional methods such as extensive user testing and large-scale focus groups can slow down innovation and increase expenses. But what if products could tell you directly how they\'re performing in real-time, without the need for extensive user involvement?'
-      },
-      {
-        type: 'paragraph',
-        content: 'By embedding smart sensors into prototypes, companies can gather accurate, objective data instantly—simplifying tests, saving time, and improving overall product quality.'
-      },
-      {
-        type: 'heading',
-        content: 'The Shift from Manual Testing to Sensor-Driven Insights'
-      },
-      {
-        type: 'paragraph',
-        content: 'Traditional product testing relies heavily on user feedback through surveys, focus groups, and interviews. While valuable, these methods are often slow and subjective.'
-      },
-      {
-        type: 'quote',
-        content: 'When products can speak for themselves through data, they reveal truths that even the most detailed user interviews might miss.'
-      },
-      {
-        type: 'paragraph',
-        content: 'Smart sensors offer a solution by collecting continuous, objective data directly from the product. Instead of relying on memory or subjective feedback, sensors measure usage patterns, physical performance, and environmental conditions automatically. This data-driven approach reduces manual labor and increases the accuracy of testing outcomes.'
-      },
-      {
-        type: 'heading',
-        content: 'Real-time Performance Measurement Made Easy'
-      },
-      {
-        type: 'paragraph',
-        content: 'Integrating sensors directly into products simplifies the testing process. Whether measuring pressure, temperature, vibration, or movement, the product becomes its own test equipment.'
-      },
-      {
-        type: 'paragraph',
-        content: 'Imagine developing running shoes equipped with embedded sensors that measure pressure distribution, impact forces, and material flexing. Instead of needing external equipment or extensive lab tests, the shoes themselves record performance data as they are naturally used by testers, providing immediate insights into durability, comfort, and functionality.'
-      },
-      {
-        type: 'heading',
-        content: 'Faster Iterations Through Automated Testing and AI'
-      },
-      {
-        type: 'paragraph',
-        content: 'Once sensor data flows in, artificial intelligence (AI) and automated systems can rapidly analyze it, identifying patterns or potential issues instantly. This speeds up product iteration significantly.'
-      },
-      {
-        type: 'quote',
-        content: 'In product development, speed is often the difference between market leadership and playing catch-up. Sensor-driven testing gives you that crucial time advantage.'
-      },
-      {
-        type: 'paragraph',
-        content: 'AI-driven analysis can predict failures or identify design weaknesses early, allowing teams to fix issues swiftly and avoid costly redesigns later. The result is faster product refinement cycles and a significantly reduced time-to-market.'
-      },
-      {
-        type: 'heading',
-        content: 'Key Business Benefits'
-      },
-      {
-        type: 'subheading',
-        content: 'Reduced Testing Costs'
-      },
-      {
-        type: 'paragraph',
-        content: 'Sensor-driven testing significantly reduces the need for extensive physical prototypes and manual labor, directly lowering testing expenses.'
-      },
-      {
-        type: 'subheading',
-        content: 'Shorter Time-to-Market'
-      },
-      {
-        type: 'paragraph',
-        content: 'Real-time data collection and quick feedback loops help accelerate the product development cycle, enabling faster market launches without compromising quality.'
-      },
-      {
-        type: 'subheading',
-        content: 'Enhanced Product Quality'
-      },
-      {
-        type: 'paragraph',
-        content: 'Early detection of performance issues means problems are solved quickly, resulting in higher-quality final products that satisfy customer expectations.'
-      },
-      {
-        type: 'subheading',
-        content: 'Stronger Decision-Making'
-      },
-      {
-        type: 'paragraph',
-        content: 'Objective data collected through sensors provides clear insights, replacing guesswork with informed, strategic decisions about product design and development priorities.'
-      },
-      {
-        type: 'heading',
-        content: 'Ready to Transform Your Product Development?'
-      },
-      {
-        type: 'paragraph',
-        content: 'Sensor technology is revolutionizing product testing and development processes. By embedding sensors directly into products and utilizing real-time analytics, your company can reduce costs, shorten development cycles, and deliver superior products.'
-      },
-      {
-        type: 'paragraph',
-        content: 'Interested in exploring how sensor-driven innovation can benefit your business? Reach out to us at WRLDS and discover how to integrate smart, efficient, and data-driven solutions into your product development strategy.'
       }
     ]
   }
