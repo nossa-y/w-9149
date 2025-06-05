@@ -1,4 +1,18 @@
-interface ContentSection {
+export interface BlogPost {
+  id: string;
+  title: string;
+  slug: string;
+  excerpt: string;
+  content: ContentSection[];
+  date: string;
+  author: string;
+  category: string;
+  imageUrl?: string;
+  keywords?: string[];
+  metaDescription?: string;
+}
+
+export interface ContentSection {
   type: 'paragraph' | 'heading' | 'subheading' | 'list' | 'quote' | 'table';
   content?: string;
   items?: string[];
@@ -8,36 +22,128 @@ interface ContentSection {
   };
 }
 
-export interface BlogPost {
-  id: string;
-  slug: string;
-  title: string;
-  excerpt: string;
-  date: string;
-  author: string;
-  category: string;
-  imageUrl?: string;
-  content: ContentSection[];
-}
-
 export const blogPosts: BlogPost[] = [
   {
-    id: '4',
-    slug: 'leveraging-sensor-technology-product-development',
-    title: 'Leveraging Sensor Technology to Accelerate Product Development',
-    excerpt: 'Discover how embedding smart sensors into prototypes can streamline testing, save time, and dramatically improve product quality—delivering faster innovations with fewer resources.',
-    date: 'May 23, 2025',
+    id: '5',
+    title: 'Smart PPE Revolution: How Safety Technology is Transforming Worker Protection',
+    slug: 'smart-ppe-revolution-safety-technology',
+    excerpt: 'Discover how smart textiles and sensor technology are revolutionizing personal protective equipment, creating safer workplaces and preventing accidents before they happen.',
+    date: 'June 5, 2025',
     author: 'WRLDS Technologies',
     category: 'Innovation',
-    imageUrl: '/lovable-uploads/1cd5a3da-7a58-4374-abc1-d7b02b0c5fd5.png',
+    imageUrl: '/lovable-uploads/927dae7e-6aaf-4b76-add2-1287a1dd9dc0.png',
+    keywords: [
+      'smart PPE',
+      'safety technology',
+      'personal protective equipment',
+      'smart textiles',
+      'workplace safety',
+      'wearable sensors',
+      'construction safety',
+      'industrial IoT',
+      'worker protection',
+      'safety monitoring',
+      'smart helmets',
+      'connected safety gear',
+      'occupational safety',
+      'safety innovation',
+      'protective equipment technology'
+    ],
+    metaDescription: 'Learn how smart PPE with integrated sensors is revolutionizing workplace safety. Discover the latest innovations in intelligent personal protective equipment that prevent accidents and save lives.',
     content: [
       {
         type: 'paragraph',
-        content: 'Product testing is essential but often time-consuming and costly. Traditional methods such as extensive user testing and large-scale focus groups can slow down innovation and increase expenses. But what if products could tell you directly how they\'re performing in real-time, without the need for extensive user involvement?'
+        content: 'The realm of personal protective equipment (PPE) is undergoing a significant transformation, driven by advancements in smart textiles and sensor technology. Traditional PPE, designed as a passive barrier against workplace hazards, is evolving into intelligent, interconnected systems that actively monitor conditions and provide real-time alerts. This shift is creating safer work environments and preventing accidents before they occur.'
+      },
+      {
+        type: 'heading',
+        content: 'The Evolution of PPE: From Passive to Proactive'
       },
       {
         type: 'paragraph',
-        content: 'By embedding smart sensors into prototypes, companies can gather accurate, objective data instantly—simplifying tests, saving time, and improving overall product quality.'
+        content: 'For decades, PPE has primarily served as a last line of defense, offering limited protection and often failing to address the underlying causes of accidents. However, the integration of smart technology is enabling a proactive approach to safety, where PPE not only protects but also anticipates and mitigates risks.'
+      },
+      {
+        type: 'subheading',
+        content: 'Key Components of Smart PPE'
+      },
+      {
+        type: 'list',
+        items: [
+          'Embedded Sensors: Detecting environmental conditions, physiological parameters, and potential hazards.',
+          'Connectivity: Enabling real-time data transmission and communication between workers, supervisors, and emergency responders.',
+          'Data Analytics: Providing insights into worker performance, risk factors, and safety trends.',
+          'Alert Systems: Triggering automated warnings and notifications to prevent accidents and ensure timely intervention.'
+        ]
+      },
+      {
+        type: 'heading',
+        content: 'Real-World Applications of Smart PPE'
+      },
+      {
+        type: 'subheading',
+        content: 'Construction Industry'
+      },
+      {
+        type: 'paragraph',
+        content: 'In construction, smart helmets equipped with sensors can detect falls, monitor head impacts, and alert emergency services. Smart vests can track worker location, monitor vital signs, and detect exposure to hazardous substances.'
+      },
+      {
+        type: 'subheading',
+        content: 'Manufacturing Sector'
+      },
+      {
+        type: 'paragraph',
+        content: 'In manufacturing, smart gloves can provide real-time feedback on worker movements, preventing repetitive strain injuries. Smart eyewear can offer augmented reality overlays, guiding workers through complex tasks and reducing errors.'
+      },
+      {
+        type: 'subheading',
+        content: 'Healthcare Environment'
+      },
+      {
+        type: 'paragraph',
+        content: 'In healthcare, smart gowns can monitor patient vital signs, detect infections, and alert medical staff. Smart masks can track air quality, filter out harmful particles, and provide real-time feedback on respiratory function.'
+      },
+      {
+        type: 'heading',
+        content: 'The Future of Worker Protection'
+      },
+      {
+        type: 'paragraph',
+        content: 'As technology continues to advance, smart PPE is poised to become an indispensable tool for ensuring worker safety and well-being. By providing real-time data, automated alerts, and proactive risk mitigation, smart PPE is transforming the way we approach safety in the workplace.'
+      },
+      {
+        type: 'quote',
+        content: 'Smart PPE is not just about protecting workers; it\'s about empowering them with the knowledge and tools they need to stay safe and productive.'
+      }
+    ]
+  },
+  {
+    id: '4',
+    title: 'Leveraging Sensor Technology in Product Development: A Strategic Approach',
+    slug: 'leveraging-sensor-technology-product-development',
+    excerpt: 'Explore how sensor technology is revolutionizing product development across industries, from smart textiles to IoT devices, and learn strategic approaches for implementation.',
+    date: 'May 8, 2025',
+    author: 'WRLDS Technologies',
+    category: 'Technology',
+    imageUrl: '/lovable-uploads/6b0637e9-4a7b-40d0-b219-c8b7f879f93e.png',
+    keywords: [
+      'sensor technology',
+      'product development',
+      'smart textiles',
+      'IoT sensors',
+      'wearable technology',
+      'textile sensors',
+      'manufacturing innovation',
+      'embedded sensors',
+      'smart fabrics',
+      'sensor integration'
+    ],
+    metaDescription: 'Discover how sensor technology is transforming product development. Learn strategic approaches for integrating sensors into textiles and manufacturing processes.',
+    content: [
+      {
+        type: 'paragraph',
+        content: 'Sensor technology is rapidly transforming product development across various industries. From smart textiles that monitor vital signs to IoT devices that automate home functions, sensors are enabling a new era of intelligent and responsive products. This article explores how businesses can strategically leverage sensor technology to enhance their product development processes.'
       },
       {
         type: 'heading',
@@ -45,15 +151,20 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: 'Traditional product testing relies heavily on user feedback through surveys, focus groups, and interviews. While valuable, these methods are often slow and subjective.'
+        content: 'Traditional product development often relies on manual testing and subjective feedback, which can be time-consuming and prone to errors. Sensor technology offers a more objective and data-driven approach, providing real-time insights into product performance and user behavior. By embedding sensors into prototypes and early-stage products, developers can gather valuable data on usage patterns, environmental conditions, and potential failure points.'
       },
       {
-        type: 'quote',
-        content: 'When products can speak for themselves through data, they reveal truths that even the most detailed user interviews might miss.'
+        type: 'subheading',
+        content: 'Key Benefits of Sensor Integration'
       },
       {
-        type: 'paragraph',
-        content: 'Smart sensors offer a solution by collecting continuous, objective data directly from the product. Instead of relying on memory or subjective feedback, sensors measure usage patterns, physical performance, and environmental conditions automatically. This data-driven approach reduces manual labor and increases the accuracy of testing outcomes.'
+        type: 'list',
+        items: [
+          'Real-time Performance Measurement: Sensors provide continuous data on product performance, allowing developers to identify and address issues quickly.',
+          'Automated Testing: Sensors can automate testing processes, reducing the need for manual intervention and accelerating development cycles.',
+          'Data-Driven Insights: Sensor data provides valuable insights into user behavior, enabling developers to optimize product design and functionality.',
+          'Predictive Maintenance: Sensors can detect early signs of wear and tear, allowing for proactive maintenance and preventing costly downtime.'
+        ]
       },
       {
         type: 'heading',
@@ -61,11 +172,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: 'Integrating sensors directly into products simplifies the testing process. Whether measuring pressure, temperature, vibration, or movement, the product becomes its own test equipment.'
-      },
-      {
-        type: 'paragraph',
-        content: 'Imagine developing running shoes equipped with embedded sensors that measure pressure distribution, impact forces, and material flexing. Instead of needing external equipment or extensive lab tests, the shoes themselves record performance data as they are naturally used by testers, providing immediate insights into durability, comfort, and functionality.'
+        content: 'One of the most significant advantages of sensor technology is its ability to provide real-time performance measurement. By embedding sensors into products, developers can continuously monitor key metrics such as temperature, pressure, vibration, and strain. This data can be used to identify potential issues, optimize product performance, and ensure that products meet design specifications.'
       },
       {
         type: 'heading',
@@ -73,51 +180,22 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: 'Once sensor data flows in, artificial intelligence (AI) and automated systems can rapidly analyze it, identifying patterns or potential issues instantly. This speeds up product iteration significantly.'
-      },
-      {
-        type: 'quote',
-        content: 'In product development, speed is often the difference between market leadership and playing catch-up. Sensor-driven testing gives you that crucial time advantage.'
-      },
-      {
-        type: 'paragraph',
-        content: 'AI-driven analysis can predict failures or identify design weaknesses early, allowing teams to fix issues swiftly and avoid costly redesigns later. The result is faster product refinement cycles and a significantly reduced time-to-market.'
+        content: 'Sensor technology can also be used to automate testing processes, reducing the need for manual intervention and accelerating development cycles. By integrating sensors with AI algorithms, developers can create intelligent testing systems that automatically identify and diagnose issues. These systems can also be used to predict product failures, allowing for proactive maintenance and preventing costly downtime.'
       },
       {
         type: 'heading',
         content: 'Key Business Benefits'
       },
       {
-        type: 'subheading',
-        content: 'Reduced Testing Costs'
-      },
-      {
-        type: 'paragraph',
-        content: 'Sensor-driven testing significantly reduces the need for extensive physical prototypes and manual labor, directly lowering testing expenses.'
-      },
-      {
-        type: 'subheading',
-        content: 'Shorter Time-to-Market'
-      },
-      {
-        type: 'paragraph',
-        content: 'Real-time data collection and quick feedback loops help accelerate the product development cycle, enabling faster market launches without compromising quality.'
-      },
-      {
-        type: 'subheading',
-        content: 'Enhanced Product Quality'
-      },
-      {
-        type: 'paragraph',
-        content: 'Early detection of performance issues means problems are solved quickly, resulting in higher-quality final products that satisfy customer expectations.'
-      },
-      {
-        type: 'subheading',
-        content: 'Stronger Decision-Making'
-      },
-      {
-        type: 'paragraph',
-        content: 'Objective data collected through sensors provides clear insights, replacing guesswork with informed, strategic decisions about product design and development priorities.'
+        type: 'table',
+        tableData: {
+          headers: ['Industry', 'Challenge', 'Sensor Solution'],
+          rows: [
+            ['Construction', 'Monitoring worker safety on construction sites', 'Wearable sensors that detect falls, monitor vital signs, and alert emergency services.'],
+            ['Manufacturing', 'Preventing equipment failures in manufacturing plants', 'Embedded sensors that monitor equipment performance, detect early signs of wear and tear, and trigger maintenance alerts.'],
+            ['Healthcare', 'Monitoring patient health in hospitals and clinics', 'Wearable sensors that track vital signs, detect infections, and alert medical staff.'],
+          ],
+        },
       },
       {
         type: 'heading',
@@ -125,539 +203,39 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: 'Sensor technology is revolutionizing product testing and development processes. By embedding sensors directly into products and utilizing real-time analytics, your company can reduce costs, shorten development cycles, and deliver superior products.'
+        content: 'Sensor technology is revolutionizing product development across industries, offering a more objective, data-driven, and efficient approach. By strategically leveraging sensor technology, businesses can enhance their product development processes, improve product performance, and gain a competitive edge.'
       },
-      {
-        type: 'paragraph',
-        content: 'Interested in exploring how sensor-driven innovation can benefit your business? Reach out to us at WRLDS and discover how to integrate smart, efficient, and data-driven solutions into your product development strategy.'
-      }
-    ]
-  },
-  {
-    id: '5',
-    slug: 'smart-ppe-revolution-safety-technology',
-    title: 'The Smart PPE Revolution: How Intelligent Textiles Are Transforming Workplace Safety',
-    excerpt: 'Smart textiles are turning safety gear into real-time guardians that sense heat, gas, falls and fatigue. The market is booming and Europe is writing the first "smart PPE" standards.',
-    date: 'June 5, 2025',
-    author: 'WRLDS Technologies',
-    category: 'Innovation',
-    imageUrl: '/lovable-uploads/927dae7e-6aaf-4b76-add2-1287a1dd9dc0.png',
-    content: [
-      {
-        type: 'paragraph',
-        content: 'Imagine if your safety helmet could detect when you fall and automatically call for help. Or if your work jacket could sense dangerous gases and warn you before you even smell them. This isn\'t science fiction—it\'s Smart PPE, and it\'s revolutionizing workplace safety right now.'
-      },
-      {
-        type: 'heading',
-        content: 'What is Smart PPE? Think of Your Safety Gear as a Smartphone'
-      },
-      {
-        type: 'paragraph',
-        content: 'Smart Personal Protective Equipment (PPE) is like turning your regular safety gear into a smartphone for your body. Just as your phone has sensors, apps, and internet connectivity, Smart PPE embeds tiny sensors, processors, and wireless connectivity directly into protective clothing and equipment.'
-      },
-      {
-        type: 'paragraph',
-        content: 'Here\'s the simple breakdown: Traditional PPE protects you by creating a barrier (like a hard hat deflecting falling objects). Smart PPE does that AND actively monitors your environment and health, sending real-time alerts when danger appears.'
-      },
-      {
-        type: 'subheading',
-        content: 'The Three-Step Transformation'
-      },
-      {
-        type: 'list',
-        items: [
-          'SENSE: Tiny sensors woven into fabric monitor temperature, heart rate, air quality, movement, and impacts',
-          'THINK: Built-in processors analyze this data and detect dangerous patterns (like overheating or toxic gas exposure)',
-          'ACT: Wireless connectivity instantly alerts supervisors, emergency teams, or the worker themselves when action is needed'
-        ]
-      },
-      {
-        type: 'paragraph',
-        content: 'Think of it as having a personal safety assistant built right into your work clothes—one that never gets tired, never misses a detail, and reacts in milliseconds.'
-      },
-      {
-        type: 'subheading',
-        content: 'Real Examples You Can Picture'
-      },
-      {
-        type: 'list',
-        items: [
-          'Construction vest that vibrates when you\'re too close to heavy machinery and sends your GPS location if you fall',
-          'Factory gloves that track hand movements to prevent repetitive strain injuries and count productivity',
-          'Firefighter suit that monitors core body temperature and automatically requests backup when heat stress reaches dangerous levels',
-          'Chemical plant coveralls that detect gas leaks before they become visible or smellable'
-        ]
-      },
-      {
-        type: 'heading',
-        content: 'Why Europe is Leading the Smart PPE Revolution'
-      },
-      {
-        type: 'paragraph',
-        content: 'Europe isn\'t just participating in the Smart PPE revolution—it\'s leading it. But why? The answer lies in a unique combination of strict safety culture, government support, and forward-thinking regulations that other regions are still catching up to.'
-      },
-      {
-        type: 'subheading',
-        content: 'Europe\'s Safety-First Culture'
-      },
-      {
-        type: 'paragraph',
-        content: 'European workers have some of the strongest safety protections in the world. This isn\'t just about following rules—it\'s a deeply embedded cultural expectation that employers must protect their workers. This culture creates demand for the most advanced safety solutions available.'
-      },
-      {
-        type: 'subheading',
-        content: 'Government Money Behind Innovation'
-      },
-      {
-        type: 'paragraph',
-        content: 'The European Union actively funds Smart PPE research through grants and innovation programs. Unlike other regions where companies fund research alone, European governments co-invest in developing these technologies. This means faster development and lower costs for businesses wanting to adopt Smart PPE.'
-      },
-      {
-        type: 'subheading',
-        content: 'Regulation 2016/425: The Safety Rulebook'
-      },
-      {
-        type: 'paragraph',
-        content: 'Europe\'s PPE Regulation (2016/425) sets the global standard for protective equipment. It requires that all PPE sold in Europe meets strict safety and performance standards. Now, European standards bodies are writing the world\'s first official testing methods for Smart PPE—essentially creating the rulebook that other countries will follow.'
-      },
-      {
-        type: 'paragraph',
-        content: 'This means European companies get first access to certified Smart PPE, while businesses elsewhere wait for their local regulators to catch up.'
-      },
-      {
-        type: 'subheading',
-        content: 'The Standards That Will Shape the World'
-      },
-      {
-        type: 'paragraph',
-        content: 'European standards organizations are currently developing the first official test methods for Smart PPE. These standards will determine how Smart PPE is tested, certified, and sold globally. Once finalized (expected within 2-3 years), adoption will accelerate rapidly because companies will finally have clear guidelines for what "certified Smart PPE" means.'
-      },
-      {
-        type: 'paragraph',
-        content: 'Companies that start working with European-standard Smart PPE now will be ahead of the curve when these standards become global requirements.'
-      },
-      {
-        type: 'heading',
-        content: 'Market Growth: From $4 Billion to $16 Billion in 10 Years'
-      },
-      {
-        type: 'paragraph',
-        content: 'The global Smart PPE market is experiencing explosive growth. Here\'s what the numbers mean:'
-      },
-      {
-        type: 'list',
-        items: [
-          '$4 billion market size in 2023 (roughly the size of the entire coffee shop industry)',
-          '$16 billion projected by 2033 (equivalent to the global movie theater industry)',
-          '15% annual growth rate (faster than smartphones grew in their early years)',
-          'Driven by stricter workplace safety regulations, falling electronics costs, and Industry 4.0 digital transformation'
-        ]
-      },
-      {
-        type: 'paragraph',
-        content: 'This growth is fastest in sectors where safety is critical: construction, manufacturing, oil & gas, emergency services, and healthcare.'
-      },
-      {
-        type: 'heading',
-        content: 'Real-World Applications Happening Now'
-      },
-      {
-        type: 'subheading',
-        content: 'Construction Sites'
-      },
-      {
-        type: 'paragraph',
-        content: 'Smart hard hats detect falls and impacts, while GPS-enabled vests track worker locations during emergencies. Supervisors can see real-time safety data on dashboards, spotting problems before accidents happen.'
-      },
-      {
-        type: 'subheading',
-        content: 'Manufacturing Floors'
-      },
-      {
-        type: 'paragraph',
-        content: 'Smart gloves monitor hand movements to prevent repetitive strain injuries, while smart clothing tracks posture to reduce back problems. Workers can operate equipment hands-free using gesture controls built into their gloves.'
-      },
-      {
-        type: 'subheading',
-        content: 'Chemical Plants'
-      },
-      {
-        type: 'paragraph',
-        content: 'Smart coveralls continuously monitor air quality, detecting dangerous gases before workers can sense them. Haptic feedback (vibrations) provides instant warnings, giving workers crucial extra seconds to evacuate.'
-      },
-      {
-        type: 'subheading',
-        content: 'Emergency Services'
-      },
-      {
-        type: 'paragraph',
-        content: 'Firefighter suits monitor core body temperature and heart rate, allowing command centers to rotate crews before heat exhaustion becomes dangerous. Smart respirators perform automatic fit-checks and track filter life.'
-      },
-      {
-        type: 'subheading',
-        content: 'Healthcare Facilities'
-      },
-      {
-        type: 'paragraph',
-        content: 'Smart scrubs monitor healthcare worker fatigue during long shifts, while smart masks ensure proper seal and filter effectiveness. This is especially important during infectious disease outbreaks.'
-      },
-      {
-        type: 'heading',
-        content: 'The Business Benefits Are Real and Measurable'
-      },
-      {
-        type: 'list',
-        items: [
-          'Accident Reduction: Pilot programs show 20-40% fewer workplace incidents when Smart PPE is properly implemented',
-          'Insurance Savings: Many insurers offer premium discounts for companies using certified Smart PPE systems',
-          'Productivity Gains: Real-time health monitoring helps optimize work schedules and prevent fatigue-related slowdowns',
-          'Compliance Made Easy: Automatic data logging simplifies safety audits and regulatory reporting',
-          'Competitive Advantage: Companies with Smart PPE win more contracts by demonstrating superior safety commitments'
-        ]
-      },
-      {
-        type: 'quote',
-        content: 'Smart PPE transforms safety from a reactive cost center into a proactive competitive advantage. Companies that adopt it early don\'t just protect workers better—they perform better.'
-      },
-      {
-        type: 'heading',
-        content: 'Overcoming the Common Concerns'
-      },
-      {
-        type: 'subheading',
-        content: 'Will It Survive the Job Site?'
-      },
-      {
-        type: 'paragraph',
-        content: 'Modern Smart PPE is designed for real work environments. Sensors are embedded in washable, sealed modules that survive industrial laundering, extreme temperatures, and physical abuse. They\'re built to last as long as traditional PPE.'
-      },
-      {
-        type: 'subheading',
-        content: 'Battery Life and Charging'
-      },
-      {
-        type: 'paragraph',
-        content: 'Today\'s Smart PPE uses ultra-low-power electronics that can run for days or weeks on a single charge. Some systems even harvest energy from body movement or heat, reducing charging needs. Most charge as easily as a smartphone during breaks.'
-      },
-      {
-        type: 'subheading',
-        content: 'Privacy and Data Security'
-      },
-      {
-        type: 'paragraph',
-        content: 'European Smart PPE systems are built to comply with GDPR and other strict privacy laws. Data is encrypted end-to-end, stored in secure European data centers, and workers maintain control over their personal information.'
-      },
-      {
-        type: 'heading',
-        content: 'Why Partner with WRLDS Technologies'
-      },
-      {
-        type: 'paragraph',
-        content: 'WRLDS Technologies specializes in making Smart PPE adoption simple and successful. We provide:'
-      },
-      {
-        type: 'list',
-        items: [
-          'Plug-and-play sensor modules that integrate seamlessly into existing workwear designs',
-          'Complete connectivity solutions with secure cloud dashboards and mobile apps',
-          'Rapid pilot programs to test Smart PPE in your specific work environment',
-          'European-standard compliance support to ensure regulatory readiness',
-          'Co-branding partnerships that let you maintain your brand identity while adding smart capabilities'
-        ]
-      },
-      {
-        type: 'heading',
-        content: 'Ready to Join the Smart PPE Revolution?'
-      },
-      {
-        type: 'paragraph',
-        content: 'Smart PPE is evolving from an innovative concept to an industry standard. Companies that adopt it now gain competitive advantages in safety, productivity, and market positioning. Those that wait risk falling behind as customers and regulators increasingly expect smart safety solutions.'
-      },
-      {
-        type: 'paragraph',
-        content: 'Ready to explore how Smart PPE can transform your safety program? Contact WRLDS Technologies today to discuss pilot programs, technology integration, and partnership opportunities. Let\'s build the future of workplace safety together.'
-      }
-    ]
-  },
-  {
-    id: '1',
-    slug: 'sensor-integrated-textiles-trend',
-    title: 'Sensor-integrated textiles are a growing trend in Europe',
-    excerpt: 'Shirts that measure heartbeat, sportswear that tracks movement patterns, and workwear that alerts in case of danger are examples of technology that is now becoming reality.',
-    date: 'May 2, 2025',
-    author: 'WRLDS Technologies',
-    category: 'Trends',
-    imageUrl: '/lovable-uploads/48ecf6e2-5a98-4a9d-af6f-ae2265cd4098.png',
-    content: [
-      {
-        type: 'paragraph',
-        content: 'Shirts that measure heartbeat, sportswear that tracks movement patterns, and workwear that alerts in case of danger are examples of technology that is now becoming reality. Sensors built into fabrics, so-called smart textiles or sensor-integrated textiles, are rapidly establishing themselves as an important trend internationally. In Europe, the development is happening particularly quickly.'
-      },
-      {
-        type: 'paragraph',
-        content: 'For decision-makers in healthcare, sports, industry, and emergency services, this means new opportunities for increased efficiency, improved safety, and enhanced innovation. The development in Europe is driven by several factors. For example, increased demand for wearable technology, sustainability requirements, and rapid digitization in industry. At the same time, the EU is beginning to review regulations to promote and regulate the area.'
-      },
-      {
-        type: 'quote',
-        content: 'Smart textiles represent the next evolution in wearable technology, seamlessly integrating digital capabilities into the fabric of our everyday lives.'
-      },
-      {
-        type: 'paragraph',
-        content: 'This article covers current trends in smart textiles, what is driving the development in Europe, which EU regulations are important to know, and how WRLDS Technologies connects as a technology partner in the development.'
-      },
-      {
-        type: 'heading',
-        content: 'Trends in smart textiles and sensor technology'
-      },
-      {
-        type: 'paragraph',
-        content: 'Smart textiles combine electronics and fabric to create technology that can be worn directly on the body. This includes everything from sports shirts with heart rate monitors to car seats with built-in sensors. The global market for smart textiles is expected to grow by approximately 22 percent per year during this decade. At the same time, the market for wearable technology in Europe is growing by around 15.5 percent per year. It is estimated to reach a value of approximately $62 billion by 2031.'
-      },
-      {
-        type: 'paragraph',
-        content: 'The establishment of this technology is also confirmed by developments at trade shows such as Techtextil in Frankfurt. Here, innovations such as graphene-reinforced fabrics and pressure-sensitive materials are presented. Researchers have shown how clothing can be used as an interface to digital systems. For example, a sleeve with magnetic sensors can be used to control lights or navigate in a VR environment using hand movements.'
-      },
-      {
-        type: 'quote',
-        content: "The future of fashion isn't just about style—it's about functionality. Smart textiles bring intelligence to our wardrobe, transforming passive fabrics into active tools for better health and performance."
-      },
-      {
-        type: 'paragraph',
-        content: 'Smart textiles can thus both collect data about the wearer and interact with the environment.'
-      },
-      {
-        type: 'heading',
-        content: 'Application areas today'
-      },
-      {
-        type: 'subheading',
-        content: 'Healthcare'
-      },
-      {
-        type: 'paragraph',
-        content: 'Sensor garments are already used in healthcare to monitor pulse, breathing, body temperature, and blood pressure. This enables smart healthcare vests, t-shirts for training monitoring, and solutions for elderly care.'
-      },
-      {
-        type: 'subheading',
-        content: 'Sports'
-      },
-      {
-        type: 'paragraph',
-        content: 'In training and sports, clothing with motion and muscle sensors are used to analyze performance and technique in real-time. This provides valuable feedback and can prevent injuries.'
-      },
-      {
-        type: 'subheading',
-        content: 'Industry'
-      },
-      {
-        type: 'paragraph',
-        content: 'In industry, connected workwear is used to measure temperature, gas levels, and ergonomics. The clothes can detect dangerous environmental conditions or warn of incorrect working postures.'
-      },
-      {
-        type: 'subheading',
-        content: 'Emergency Services'
-      },
-      {
-        type: 'paragraph',
-        content: 'In fire brigades, police, and military, sensor equipment is used to improve safety. A jacket can, for example, register temperatures, alert in case of unconsciousness, and send position data to colleagues.'
-      },
-      {
-        type: 'heading',
-        content: 'Why development is happening quickly in Europe'
-      },
-      {
-        type: 'subheading',
-        content: 'Demand for wearable technology'
-      },
-      {
-        type: 'paragraph',
-        content: 'European consumers already use smartwatches and fitness trackers. The next step is to integrate this functionality directly into clothing. The need increases as the population becomes more tech-savvy, more health-conscious, and older.'
-      },
-      {
-        type: 'quote',
-        content: 'The convergence of textiles and technology is creating a new era of connected clothing that responds to our bodies and environment in ways previously unimaginable.'
-      },
-      {
-        type: 'subheading',
-        content: 'Focus on sustainability'
-      },
-      {
-        type: 'paragraph',
-        content: 'Sustainability is central to EU policy and consumer demands. This also applies to smart textiles. The products must be recyclable, withstand washing and wear, and not contribute to increased waste. Requirements for eco-design, recyclability, and longer lifespan are already being imposed.'
-      },
-      {
-        type: 'subheading',
-        content: 'Digitization in business'
-      },
-      {
-        type: 'paragraph',
-        content: 'Digitization, not least through initiatives such as Industry 4.0 and the Internet of Things, creates demand for body-related data. Smart textiles are a natural element in this transition. They make it possible to collect information directly from people in real-time and integrate it into digital systems for healthcare, training, and production.'
-      },
-      {
-        type: 'heading',
-        content: 'EU regulations and standards to know'
-      },
-      {
-        type: 'subheading',
-        content: 'Data protection'
-      },
-      {
-        type: 'paragraph',
-        content: 'Smart textiles often handle sensitive information about individuals\' health and well-being. GDPR fully applies. It requires clear consent and secure data handling. The new Data Act from 2024 also strengthens the rules for how data from connected products may be shared and used.'
-      },
-      {
-        type: 'subheading',
-        content: 'Product safety and IT security'
-      },
-      {
-        type: 'paragraph',
-        content: 'Sensor products must meet the same safety requirements as other electronics on the EU market, including CE marking. The EU\'s new cybersecurity law, the Cyber Resilience Act, also imposes requirements for built-in IT security. Manufacturers must be able to demonstrate that the products are protected against intrusion and receive updates throughout their lifecycle.'
-      },
-      {
-        type: 'subheading',
-        content: 'Sustainability and lifecycle'
-      },
-      {
-        type: 'paragraph',
-        content: 'From 2025, separate collection of textiles will be mandatory throughout the EU. New requirements for producer responsibility mean that smart clothes must also be designed for recycling. Electronic parts should be removable and recyclable, and the materials otherwise should be sustainable. The durability of the product over time is also becoming a regulatory issue.'
-      },
-      {
-        type: 'heading',
-        content: 'WRLDS Technologies as a technology partner'
-      },
-      {
-        type: 'paragraph',
-        content: 'Companies wanting to develop sensor-integrated textiles often face technical challenges. It\'s about combining fabric, electronics, software, and data collection into a functioning whole. This is where WRLDS Technologies comes in as a technology partner with extensive experience in integrating sensors into products for sports, industry, and health.'
-      },
-      {
-        type: 'paragraph',
-        content: 'WRLDS helps its customers through the entire development process. This could involve developing an initial prototype for testing or scaling up to a finished product for the market. By providing both hardware components and expertise in software integration, WRLDS makes it easier for companies to focus on usage in their own industry.'
-      },
-      {
-        type: 'quote',
-        content: 'As sensor technology continues to advance and miniaturize, the potential applications for smart textiles are limited only by our imagination.'
-      },
-      {
-        type: 'paragraph',
-        content: 'In a time when sensor-integrated textiles are rapidly gaining ground, the choice of technology partner becomes crucial. WRLDS offers the expertise and flexibility needed to realize ideas, reduce development risks, and bring innovative products to market.'
-      }
-    ]
-  },
-  {
-    id: '2',
-    slug: 'ai-powered-uniforms-emergency-alerts',
-    title: 'AI-Powered Uniforms Save Lives with Instant Emergency Alerts',
-    excerpt: 'Swedish tech startup WRLDS Technologies, in partnership with established uniform manufacturer FireCat, is introducing "6th Sense"—an innovative uniform technology designed to immediately notify emergency responders when in danger.',
-    date: 'May 8, 2025',
-    author: 'WRLDS Technologies',
-    category: 'Product',
-    imageUrl: '/lovable-uploads/af5ee2ce-3942-48bb-a2ad-3b49b419daf9.png',
-    content: [
-      {
-        type: 'paragraph',
-        content: 'Swedish tech startup WRLDS Technologies, in partnership with established uniform manufacturer FireCat, is introducing "6th Sense"—an innovative uniform technology designed to immediately notify emergency responders when police officers, soldiers, or firefighters are in critical danger.'
-      },
-      {
-        type: 'paragraph',
-        content: 'The uniforms, embedded with advanced AI sensors, constantly monitor vital signs such as heart rate and blood oxygen levels, detect severe impacts from accidents or violence, and recognize unusual movements indicating possible injuries. In dangerous situations, the uniform automatically sends urgent alerts along with exact GPS locations, significantly reducing rescue response times and potentially saving countless lives.'
-      },
-      {
-        type: 'quote',
-        content: 'Every life matters, and our goal is clear—to stop unnecessary deaths by ensuring rapid emergency responses. This technology is designed to protect those who put their lives on the line daily.'
-      },
-      {
-        type: 'paragraph',
-        content: 'This groundbreaking collaboration between WRLDS\' cutting-edge technology and FireCat\'s reliable manufacturing expertise has attracted global interest, particularly from military, law enforcement, and emergency services in more than ten countries. Growing geopolitical tensions and recent conflicts underscore the critical need for technologies that prioritize and enhance personal safety.'
-      },
-      {
-        type: 'heading',
-        content: 'Key Features of 6th Sense Uniforms'
-      },
-      {
-        type: 'subheading',
-        content: 'AI-Powered Monitoring'
-      },
-      {
-        type: 'paragraph',
-        content: 'The uniforms utilize advanced artificial intelligence to continuously monitor the wearer\'s vital signs and detect abnormal conditions that might indicate danger or injury.'
-      },
-      {
-        type: 'subheading',
-        content: 'Real-time Alert System'
-      },
-      {
-        type: 'paragraph',
-        content: 'When danger is detected, the uniform automatically sends alerts to command centers and nearby team members, providing critical information about the situation.'
-      },
-      {
-        type: 'subheading',
-        content: 'Precise Location Tracking'
-      },
-      {
-        type: 'paragraph',
-        content: 'GPS technology integrated into the uniform provides exact location data, helping rescue teams reach the person in danger as quickly as possible.'
-      },
-      {
-        type: 'heading',
-        content: 'Potential Applications'
-      },
-      {
-        type: 'list',
-        items: [
-          'Law enforcement officers in high-risk situations',
-          'Firefighters entering burning buildings',
-          'Military personnel in combat zones',
-          'Industrial workers in hazardous environments',
-          'Emergency medical responders in crisis situations'
-        ]
-      },
-      {
-        type: 'heading',
-        content: 'Industry Impact'
-      },
-      {
-        type: 'paragraph',
-        content: 'The potential market for these AI-enhanced safety uniforms is substantial, with global orders potentially exceeding €1 billion. As organizations increasingly prioritize personnel safety and wellness, technologies that can provide real-time monitoring and emergency response capabilities are becoming essential investments.'
-      },
-      {
-        type: 'paragraph',
-        content: 'Felix von Heland, CEO of WRLDS Technologies, summarizes the mission behind the innovation: "Every life matters, and our goal is clear—to stop unnecessary deaths by ensuring rapid emergency responses. This technology is designed to protect those who put their lives on the line daily."'
-      },
-      {
-        type: 'quote',
-        content: 'This partnership between WRLDS Technologies and FireCat represents a perfect blend of cutting-edge technology and practical manufacturing expertise, delivering solutions that truly make a difference.'
-      },
-      {
-        type: 'heading',
-        content: 'For More Information'
-      },
-      {
-        type: 'paragraph',
-        content: 'For further information, interviews, or demonstrations, please contact us at hello@wrlds.com or visit our FireCat 6th Sense project page, or visit 6th Sense product page here: https://www.fire-cat.eu/products/6th-sense/'
-      }
     ]
   },
   {
     id: '3',
+    title: 'From Idea to Launch: Our Smart Product Development Process',
     slug: 'from-idea-to-launch-development-process',
-    title: 'From Idea to Launch – How We Work',
-    excerpt: 'In today\'s complex product landscape—where smart technology and connected products are the norm—the journey from idea to finished product can feel daunting. Learn how WRLDS helps you bring your vision to reality.',
+    excerpt: 'Take a behind-the-scenes look at how WRLDS transforms ideas into market-ready smart products through our proven 5-step development process.',
     date: 'May 15, 2025',
     author: 'WRLDS Technologies',
     category: 'Process',
-    imageUrl: '/lovable-uploads/526dc38a-25fa-40d4-b520-425b23ae0464.png',
+    imageUrl: '/lovable-uploads/idea_to_launch_blog_post_pic',
+    keywords: [
+      'product development',
+      'smart product design',
+      'development process',
+      'prototyping',
+      'manufacturing',
+      'product launch',
+      'innovation process',
+      'textile development',
+      'smart textiles'
+    ],
+    metaDescription: 'Learn about WRLDS proven 5-step process for developing smart products from initial concept to market launch. Discover how we turn ideas into reality.',
     content: [
       {
         type: 'paragraph',
-        content: "At WRLDS, we simplify the journey from an idea to a finished smart product. Whether you're starting from scratch or already have a clear concept ready to scale, we're here to support you exactly where you need us."
+        content: 'At WRLDS, we simplify the journey from an idea to a finished smart product. Whether you\'re starting from scratch or already have a clear concept ready to scale, we\'re here to support you exactly where you need us.'
       },
       {
         type: 'paragraph',
-        content: "Let's walk through our process with an example:"
-      },
-      {
-        type: 'paragraph',
-        content: "Imagine you come to us with the idea of a smart glove. This glove automatically senses the outside temperature and adjusts its own warmth accordingly. It also connects to an app where you can control settings and view temperature information."
+        content: 'Let\'s walk through our process with an example: Imagine you come to us with the idea of a smart glove. This glove automatically senses the outside temperature and adjusts its own warmth accordingly. It also connects to an app where you can control settings and view temperature information.'
       },
       {
         type: 'heading',
@@ -665,11 +243,11 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: "It all starts with a clear conversation. When you bring us your glove idea, we first meet to fully understand your vision and requirements. We'll discuss key points: What problem does the product solve? Who will use it? After that, we set a clear and practical roadmap."
+        content: 'It all starts with a clear conversation. When you bring us your glove idea, we first meet to fully understand your vision and requirements. We\'ll discuss key points: What problem does the product solve? Who will use it? After that, we set a clear and practical roadmap.'
       },
       {
         type: 'paragraph',
-        content: "If you already have a basic prototype or idea, we'll quickly identify how we can help scale it effectively."
+        content: 'If you already have a basic prototype or idea, we\'ll quickly identify how we can help scale it effectively.'
       },
       {
         type: 'heading',
@@ -677,11 +255,11 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: "Once the plan is set, our team moves quickly to develop the first working prototype. For your smart glove, we design temperature sensors, heating elements, electronics, and the companion app to work seamlessly together."
+        content: 'Once the plan is set, our team moves quickly to develop the first working prototype. For your smart glove, we design temperature sensors, heating elements, electronics, and the companion app to work seamlessly together.'
       },
       {
         type: 'paragraph',
-        content: "We use rapid prototyping techniques like 3D printing and quick electronics integration. Within weeks, you get a tangible product to test and gather feedback."
+        content: 'We use rapid prototyping techniques like 3D printing and quick electronics integration. Within weeks, you get a tangible product to test and gather feedback.'
       },
       {
         type: 'heading',
@@ -689,11 +267,11 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: "With your prototype ready, we jump into testing. You'll evaluate the glove under real-world conditions to identify improvements. Together, we'll adjust designs, optimize the heating response, enhance the app, and retest frequently."
+        content: 'With your prototype ready, we jump into testing. You\'ll evaluate the glove under real-world conditions to identify improvements. Together, we\'ll adjust designs, optimize the heating response, enhance the app, and retest frequently.'
       },
       {
         type: 'paragraph',
-        content: "This process is quick, iterative, and practical, bringing you closer to a reliable, user-friendly product."
+        content: 'This process is quick, iterative, and practical, bringing you closer to a reliable, user-friendly product.'
       },
       {
         type: 'heading',
@@ -701,11 +279,11 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: "Next, we prepare the glove for large-scale manufacturing. We refine the design for efficient production, select reliable components, and ensure quality at scale."
+        content: 'Next, we prepare the glove for large-scale manufacturing. We refine the design for efficient production, select reliable components, and ensure quality at scale.'
       },
       {
         type: 'paragraph',
-        content: "If you already have a manufacturing partner, we'll work closely with them. If not, we'll help you find the best production solution. In either case, we'll integrate the technology smoothly into the production process."
+        content: 'If you already have a manufacturing partner, we\'ll work closely with them. If not, we\'ll help you find the best production solution. In either case, we\'ll integrate the technology smoothly into the production process.'
       },
       {
         type: 'heading',
@@ -713,7 +291,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: "Finally, it's launch day. You introduce your smart glove, thoroughly tested and production-ready, to the market. WRLDS provides ongoing support to ensure a smooth launch—from technical documentation to supporting the app's release."
+        content: 'Finally, it\'s launch day. You introduce your smart glove, thoroughly tested and production-ready, to the market. WRLDS provides ongoing support to ensure a smooth launch—from technical documentation to supporting the app\'s release.'
       },
       {
         type: 'heading',
@@ -721,7 +299,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: "Developing smart products can be complex, but we make it simple. Clients choose us because:"
+        content: 'Developing smart products can be complex, but we make it simple. Clients choose us because:'
       },
       {
         type: 'list',
@@ -734,7 +312,134 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: "Have an idea or ready to scale an existing product? We'd love to hear from you and help bring your vision to life. Reach out and let's get started!"
+        content: 'Have an idea or ready to scale an existing product? We\'d love to hear from you and help bring your vision to life. Reach out and let\'s get started!'
+      }
+    ]
+  },
+  {
+    id: '2',
+    title: 'AI-Powered Uniforms: The Future of Emergency Response and Worker Safety',
+    slug: 'ai-powered-uniforms-emergency-alerts',
+    excerpt: 'Explore how AI-integrated uniforms are revolutionizing emergency response by providing real-time health monitoring and automated alert systems for first responders and industrial workers.',
+    date: 'May 8, 2025',
+    author: 'WRLDS Technologies',
+    category: 'Innovation',
+    imageUrl: '/lovable-uploads/700e27d7-0513-4bfa-8ac4-f7fd6087594c.png',
+    keywords: [
+      'AI uniforms',
+      'emergency response',
+      'worker safety',
+      'smart uniforms',
+      'health monitoring',
+      'first responders',
+      'safety technology',
+      'wearable AI'
+    ],
+    metaDescription: 'Discover how AI-powered uniforms are transforming emergency response and worker safety with real-time monitoring and automated alerts.',
+    content: [
+      {
+        type: 'paragraph',
+        content: 'The integration of artificial intelligence (AI) into everyday workwear is no longer a futuristic concept but a rapidly evolving reality. AI-powered uniforms are poised to revolutionize emergency response and worker safety by providing real-time health monitoring and automated alert systems for first responders and industrial workers.'
+      },
+      {
+        type: 'heading',
+        content: 'The Convergence of AI and Wearable Technology'
+      },
+      {
+        type: 'paragraph',
+        content: 'The convergence of AI and wearable technology has paved the way for the development of smart uniforms capable of collecting and analyzing vast amounts of data. These uniforms are equipped with an array of sensors that monitor vital signs, environmental conditions, and potential hazards.'
+      },
+      {
+        type: 'subheading',
+        content: 'Key Features of AI-Powered Uniforms'
+      },
+      {
+        type: 'list',
+        items: [
+          'Real-time Health Monitoring: AI-powered uniforms continuously monitor vital signs such as heart rate, body temperature, and blood pressure, providing early warnings of potential health issues.',
+          'Automated Alert Systems: In the event of a medical emergency or hazardous situation, AI-powered uniforms can automatically alert emergency responders, providing critical information about the worker\'s location and condition.',
+          'Environmental Monitoring: AI-powered uniforms can detect exposure to hazardous substances, such as toxic gases or radiation, and provide real-time alerts to workers and supervisors.',
+          'Performance Optimization: AI-powered uniforms can track worker movements and provide feedback on posture and ergonomics, helping to prevent injuries and improve performance.'
+        ]
+      },
+      {
+        type: 'heading',
+        content: 'Transforming Emergency Response'
+      },
+      {
+        type: 'paragraph',
+        content: 'AI-powered uniforms are particularly valuable in emergency response scenarios, where time is of the essence. By providing real-time health monitoring and automated alert systems, these uniforms can help first responders quickly identify and address medical emergencies, potentially saving lives.'
+      },
+      {
+        type: 'heading',
+        content: 'Enhancing Worker Safety'
+      },
+      {
+        type: 'paragraph',
+        content: 'AI-powered uniforms can also play a crucial role in enhancing worker safety in industrial settings. By monitoring environmental conditions and worker movements, these uniforms can help prevent accidents and injuries, creating a safer and more productive work environment.'
+      },
+      {
+        type: 'quote',
+        content: 'AI-powered uniforms are not just about protecting workers; they\'re about empowering them with the knowledge and tools they need to stay safe and healthy.'
+      }
+    ]
+  },
+  {
+    id: '1',
+    title: 'The Rise of Sensor-Integrated Textiles: A New Era in Smart Manufacturing',
+    slug: 'sensor-integrated-textiles-trend',
+    excerpt: 'Discover how sensor-integrated textiles are transforming industries from healthcare to sports, creating new possibilities for smart, responsive products.',
+    date: 'May 2, 2025',
+    author: 'WRLDS Technologies',
+    category: 'Technology',
+    imageUrl: '/lovable-uploads/48ecf6e2-5a98-4a9d-af6f-ae2265cd4098.png',
+    keywords: [
+      'smart textiles',
+      'sensor integration',
+      'smart manufacturing',
+      'wearable technology',
+      'textile innovation',
+      'smart fabrics',
+      'textile sensors'
+    ],
+    metaDescription: 'Learn about the revolutionary trend of sensor-integrated textiles and how they are creating new possibilities in smart manufacturing.',
+    content: [
+      {
+        type: 'paragraph',
+        content: 'Sensor-integrated textiles are rapidly emerging as a transformative technology, poised to revolutionize industries ranging from healthcare to sports. By seamlessly embedding sensors into fabrics, these innovative textiles are creating new possibilities for smart, responsive products that can monitor vital signs, track performance, and enhance safety.'
+      },
+      {
+        type: 'heading',
+        content: 'The Convergence of Textiles and Technology'
+      },
+      {
+        type: 'paragraph',
+        content: 'The convergence of textiles and technology has led to the development of sensor-integrated textiles, which combine the comfort and flexibility of fabrics with the intelligence and connectivity of sensors. These textiles are created by weaving or knitting sensors directly into the fabric structure, allowing them to conform to the body and provide continuous, real-time data.'
+      },
+      {
+        type: 'subheading',
+        content: 'Key Applications of Sensor-Integrated Textiles'
+      },
+      {
+        type: 'list',
+        items: [
+          'Healthcare: Sensor-integrated textiles can monitor vital signs such as heart rate, body temperature, and blood pressure, providing early warnings of potential health issues.',
+          'Sports: Sensor-integrated textiles can track athletic performance, measuring metrics such as speed, distance, and acceleration, helping athletes optimize their training and prevent injuries.',
+          'Safety: Sensor-integrated textiles can detect exposure to hazardous substances, such as toxic gases or radiation, providing real-time alerts to workers and supervisors.',
+          'Fashion: Sensor-integrated textiles can create interactive and responsive garments that change color, shape, or function based on the wearer\'s movements or environment.'
+        ]
+      },
+      {
+        type: 'heading',
+        content: 'Transforming Industries'
+      },
+      {
+        type: 'paragraph',
+        content: 'Sensor-integrated textiles are poised to transform a wide range of industries, creating new possibilities for smart, responsive products that enhance health, safety, and performance. As the technology continues to evolve, we can expect to see even more innovative applications emerge, further blurring the lines between textiles and technology.'
+      },
+      {
+        type: 'quote',
+        content: 'Sensor-integrated textiles are not just about creating smart fabrics; they\'re about creating a new era of smart manufacturing, where textiles are seamlessly integrated with technology to enhance our lives.'
       }
     ]
   }

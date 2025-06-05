@@ -34,6 +34,23 @@ const SEO: React.FC<SEOProps> = ({
   const currentUrl = `https://wrlds.com${location.pathname}`;
   const absoluteImageUrl = imageUrl.startsWith('http') ? imageUrl : `https://wrlds.com${imageUrl}`;
 
+  // Enhanced keywords for Smart PPE post
+  const enhancedKeywords = location.pathname.includes('smart-ppe-revolution') 
+    ? [
+        ...keywords,
+        'personal protective equipment',
+        'workplace safety solutions',
+        'smart safety gear',
+        'construction safety technology',
+        'industrial safety monitoring',
+        'occupational health technology',
+        'safety compliance',
+        'worker protection systems',
+        'smart hard hats',
+        'connected safety equipment'
+      ]
+    : keywords;
+
   // Create base Organization JSON-LD structured data
   const organizationStructuredData = {
     '@context': 'https://schema.org',
@@ -53,7 +70,7 @@ const SEO: React.FC<SEOProps> = ({
     ]
   };
 
-  // Create BlogPosting JSON-LD structured data if it's a blog post
+  // Enhanced BlogPosting JSON-LD structured data
   const blogPostStructuredData = isBlogPost && publishDate ? {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -62,29 +79,73 @@ const SEO: React.FC<SEOProps> = ({
       '@id': currentUrl
     },
     headline: title,
-    image: absoluteImageUrl,
+    image: {
+      '@type': 'ImageObject',
+      url: absoluteImageUrl,
+      width: 1200,
+      height: 630
+    },
     datePublished: publishDate,
     dateModified: modifiedDate || publishDate,
     author: {
       '@type': 'Organization',
-      name: author || 'WRLDS Technologies'
+      name: author || 'WRLDS Technologies',
+      url: 'https://wrlds.com'
     },
     publisher: {
       '@type': 'Organization',
       name: 'WRLDS Technologies',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://wrlds.com/lovable-uploads/14ea3fe0-19d6-425c-b95b-4117bc41f3ca.png'
-      }
+        url: 'https://wrlds.com/lovable-uploads/14ea3fe0-19d6-425c-b95b-4117bc41f3ca.png',
+        width: 512,
+        height: 512
+      },
+      url: 'https://wrlds.com'
     },
     description: description,
-    keywords: keywords.join(', ')
+    keywords: enhancedKeywords.join(', '),
+    articleSection: category,
+    inLanguage: 'en-US',
+    isAccessibleForFree: true
+  } : null;
+
+  // Add FAQ structured data for Smart PPE post
+  const smartPPEFAQData = location.pathname.includes('smart-ppe-revolution') ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What is Smart PPE?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Smart PPE (Personal Protective Equipment) refers to traditional safety gear enhanced with sensors, connectivity, and intelligence. Unlike ordinary PPE that acts as a passive barrier, smart PPE actively monitors conditions and provides real-time alerts to prevent accidents.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'How does smart PPE improve workplace safety?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Smart PPE improves safety by providing real-time monitoring of environmental conditions, worker health metrics, and potential hazards. It can detect falls, monitor vital signs, sense toxic gases, and automatically alert emergency responders when needed.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'What industries benefit from smart PPE?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Smart PPE benefits multiple industries including construction, manufacturing, oil & gas, fire & rescue, healthcare, mining, and any workplace where safety is paramount. Each industry can customize the technology to address specific safety challenges.'
+        }
+      }
+    ]
   } : null;
 
   // Combine keywords with any additional category terms
   const keywordString = category 
-    ? [...keywords, category.toLowerCase()].join(', ') 
-    : keywords.join(', ');
+    ? [...enhancedKeywords, category.toLowerCase()].join(', ') 
+    : enhancedKeywords.join(', ');
 
   return (
     <Helmet>
@@ -92,6 +153,7 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="description" content={description} />
       <link rel="canonical" href={currentUrl} />
       <meta name="keywords" content={keywordString} />
+      <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
       
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={isBlogPost ? 'article' : type} />
@@ -101,9 +163,12 @@ const SEO: React.FC<SEOProps> = ({
       <meta property="og:image" content={absoluteImageUrl} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
+      <meta property="og:site_name" content="WRLDS Technologies" />
+      <meta property="og:locale" content="en_US" />
       {isBlogPost && category && <meta property="article:section" content={category} />}
       {isBlogPost && publishDate && <meta property="article:published_time" content={publishDate} />}
       {isBlogPost && modifiedDate && <meta property="article:modified_time" content={modifiedDate} />}
+      {isBlogPost && <meta property="article:publisher" content="https://wrlds.com" />}
       
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -111,6 +176,8 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={absoluteImageUrl} />
+      <meta name="twitter:site" content="@wrldstechnologies" />
+      <meta name="twitter:creator" content="@wrldstechnologies" />
       
       {/* LinkedIn specific */}
       <meta property="og:image:secure_url" content={absoluteImageUrl} />
@@ -120,6 +187,10 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="pinterest:description" content={description} />
       <meta name="pinterest:image" content={absoluteImageUrl} />
       
+      {/* Additional SEO meta tags */}
+      <meta name="theme-color" content="#000000" />
+      <meta name="msapplication-TileColor" content="#000000" />
+      
       {/* JSON-LD structured data */}
       <script type="application/ld+json">
         {JSON.stringify(organizationStructuredData)}
@@ -128,6 +199,12 @@ const SEO: React.FC<SEOProps> = ({
       {blogPostStructuredData && (
         <script type="application/ld+json">
           {JSON.stringify(blogPostStructuredData)}
+        </script>
+      )}
+      
+      {smartPPEFAQData && (
+        <script type="application/ld+json">
+          {JSON.stringify(smartPPEFAQData)}
         </script>
       )}
     </Helmet>
