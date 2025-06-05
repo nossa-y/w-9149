@@ -5,7 +5,7 @@ import SEO from '@/components/SEO';
 import { useEffect, useState } from 'react';
 import { blogPosts } from '@/data/blogPosts';
 import { motion } from 'framer-motion';
-import { BookOpen, Calendar, Clock, MessageSquare, Share, Tag, Lightbulb, ArrowRight, FileText, Rocket, Settings, CheckCircle, BarChart, Zap, Target, DollarSign } from 'lucide-react';
+import { BookOpen, Calendar, Clock, MessageSquare, Share, Tag, Lightbulb, ArrowRight, FileText, Rocket, Settings, CheckCircle, BarChart, Zap, Target, DollarSign, Shield, HardHat, Thermometer, Heart, Wifi, Database, TrendingUp, Users, Building, Factory, Flame, Activity } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -82,6 +82,9 @@ const BlogPostDetail = () => {
   // Determine if this is the sensor technology post
   const isSensorPost = slug === 'leveraging-sensor-technology-product-development';
 
+  // Determine if this is the smart PPE post
+  const isSmartPPEPost = slug === 'smart-ppe-revolution-safety-technology';
+
   // Extract keywords from post content
   const extractKeywords = () => {
     const keywords = ['smart textiles', 'product development', post.category.toLowerCase()];
@@ -94,8 +97,13 @@ const BlogPostDetail = () => {
   return <PageLayout>
       <SEO title={`${post.title} - WRLDS Technologies`} description={post.excerpt} imageUrl={post.imageUrl} type="article" isBlogPost={true} publishDate={formatDateForISO(post.date)} modifiedDate={formatDateForISO(post.date)} author={post.author} category={post.category} keywords={extractKeywords()} />
       
-      <div className={cn("w-full pt-32 pb-16 relative", isSensorPost ? "bg-black text-white" : "bg-gradient-to-b from-gray-900 to-black text-white")} style={{
-      backgroundImage: isSensorPost 
+      <div className={cn(
+        "w-full pt-32 pb-16 relative", 
+        isSmartPPEPost ? "bg-black text-white" : 
+        isSensorPost ? "bg-black text-white" : 
+        "bg-gradient-to-b from-gray-900 to-black text-white"
+      )} style={{
+      backgroundImage: isSmartPPEPost || isSensorPost 
         ? `linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9)), url('${post.imageUrl}')`
         : `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('${post.imageUrl}')`,
       backgroundPosition: 'center',
@@ -421,68 +429,347 @@ const BlogPostDetail = () => {
                     delay: 0.1 * index
                   }} className={cn("mb-8", section.type === 'quote' && "my-10")}>
                     {section.type === 'paragraph' && (
-                      <p className="text-gray-800 mb-4 leading-relaxed">
+                      <p className="text-gray-800 mb-6 text-lg leading-relaxed">
                         {section.content}
                       </p>
                     )}
                     
                     {section.type === 'heading' && (
-                      <div className="flex items-center gap-3 mt-12 mb-6 border-b border-gray-200 pb-2">
+                      <div className="flex items-center gap-4 mt-16 mb-8 border-b-2 border-gray-900 pb-4">
                         {section.content === 'The Shift from Manual Testing to Sensor-Driven Insights' && (
-                          <Lightbulb size={24} className="text-gray-800" />
+                          <div className="bg-gray-900 p-3 rounded-full">
+                            <Shield size={28} className="text-white" />
+                          </div>
                         )}
                         {section.content === 'Real-time Performance Measurement Made Easy' && (
-                          <Zap size={24} className="text-gray-800" />
+                          <Zap size={28} className="text-gray-800" />
                         )}
                         {section.content === 'Faster Iterations Through Automated Testing and AI' && (
-                          <BarChart size={24} className="text-gray-800" />
+                          <BarChart size={28} className="text-gray-800" />
                         )}
                         {section.content === 'Key Business Benefits' && (
-                          <Target size={24} className="text-gray-800" />
+                          <Target size={28} className="text-gray-800" />
                         )}
                         {section.content === 'Ready to Transform Your Product Development?' && (
-                          <Rocket size={24} className="text-gray-800" />
+                          <div className="bg-gray-900 p-3 rounded-full">
+                            <Lightbulb size={28} className="text-white" />
+                          </div>
                         )}
-                        <h2 className="text-2xl font-bold text-gray-900">{section.content}</h2>
+                        <h2 className="text-3xl font-bold text-gray-900 m-0">{section.content}</h2>
                       </div>
                     )}
                     
                     {section.type === 'subheading' && (
-                      <h3 className="text-xl font-bold mt-8 mb-3 text-gray-800 flex items-center gap-2">
-                        {section.content === 'Reduced Testing Costs' && (
-                          <DollarSign size={18} className="text-gray-700" />
-                        )}
-                        {section.content === 'Shorter Time-to-Market' && (
-                          <Clock size={18} className="text-gray-700" />
-                        )}
-                        {section.content === 'Enhanced Product Quality' && (
-                          <CheckCircle size={18} className="text-gray-700" />
-                        )}
-                        {section.content === 'Stronger Decision-Making' && (
-                          <Target size={18} className="text-gray-700" />
-                        )}
+                      <h3 className="text-xl font-bold mt-10 mb-4 text-gray-800 flex items-center gap-3">
+                        <div className="w-2 h-8 bg-gray-800 rounded-full"></div>
                         {section.content}
                       </h3>
                     )}
                     
                     {section.type === 'list' && (
-                      <ul className="list-disc pl-5 my-4 space-y-2">
+                      <div className="grid gap-4 my-6">
                         {section.items?.map((item, itemIndex) => (
-                          <li key={itemIndex} className="text-gray-700">{item}</li>
+                          <div key={itemIndex} className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg border-l-4 border-gray-800">
+                            <div className="bg-gray-800 p-2 rounded-full mt-1">
+                              {item.includes('temperature') && <Thermometer size={16} className="text-white" />}
+                              {item.includes('heart rate') && <Heart size={16} className="text-white" />}
+                              {item.includes('Bluetooth') && <Wifi size={16} className="text-white" />}
+                              {item.includes('Cloud') && <Database size={16} className="text-white" />}
+                              {item.includes('accidents') && <Shield size={16} className="text-white" />}
+                              {item.includes('teams') && <Users size={16} className="text-white" />}
+                              {item.includes('ROI') && <DollarSign size={16} className="text-white" />}
+                              {item.includes('compliance') && <CheckCircle size={16} className="text-white" />}
+                              {item.includes('Brand') && <Target size={16} className="text-white" />}
+                              {!item.includes('temperature') && !item.includes('heart rate') && !item.includes('Bluetooth') && !item.includes('Cloud') && !item.includes('accidents') && !item.includes('teams') && !item.includes('ROI') && !item.includes('compliance') && !item.includes('Brand') && <Activity size={16} className="text-white" />}
+                            </div>
+                            <p className="text-gray-700 m-0 flex-1 font-medium">{item}</p>
+                          </div>
                         ))}
-                      </ul>
+                      </div>
+                    )}
+                    
+                    {section.type === 'table' && section.tableData && (
+                      <div className="my-8 bg-white border-2 border-gray-900 rounded-lg overflow-hidden shadow-lg">
+                        <div className="bg-gray-900 text-white p-4">
+                          <h4 className="font-bold text-lg m-0 flex items-center gap-2">
+                            <BarChart size={20} />
+                            Data Overview
+                          </h4>
+                        </div>
+                        <div className="overflow-x-auto">
+                          <table className="w-full">
+                            <thead>
+                              <tr className="bg-gray-100 border-b-2 border-gray-900">
+                                {section.tableData.headers.map((header, headerIndex) => (
+                                  <th key={headerIndex} className="px-6 py-4 text-left font-bold text-gray-900 border-r border-gray-300 last:border-r-0">
+                                    <div className="flex items-center gap-2">
+                                      {headerIndex === 0 && <Building size={16} />}
+                                      {headerIndex === 1 && <Zap size={16} />}
+                                      {headerIndex === 2 && <Target size={16} />}
+                                      {header}
+                                    </div>
+                                  </th>
+                                ))}
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {section.tableData.rows.map((row, rowIndex) => (
+                                <tr key={rowIndex} className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+                                  {row.map((cell, cellIndex) => (
+                                    <td key={cellIndex} className="px-6 py-4 text-gray-700 border-r border-gray-200 last:border-r-0 align-top">
+                                      <div className="flex items-start gap-2">
+                                        {cellIndex === 0 && (
+                                          <div className="bg-gray-800 p-1.5 rounded-full mt-0.5">
+                                            {cell.includes('Construction') && <HardHat size={12} className="text-white" />}
+                                            {cell.includes('Manufacturing') && <Factory size={12} className="text-white" />}
+                                            {cell.includes('Oil') && <Flame size={12} className="text-white" />}
+                                            {cell.includes('Fire') && <Shield size={12} className="text-white" />}
+                                            {cell.includes('Healthcare') && <Heart size={12} className="text-white" />}
+                                            {!cell.includes('Construction') && !cell.includes('Manufacturing') && !cell.includes('Oil') && !cell.includes('Fire') && !cell.includes('Healthcare') && <Activity size={12} className="text-white" />}
+                                          </div>
+                                        )}
+                                        <span className="font-medium">{cell}</span>
+                                      </div>
+                                    </td>
+                                  ))}
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
                     )}
                     
                     {section.type === 'quote' && (
-                      <blockquote className="border-l-4 border-gray-600 pl-5 py-2 my-8 bg-gray-50 rounded-r-lg italic text-gray-700">
-                        <div className="flex">
-                          <MessageSquare size={20} className="text-gray-600 mr-3 mt-1 flex-shrink-0" />
-                          <p className="text-lg m-0">{section.content}</p>
+                      <blockquote className="border-l-8 border-gray-900 pl-8 py-6 my-12 bg-gray-100 rounded-r-lg relative">
+                        <div className="absolute -left-4 top-6 bg-gray-900 p-3 rounded-full">
+                          <MessageSquare size={20} className="text-white" />
                         </div>
+                        <p className="text-xl font-semibold text-gray-900 italic m-0 leading-relaxed">{section.content}</p>
                       </blockquote>
                     )}
                   </motion.div>
                 ))}
+              </motion.div> : isSmartPPEPost ?
+              <motion.div initial={{
+                opacity: 0
+              }} animate={{
+                opacity: 1
+              }} transition={{
+                duration: 0.6,
+                delay: 0.2
+              }} className="prose prose-lg max-w-none">
+                {/* Smart PPE post with enhanced visuals */}
+                {post.content.map((section, index) => (
+                  <motion.div key={index} initial={{
+                    opacity: 0,
+                    y: 10
+                  }} animate={{
+                    opacity: 1,
+                    y: 0
+                  }} transition={{
+                    duration: 0.4,
+                    delay: 0.1 * index
+                  }} className={cn("mb-8", section.type === 'quote' && "my-10")}>
+                    {section.type === 'paragraph' && (
+                      <p className="text-gray-800 mb-6 text-lg leading-relaxed">
+                        {section.content}
+                      </p>
+                    )}
+                    
+                    {section.type === 'heading' && (
+                      <div className="flex items-center gap-4 mt-16 mb-8 border-b-2 border-gray-900 pb-4">
+                        {section.content === 'What "Smart PPE" Really Means' && (
+                          <div className="bg-gray-900 p-3 rounded-full">
+                            <Shield size={28} className="text-white" />
+                          </div>
+                        )}
+                        {section.content === 'Market Snapshot (Global & EU)' && (
+                          <div className="bg-gray-900 p-3 rounded-full">
+                            <TrendingUp size={28} className="text-white" />
+                          </div>
+                        )}
+                        {section.content === 'Five Real-World Upgrades' && (
+                          <div className="bg-gray-900 p-3 rounded-full">
+                            <Rocket size={28} className="text-white" />
+                          </div>
+                        )}
+                        {section.content === 'Benefits You Can Sell Today' && (
+                          <div className="bg-gray-900 p-3 rounded-full">
+                            <Target size={28} className="text-white" />
+                          </div>
+                        )}
+                        {section.content === 'Barriers (and How WRLDS Removes Them)' && (
+                          <div className="bg-gray-900 p-3 rounded-full">
+                            <Settings size={28} className="text-white" />
+                          </div>
+                        )}
+                        {section.content === 'Why Partner with WRLDS Technologies' && (
+                          <div className="bg-gray-900 p-3 rounded-full">
+                            <Users size={28} className="text-white" />
+                          </div>
+                        )}
+                        {section.content === 'Ready to Transform Your Product Development?' && (
+                          <div className="bg-gray-900 p-3 rounded-full">
+                            <Lightbulb size={28} className="text-white" />
+                          </div>
+                        )}
+                        <h2 className="text-3xl font-bold text-gray-900 m-0">{section.content}</h2>
+                      </div>
+                    )}
+                    
+                    {section.type === 'subheading' && (
+                      <h3 className="text-xl font-bold mt-10 mb-4 text-gray-800 flex items-center gap-3">
+                        <div className="w-2 h-8 bg-gray-800 rounded-full"></div>
+                        {section.content}
+                      </h3>
+                    )}
+                    
+                    {section.type === 'list' && (
+                      <div className="grid gap-4 my-6">
+                        {section.items?.map((item, itemIndex) => (
+                          <div key={itemIndex} className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg border-l-4 border-gray-800">
+                            <div className="bg-gray-800 p-2 rounded-full mt-1">
+                              {item.includes('temperature') && <Thermometer size={16} className="text-white" />}
+                              {item.includes('heart rate') && <Heart size={16} className="text-white" />}
+                              {item.includes('Bluetooth') && <Wifi size={16} className="text-white" />}
+                              {item.includes('Cloud') && <Database size={16} className="text-white" />}
+                              {item.includes('accidents') && <Shield size={16} className="text-white" />}
+                              {item.includes('teams') && <Users size={16} className="text-white" />}
+                              {item.includes('ROI') && <DollarSign size={16} className="text-white" />}
+                              {item.includes('compliance') && <CheckCircle size={16} className="text-white" />}
+                              {item.includes('Brand') && <Target size={16} className="text-white" />}
+                              {!item.includes('temperature') && !item.includes('heart rate') && !item.includes('Bluetooth') && !item.includes('Cloud') && !item.includes('accidents') && !item.includes('teams') && !item.includes('ROI') && !item.includes('compliance') && !item.includes('Brand') && <Activity size={16} className="text-white" />}
+                            </div>
+                            <p className="text-gray-700 m-0 flex-1 font-medium">{item}</p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    
+                    {section.type === 'table' && section.tableData && (
+                      <div className="my-8 bg-white border-2 border-gray-900 rounded-lg overflow-hidden shadow-lg">
+                        <div className="bg-gray-900 text-white p-4">
+                          <h4 className="font-bold text-lg m-0 flex items-center gap-2">
+                            <BarChart size={20} />
+                            Data Overview
+                          </h4>
+                        </div>
+                        <div className="overflow-x-auto">
+                          <table className="w-full">
+                            <thead>
+                              <tr className="bg-gray-100 border-b-2 border-gray-900">
+                                {section.tableData.headers.map((header, headerIndex) => (
+                                  <th key={headerIndex} className="px-6 py-4 text-left font-bold text-gray-900 border-r border-gray-300 last:border-r-0">
+                                    <div className="flex items-center gap-2">
+                                      {headerIndex === 0 && <Building size={16} />}
+                                      {headerIndex === 1 && <Zap size={16} />}
+                                      {headerIndex === 2 && <Target size={16} />}
+                                      {header}
+                                    </div>
+                                  </th>
+                                ))}
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {section.tableData.rows.map((row, rowIndex) => (
+                                <tr key={rowIndex} className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+                                  {row.map((cell, cellIndex) => (
+                                    <td key={cellIndex} className="px-6 py-4 text-gray-700 border-r border-gray-200 last:border-r-0 align-top">
+                                      <div className="flex items-start gap-2">
+                                        {cellIndex === 0 && (
+                                          <div className="bg-gray-800 p-1.5 rounded-full mt-0.5">
+                                            {cell.includes('Construction') && <HardHat size={12} className="text-white" />}
+                                            {cell.includes('Manufacturing') && <Factory size={12} className="text-white" />}
+                                            {cell.includes('Oil') && <Flame size={12} className="text-white" />}
+                                            {cell.includes('Fire') && <Shield size={12} className="text-white" />}
+                                            {cell.includes('Healthcare') && <Heart size={12} className="text-white" />}
+                                            {!cell.includes('Construction') && !cell.includes('Manufacturing') && !cell.includes('Oil') && !cell.includes('Fire') && !cell.includes('Healthcare') && <Activity size={12} className="text-white" />}
+                                          </div>
+                                        )}
+                                        <span className="font-medium">{cell}</span>
+                                      </div>
+                                    </td>
+                                  ))}
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    )}
+                    
+                    {section.type === 'quote' && (
+                      <blockquote className="border-l-8 border-gray-900 pl-8 py-6 my-12 bg-gray-100 rounded-r-lg relative">
+                        <div className="absolute -left-4 top-6 bg-gray-900 p-3 rounded-full">
+                          <MessageSquare size={20} className="text-white" />
+                        </div>
+                        <p className="text-xl font-semibold text-gray-900 italic m-0 leading-relaxed">{section.content}</p>
+                      </blockquote>
+                    )}
+                  </motion.div>
+                ))}
+                
+                {/* Market growth visualization */}
+                <motion.div initial={{
+                  opacity: 0,
+                  y: 20
+                }} animate={{
+                  opacity: 1,
+                  y: 0
+                }} transition={{
+                  duration: 0.6,
+                  delay: 0.5
+                }} className="my-12 bg-gray-900 text-white p-8 rounded-lg">
+                  <div className="flex items-center gap-3 mb-6">
+                    <TrendingUp size={28} className="text-white" />
+                    <h3 className="text-2xl font-bold m-0">Market Growth Projection</h3>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="text-center">
+                      <div className="text-4xl font-bold text-white mb-2">$4B</div>
+                      <div className="text-gray-300">2023 Market Size</div>
+                    </div>
+                    <div className="flex items-center justify-center">
+                      <ArrowRight size={32} className="text-gray-400" />
+                    </div>
+                    <div className="text-center">
+                      <div className="text-4xl font-bold text-white mb-2">$16B</div>
+                      <div className="text-gray-300">2033 Projection</div>
+                    </div>
+                  </div>
+                  <div className="mt-6 text-center">
+                    <div className="text-2xl font-bold text-white">15% CAGR</div>
+                    <div className="text-gray-300">Annual Growth Rate</div>
+                  </div>
+                </motion.div>
+
+                {/* Call to action */}
+                <motion.div initial={{
+                  opacity: 0,
+                  y: 20
+                }} animate={{
+                  opacity: 1,
+                  y: 0
+                }} transition={{
+                  duration: 0.6,
+                  delay: 0.7
+                }} className="mt-16 text-center bg-gray-100 p-8 rounded-lg border-2 border-gray-900">
+                  <div className="flex justify-center mb-4">
+                    <div className="bg-gray-900 p-4 rounded-full">
+                      <Rocket size={32} className="text-white" />
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to Build the Future of Safety?</h3>
+                  <p className="text-gray-700 mb-6 text-lg">
+                    Smart textiles are changing PPE from a last-resort shield into a 24/7 safety partner. Let's join forces to launch smart PPE your clients—and their workers—will love.
+                  </p>
+                  <Link to="/contact">
+                    <Button size="lg" className="bg-gray-900 hover:bg-gray-800 text-white">
+                      Contact WRLDS Technologies
+                    </Button>
+                  </Link>
+                </motion.div>
               </motion.div> : <motion.div initial={{
           opacity: 0
         }} animate={{
