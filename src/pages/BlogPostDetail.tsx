@@ -10,7 +10,6 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { LoadingAnimation } from '@/components/LoadingAnimation';
-
 const BlogPostDetail = () => {
   const {
     slug
@@ -27,7 +26,6 @@ const BlogPostDetail = () => {
     }, 300);
     return () => clearTimeout(timer);
   }, [slug]);
-  
   if (!post) {
     return <PageLayout>
         <SEO title="Post Not Found - WRLDS Technologies" description="The requested blog post could not be found." />
@@ -78,7 +76,7 @@ const BlogPostDetail = () => {
 
   // Special rendering for the process blog post with the updated design
   const isProcessPost = slug === 'from-idea-to-launch-development-process';
-  
+
   // Determine if this is the sensor technology post
   const isSensorPost = slug === 'leveraging-sensor-technology-product-development';
 
@@ -93,19 +91,11 @@ const BlogPostDetail = () => {
     }
     return keywords;
   };
-  
   return <PageLayout>
       <SEO title={`${post.title} - WRLDS Technologies`} description={post.excerpt} imageUrl={post.imageUrl} type="article" isBlogPost={true} publishDate={formatDateForISO(post.date)} modifiedDate={formatDateForISO(post.date)} author={post.author} category={post.category} keywords={extractKeywords()} />
       
-      <div className={cn(
-        "w-full pt-32 pb-16 relative", 
-        isSmartPPEPost ? "bg-black text-white" : 
-        isSensorPost ? "bg-black text-white" : 
-        "bg-gradient-to-b from-gray-900 to-black text-white"
-      )} style={{
-      backgroundImage: isSmartPPEPost || isSensorPost 
-        ? `linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9)), url('${post.imageUrl}')`
-        : `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('${post.imageUrl}')`,
+      <div className={cn("w-full pt-32 pb-16 relative", isSmartPPEPost ? "bg-black text-white" : isSensorPost ? "bg-black text-white" : "bg-gradient-to-b from-gray-900 to-black text-white")} style={{
+      backgroundImage: isSmartPPEPost || isSensorPost ? `linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9)), url('${post.imageUrl}')` : `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('${post.imageUrl}')`,
       backgroundPosition: 'center',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat'
@@ -147,15 +137,14 @@ const BlogPostDetail = () => {
         {isLoading ? <div className="flex justify-center py-20">
             <LoadingAnimation />
           </div> : <div className="max-w-3xl mx-auto">
-            {isProcessPost ? 
-              <motion.div initial={{
-                opacity: 0
-              }} animate={{
-                opacity: 1
-              }} transition={{
-                duration: 0.6,
-                delay: 0.2
-              }} className="prose prose-lg max-w-none">
+            {isProcessPost ? <motion.div initial={{
+          opacity: 0
+        }} animate={{
+          opacity: 1
+        }} transition={{
+          duration: 0.6,
+          delay: 0.2
+        }} className="prose prose-lg max-w-none">
                 {/* Process post rendering */}
                 <motion.div initial={{
             opacity: 0,
@@ -409,69 +398,49 @@ const BlogPostDetail = () => {
                     <Button size="lg">Get in Touch</Button>
                   </Link>
                 </motion.div>
-              </motion.div> : isSensorPost ? 
-              <motion.div initial={{
-                opacity: 0
-              }} animate={{
-                opacity: 1
-              }} transition={{
-                duration: 0.6,
-                delay: 0.2
-              }} className="prose prose-lg max-w-none prose-neutral">
+              </motion.div> : isSensorPost ? <motion.div initial={{
+          opacity: 0
+        }} animate={{
+          opacity: 1
+        }} transition={{
+          duration: 0.6,
+          delay: 0.2
+        }} className="prose prose-lg max-w-none prose-neutral">
                 {/* Sensor post with black and white style */}
-                {post.content.map((section, index) => (
-                  <motion.div key={index} initial={{
-                    opacity: 0,
-                    y: 10
-                  }} animate={{
-                    opacity: 1,
-                    y: 0
-                  }} transition={{
-                    duration: 0.4,
-                    delay: 0.1 * index
-                  }} className={cn("mb-8", section.type === 'quote' && "my-10")}>
-                    {section.type === 'paragraph' && (
-                      <p className="text-gray-800 mb-6 text-lg leading-relaxed">
+                {post.content.map((section, index) => <motion.div key={index} initial={{
+            opacity: 0,
+            y: 10
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.4,
+            delay: 0.1 * index
+          }} className={cn("mb-8", section.type === 'quote' && "my-10")}>
+                    {section.type === 'paragraph' && <p className="text-gray-800 mb-6 text-lg leading-relaxed">
                         {section.content}
-                      </p>
-                    )}
+                      </p>}
                     
-                    {section.type === 'heading' && (
-                      <div className="flex items-center gap-4 mt-16 mb-8 border-b-2 border-gray-900 pb-4">
-                        {section.content === 'The Shift from Manual Testing to Sensor-Driven Insights' && (
-                          <div className="bg-gray-900 p-3 rounded-full">
+                    {section.type === 'heading' && <div className="flex items-center gap-4 mt-16 mb-8 border-b-2 border-gray-900 pb-4">
+                        {section.content === 'The Shift from Manual Testing to Sensor-Driven Insights' && <div className="bg-gray-900 p-3 rounded-full">
                             <Shield size={28} className="text-white" />
-                          </div>
-                        )}
-                        {section.content === 'Real-time Performance Measurement Made Easy' && (
-                          <Zap size={28} className="text-gray-800" />
-                        )}
-                        {section.content === 'Faster Iterations Through Automated Testing and AI' && (
-                          <BarChart size={28} className="text-gray-800" />
-                        )}
-                        {section.content === 'Key Business Benefits' && (
-                          <Target size={28} className="text-gray-800" />
-                        )}
-                        {section.content === 'Ready to Transform Your Product Development?' && (
-                          <div className="bg-gray-900 p-3 rounded-full">
+                          </div>}
+                        {section.content === 'Real-time Performance Measurement Made Easy' && <Zap size={28} className="text-gray-800" />}
+                        {section.content === 'Faster Iterations Through Automated Testing and AI' && <BarChart size={28} className="text-gray-800" />}
+                        {section.content === 'Key Business Benefits' && <Target size={28} className="text-gray-800" />}
+                        {section.content === 'Ready to Transform Your Product Development?' && <div className="bg-gray-900 p-3 rounded-full">
                             <Lightbulb size={28} className="text-white" />
-                          </div>
-                        )}
+                          </div>}
                         <h2 className="text-3xl font-bold text-gray-900 m-0">{section.content}</h2>
-                      </div>
-                    )}
+                      </div>}
                     
-                    {section.type === 'subheading' && (
-                      <h3 className="text-xl font-bold mt-10 mb-4 text-gray-800 flex items-center gap-3">
+                    {section.type === 'subheading' && <h3 className="text-xl font-bold mt-10 mb-4 text-gray-800 flex items-center gap-3">
                         <div className="w-2 h-8 bg-gray-800 rounded-full"></div>
                         {section.content}
-                      </h3>
-                    )}
+                      </h3>}
                     
-                    {section.type === 'list' && (
-                      <div className="grid gap-4 my-6">
-                        {section.items?.map((item, itemIndex) => (
-                          <div key={itemIndex} className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg border-l-4 border-gray-800">
+                    {section.type === 'list' && <div className="grid gap-4 my-6">
+                        {section.items?.map((item, itemIndex) => <div key={itemIndex} className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg border-l-4 border-gray-800">
                             <div className="bg-gray-800 p-2 rounded-full mt-1">
                               {item.includes('temperature') && <Thermometer size={16} className="text-white" />}
                               {item.includes('heart rate') && <Heart size={16} className="text-white" />}
@@ -485,13 +454,10 @@ const BlogPostDetail = () => {
                               {!item.includes('temperature') && !item.includes('heart rate') && !item.includes('Bluetooth') && !item.includes('Cloud') && !item.includes('accidents') && !item.includes('teams') && !item.includes('ROI') && !item.includes('compliance') && !item.includes('Brand') && <Activity size={16} className="text-white" />}
                             </div>
                             <p className="text-gray-700 m-0 flex-1 font-medium">{item}</p>
-                          </div>
-                        ))}
-                      </div>
-                    )}
+                          </div>)}
+                      </div>}
                     
-                    {section.type === 'table' && section.tableData && (
-                      <div className="my-8 bg-white border-2 border-gray-900 rounded-lg overflow-hidden shadow-lg">
+                    {section.type === 'table' && section.tableData && <div className="my-8 bg-white border-2 border-gray-900 rounded-lg overflow-hidden shadow-lg">
                         <div className="bg-gray-900 text-white p-4">
                           <h4 className="font-bold text-lg m-0 flex items-center gap-2">
                             <BarChart size={20} />
@@ -502,76 +468,63 @@ const BlogPostDetail = () => {
                           <table className="w-full">
                             <thead>
                               <tr className="bg-gray-100 border-b-2 border-gray-900">
-                                {section.tableData.headers.map((header, headerIndex) => (
-                                  <th key={headerIndex} className="px-6 py-4 text-left font-bold text-gray-900 border-r border-gray-300 last:border-r-0">
+                                {section.tableData.headers.map((header, headerIndex) => <th key={headerIndex} className="px-6 py-4 text-left font-bold text-gray-900 border-r border-gray-300 last:border-r-0">
                                     <div className="flex items-center gap-2">
                                       {headerIndex === 0 && <Building size={16} />}
                                       {headerIndex === 1 && <Zap size={16} />}
                                       {headerIndex === 2 && <Target size={16} />}
                                       {header}
                                     </div>
-                                  </th>
-                                ))}
+                                  </th>)}
                               </tr>
                             </thead>
                             <tbody>
-                              {section.tableData.rows.map((row, rowIndex) => (
-                                <tr key={rowIndex} className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                                  {row.map((cell, cellIndex) => (
-                                    <td key={cellIndex} className="px-6 py-4 text-gray-700 border-r border-gray-200 last:border-r-0 align-top">
+                              {section.tableData.rows.map((row, rowIndex) => <tr key={rowIndex} className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+                                  {row.map((cell, cellIndex) => <td key={cellIndex} className="px-6 py-4 text-gray-700 border-r border-gray-200 last:border-r-0 align-top">
                                       <div className="flex items-start gap-2">
-                                        {cellIndex === 0 && (
-                                          <div className="bg-gray-800 p-1.5 rounded-full mt-0.5">
+                                        {cellIndex === 0 && <div className="bg-gray-800 p-1.5 rounded-full mt-0.5">
                                             {cell.includes('Construction') && <HardHat size={12} className="text-white" />}
                                             {cell.includes('Manufacturing') && <Factory size={12} className="text-white" />}
                                             {cell.includes('Oil') && <Flame size={12} className="text-white" />}
                                             {cell.includes('Fire') && <Shield size={12} className="text-white" />}
                                             {cell.includes('Healthcare') && <Heart size={12} className="text-white" />}
                                             {!cell.includes('Construction') && !cell.includes('Manufacturing') && !cell.includes('Oil') && !cell.includes('Fire') && !cell.includes('Healthcare') && <Activity size={12} className="text-white" />}
-                                          </div>
-                                        )}
+                                          </div>}
                                         <span className="font-medium">{cell}</span>
                                       </div>
-                                    </td>
-                                  ))}
-                                </tr>
-                              ))}
+                                    </td>)}
+                                </tr>)}
                             </tbody>
                           </table>
                         </div>
-                      </div>
-                    )}
+                      </div>}
                     
-                    {section.type === 'quote' && (
-                      <blockquote className="border-l-8 border-gray-900 pl-8 py-6 my-12 bg-gray-100 rounded-r-lg relative">
+                    {section.type === 'quote' && <blockquote className="border-l-8 border-gray-900 pl-8 py-6 my-12 bg-gray-100 rounded-r-lg relative">
                         <div className="absolute -left-4 top-6 bg-gray-900 p-3 rounded-full">
                           <MessageSquare size={20} className="text-white" />
                         </div>
                         <p className="text-xl font-semibold text-gray-900 italic m-0 leading-relaxed">{section.content}</p>
-                      </blockquote>
-                    )}
-                  </motion.div>
-                ))}
-              </motion.div> : isSmartPPEPost ?
-              <motion.div initial={{
-                opacity: 0
-              }} animate={{
-                opacity: 1
-              }} transition={{
-                duration: 0.6,
-                delay: 0.2
-              }} className="prose prose-lg max-w-none">
+                      </blockquote>}
+                  </motion.div>)}
+              </motion.div> : isSmartPPEPost ? <motion.div initial={{
+          opacity: 0
+        }} animate={{
+          opacity: 1
+        }} transition={{
+          duration: 0.6,
+          delay: 0.2
+        }} className="prose prose-lg max-w-none">
                 {/* Smart PPE post with clean, modern design */}
                 <motion.div initial={{
-                  opacity: 0,
-                  y: 20
-                }} animate={{
-                  opacity: 1,
-                  y: 0
-                }} transition={{
-                  duration: 0.6,
-                  delay: 0.1
-                }} className="mb-12">
+            opacity: 0,
+            y: 20
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.6,
+            delay: 0.1
+          }} className="mb-12">
                   <p className="text-xl text-gray-600 leading-relaxed mb-8">
                     Smart textiles are turning safety gear into real-time guardians that sense heat, gas, falls and fatigue. The market is booming and Europe is writing the first "smart PPE" standards.
                   </p>
@@ -579,15 +532,15 @@ const BlogPostDetail = () => {
 
                 {/* What Smart PPE Really Means */}
                 <motion.div initial={{
-                  opacity: 0,
-                  y: 20
-                }} animate={{
-                  opacity: 1,
-                  y: 0
-                }} transition={{
-                  duration: 0.6,
-                  delay: 0.2
-                }} className="mb-16">
+            opacity: 0,
+            y: 20
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.6,
+            delay: 0.2
+          }} className="mb-16">
                   <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
                     <Shield size={32} className="text-gray-900" />
                     What "Smart PPE" Really Means
@@ -649,15 +602,15 @@ const BlogPostDetail = () => {
 
                 {/* Market Growth Chart */}
                 <motion.div initial={{
-                  opacity: 0,
-                  y: 20
-                }} animate={{
-                  opacity: 1,
-                  y: 0
-                }} transition={{
-                  duration: 0.6,
-                  delay: 0.3
-                }} className="mb-16">
+            opacity: 0,
+            y: 20
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.6,
+            delay: 0.3
+          }} className="mb-16">
                   <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
                     <TrendingUp size={32} className="text-gray-900" />
                     Market Snapshot
@@ -708,54 +661,47 @@ const BlogPostDetail = () => {
 
                 {/* Real-World Applications */}
                 <motion.div initial={{
-                  opacity: 0,
-                  y: 20
-                }} animate={{
-                  opacity: 1,
-                  y: 0
-                }} transition={{
-                  duration: 0.6,
-                  delay: 0.4
-                }} className="mb-16">
+            opacity: 0,
+            y: 20
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.6,
+            delay: 0.4
+          }} className="mb-16">
                   <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
                     <Rocket size={32} className="text-gray-900" />
                     Five Real-World Upgrades
                   </h2>
                   
                   <div className="space-y-6">
-                    {[
-                      {
-                        sector: "Construction",
-                        icon: HardHat,
-                        feature: "GPS high-vis vest + fall-detect helmet",
-                        benefit: "Auto-ask for help within seconds of a fall; tracks crew in evacuation drills"
-                      },
-                      {
-                        sector: "Manufacturing", 
-                        icon: Factory,
-                        feature: "Gesture-controlled, cut-proof gloves",
-                        benefit: "Operate scanners or robots hands-free; fewer repetitive-strain injuries"
-                      },
-                      {
-                        sector: "Oil & Gas",
-                        icon: Flame,
-                        feature: "Gas-sniffing coveralls + haptic alerts", 
-                        benefit: "Workers feel a buzz before toxic levels rise; more time to evacuate"
-                      },
-                      {
-                        sector: "Fire & Rescue",
-                        icon: Shield,
-                        feature: "Suits that log core-temp & heart rate",
-                        benefit: "Command can rotate crews before heatstroke hits"
-                      },
-                      {
-                        sector: "Healthcare",
-                        icon: Heart,
-                        feature: "Smart respirators that self-fit-check",
-                        benefit: "Perfect seal every shift; filter-life countdown on an app"
-                      }
-                    ].map((item, index) => (
-                      <div key={index} className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                    {[{
+                sector: "Construction",
+                icon: HardHat,
+                feature: "GPS high-vis vest + fall-detect helmet",
+                benefit: "Auto-ask for help within seconds of a fall; tracks crew in evacuation drills"
+              }, {
+                sector: "Manufacturing",
+                icon: Factory,
+                feature: "Gesture-controlled, cut-proof gloves",
+                benefit: "Operate scanners or robots hands-free; fewer repetitive-strain injuries"
+              }, {
+                sector: "Oil & Gas",
+                icon: Flame,
+                feature: "Gas-sniffing coveralls + haptic alerts",
+                benefit: "Workers feel a buzz before toxic levels rise; more time to evacuate"
+              }, {
+                sector: "Fire & Rescue",
+                icon: Shield,
+                feature: "Suits that log core-temp & heart rate",
+                benefit: "Command can rotate crews before heatstroke hits"
+              }, {
+                sector: "Healthcare",
+                icon: Heart,
+                feature: "Smart respirators that self-fit-check",
+                benefit: "Perfect seal every shift; filter-life countdown on an app"
+              }].map((item, index) => <div key={index} className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
                         <div className="flex items-start gap-4">
                           <div className="bg-gray-900 p-3 rounded-full">
                             <item.icon size={24} className="text-white" />
@@ -766,51 +712,44 @@ const BlogPostDetail = () => {
                             <p className="text-gray-600">{item.benefit}</p>
                           </div>
                         </div>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                 </motion.div>
 
                 {/* Benefits Section */}
                 <motion.div initial={{
-                  opacity: 0,
-                  y: 20
-                }} animate={{
-                  opacity: 1,
-                  y: 0
-                }} transition={{
-                  duration: 0.6,
-                  delay: 0.5
-                }} className="mb-16">
+            opacity: 0,
+            y: 20
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.6,
+            delay: 0.5
+          }} className="mb-16">
                   <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
                     <Target size={32} className="text-gray-900" />
                     Benefits You Can Sell Today
                   </h2>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {[
-                      {
-                        icon: Shield,
-                        title: "Fewer Accidents",
-                        description: "Instant alerts reduce incident rates by double-digit percentages"
-                      },
-                      {
-                        icon: Heart,
-                        title: "Healthier Teams", 
-                        description: "Lightweight tech with auto-cooling fabrics cut heat stress"
-                      },
-                      {
-                        icon: DollarSign,
-                        title: "Hard ROI",
-                        description: "Lower insurance premiums, productivity boosts, audit proof"
-                      },
-                      {
-                        icon: CheckCircle,
-                        title: "Future Ready",
-                        description: "Built-in logs simplify compliance for regulators"
-                      }
-                    ].map((benefit, index) => (
-                      <div key={index} className="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    {[{
+                icon: Shield,
+                title: "Fewer Accidents",
+                description: "Instant alerts reduce incident rates by double-digit percentages"
+              }, {
+                icon: Heart,
+                title: "Healthier Teams",
+                description: "Lightweight tech with auto-cooling fabrics cut heat stress"
+              }, {
+                icon: DollarSign,
+                title: "Hard ROI",
+                description: "Lower insurance premiums, productivity boosts, audit proof"
+              }, {
+                icon: CheckCircle,
+                title: "Future Ready",
+                description: "Built-in logs simplify compliance for regulators"
+              }].map((benefit, index) => <div key={index} className="bg-gray-50 p-6 rounded-xl border border-gray-200">
                         <div className="flex items-start gap-4">
                           <div className="bg-gray-900 p-2 rounded-full">
                             <benefit.icon size={20} className="text-white" />
@@ -820,22 +759,21 @@ const BlogPostDetail = () => {
                             <p className="text-gray-600">{benefit.description}</p>
                           </div>
                         </div>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                 </motion.div>
 
                 {/* WRLDS Solutions */}
                 <motion.div initial={{
-                  opacity: 0,
-                  y: 20
-                }} animate={{
-                  opacity: 1,
-                  y: 0
-                }} transition={{
-                  duration: 0.6,
-                  delay: 0.6
-                }} className="mb-16">
+            opacity: 0,
+            y: 20
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.6,
+            delay: 0.6
+          }} className="mb-16">
                   <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
                     <Users size={32} className="text-gray-900" />
                     Why Partner with WRLDS Technologies
@@ -891,15 +829,15 @@ const BlogPostDetail = () => {
 
                 {/* Call to Action */}
                 <motion.div initial={{
-                  opacity: 0,
-                  y: 20
-                }} animate={{
-                  opacity: 1,
-                  y: 0
-                }} transition={{
-                  duration: 0.6,
-                  delay: 0.7
-                }} className="text-center bg-gradient-to-r from-gray-900 to-gray-700 text-white p-12 rounded-xl">
+            opacity: 0,
+            y: 20
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.6,
+            delay: 0.7
+          }} className="text-center bg-gradient-to-r from-gray-900 to-gray-700 text-white p-12 rounded-xl">
                   <div className="flex justify-center mb-6">
                     <div className="bg-white p-4 rounded-full">
                       <Rocket size={32} className="text-gray-900" />
@@ -910,13 +848,10 @@ const BlogPostDetail = () => {
                     Smart textiles are changing PPE from a last-resort shield into a 24/7 safety partner. Let's join forces to launch smart PPE your clients—and their workers—will love.
                   </p>
                   <Link to="/contact">
-                    <Button size="lg" className="bg-white text-gray-900 hover:bg-gray-100">
-                      Contact WRLDS Technologies
-                    </Button>
+                    
                   </Link>
                 </motion.div>
-              </motion.div> : 
-              <motion.div initial={{
+              </motion.div> : <motion.div initial={{
           opacity: 0
         }} animate={{
           opacity: 1
