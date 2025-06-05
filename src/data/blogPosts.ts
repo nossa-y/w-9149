@@ -1,7 +1,11 @@
 interface ContentSection {
-  type: 'paragraph' | 'heading' | 'subheading' | 'list' | 'quote';
+  type: 'paragraph' | 'heading' | 'subheading' | 'list' | 'quote' | 'table';
   content?: string;
   items?: string[];
+  tableData?: {
+    headers: string[];
+    rows: string[][];
+  };
 }
 
 export interface BlogPost {
@@ -17,6 +21,154 @@ export interface BlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    id: '5',
+    slug: 'smart-ppe-revolution-safety-technology',
+    title: 'The Smart PPE Revolution: How Intelligent Textiles Are Transforming Workplace Safety',
+    excerpt: 'Smart textiles are turning safety gear into real-time guardians that sense heat, gas, falls and fatigue. The market is booming and Europe is writing the first "smart PPE" standards.',
+    date: 'May 30, 2025',
+    author: 'WRLDS Technologies',
+    category: 'Innovation',
+    imageUrl: '/lovable-uploads/843446fe-638e-4efb-b885-ed3cd505325a.png',
+    content: [
+      {
+        type: 'paragraph',
+        content: 'Smart textiles are turning safety gear into real-time guardians that sense heat, gas, falls and fatigue. The market is booming (set to quadruple this decade) and Europe is writing the first "smart PPE" standards. Partnering with WRLDS Technologies lets workwear brands add plug-and-play sensors, secure connectivity and clear data dashboards—bringing truly smarter, safer and more comfortable gear to market fast.'
+      },
+      {
+        type: 'heading',
+        content: 'What "Smart PPE" Really Means'
+      },
+      {
+        type: 'paragraph',
+        content: 'The evolution from traditional protective equipment to intelligent safety gear represents a fundamental shift in how we approach workplace safety:'
+      },
+      {
+        type: 'table',
+        tableData: {
+          headers: ['Ordinary PPE', 'Smart PPE', 'Why It Matters'],
+          rows: [
+            ['Passive barrier', 'Fabric laced with tiny sensors & chips', 'Reacts the moment risk appears'],
+            ['One-size-fits-all', 'Learns each worker\'s limits', 'Cuts fatigue and heat stress'],
+            ['No data', 'Streams live safety insights', 'See hazards before accidents happen']
+          ]
+        }
+      },
+      {
+        type: 'subheading',
+        content: 'Core Building Blocks'
+      },
+      {
+        type: 'list',
+        items: [
+          'Sensing threads – monitor temperature, heart rate, gas, noise, UV, motion',
+          'Low-power radios – Bluetooth / LTE-M send alerts to phones or site hubs',
+          'Cloud analytics – dashboards show who\'s at risk and why, store compliance logs'
+        ]
+      },
+      {
+        type: 'heading',
+        content: 'Market Snapshot (Global & EU)'
+      },
+      {
+        type: 'paragraph',
+        content: '$4 billion (2023) ➜ $16 billion (2033) ≈ 15% CAGR—driven by stricter rules, cheaper electronics and Industry 4.0 rollouts.'
+      },
+      {
+        type: 'subheading',
+        content: 'Europe Leads the Way'
+      },
+      {
+        type: 'list',
+        items: [
+          'Strong safety culture (Regulation 2016/425)',
+          'R&D grants for IoT wearables',
+          'Standards bodies drafting the first "smart PPE" test methods—adoption will snowball once final'
+        ]
+      },
+      {
+        type: 'paragraph',
+        content: 'Sectors jumping in first: construction, logistics, energy, emergency services and healthcare.'
+      },
+      {
+        type: 'heading',
+        content: 'Five Real-World Upgrades'
+      },
+      {
+        type: 'table',
+        tableData: {
+          headers: ['Sector', 'Smart Textile Feature', 'On-the-Job Pay-off'],
+          rows: [
+            ['Construction', 'GPS high-vis vest + fall-detect helmet', 'Auto-ask for help within seconds of a fall; tracks crew in evacuation drills'],
+            ['Manufacturing', 'Gesture-controlled, cut-proof gloves', 'Operate scanners or robots hands-free; fewer repetitive-strain injuries'],
+            ['Oil & Gas', 'Gas-sniffing coveralls + haptic alerts', 'Workers feel a buzz before toxic levels rise; more time to evacuate'],
+            ['Fire & Rescue', 'Suits that log core-temp & heart rate', 'Command can rotate crews before heatstroke hits'],
+            ['Healthcare', 'Smart respirators that self-fit-check', 'Perfect seal every shift; filter-life countdown on an app']
+          ]
+        }
+      },
+      {
+        type: 'heading',
+        content: 'Benefits You Can Sell Today'
+      },
+      {
+        type: 'list',
+        items: [
+          'Fewer accidents, less downtime – instant alerts reduce incident rates by double-digit percentages in pilot sites',
+          'Happier, healthier teams – lightweight tech means no bulky extras; auto-cooling fabrics cut heat stress',
+          'Hard ROI – lower insurance premiums, productivity boosts, data proof for audits',
+          'Future compliance ready – built-in logs simplify proof for regulators and customers',
+          'Brand edge – showing up with connected gear wins bids against commodity vendors'
+        ]
+      },
+      {
+        type: 'quote',
+        content: 'Smart textiles are changing PPE from a last-resort shield into a 24/7 safety partner. Customers and regulators will soon expect nothing less.'
+      },
+      {
+        type: 'heading',
+        content: 'Barriers (and How WRLDS Removes Them)'
+      },
+      {
+        type: 'table',
+        tableData: {
+          headers: ['Barrier', 'WRLDS Fix'],
+          rows: [
+            ['Electronics must survive laundering and abuse', 'Wash-proof sensor modules embedded in seam-sealed pockets'],
+            ['Battery anxiety', 'Energy-harvesting textiles + ultra-low-power chips; charge during breaks like a phone'],
+            ['Data security/GDPR', 'End-to-end encrypted cloud hosted in EU, with customer-controlled retention'],
+            ['Integration know-how', 'Reference designs, SDKs and training shorten dev cycles from years to months']
+          ]
+        }
+      },
+      {
+        type: 'heading',
+        content: 'Why Partner with WRLDS Technologies'
+      },
+      {
+        type: 'list',
+        items: [
+          'Textile-ready sensor platform – snap-in modules, washable connectors, no visible bulk',
+          'Connectivity out of the box – BLE, LTE-M, or thread-to-phone gateways; firmware managed OTA',
+          'Actionable dashboards – heat-map risks, automate reports, API hooks for your EHS software',
+          'Co-branding freedom – you own look, fit and market channel; we supply the brains',
+          'Rapid pilots – starter kits ship in weeks; run real-site trials before scaling'
+        ]
+      },
+      {
+        type: 'heading',
+        content: 'Ready to Build the Future of Safety?'
+      },
+      {
+        type: 'paragraph',
+        content: 'Smart textiles are changing PPE from a last-resort shield into a 24/7 safety partner. Customers and regulators will soon expect nothing less. Let\'s join forces: combine your trusted workwear with WRLDS\' plug-and-play tech to launch smart PPE your clients—and their workers—will love.'
+      },
+      {
+        type: 'paragraph',
+        content: 'Ready to build the next generation of protective gear? Contact WRLDS Technologies today and start your pilot.'
+      }
+    ]
+  },
   {
     id: '1',
     slug: 'sensor-integrated-textiles-trend',
