@@ -46,8 +46,8 @@
 
   html, body {
     @apply m-0 p-0 overflow-x-hidden;
-    width: 100vw; /* Changed from w-full to 100vw */
-    max-width: 100%; /* Added max-width */
+    width: 100%;
+    max-width: 100%;
   }
 
   body {
@@ -56,7 +56,7 @@
 }
 
 .section-container {
-  @apply w-full px-4 sm:px-6 lg:px-8 py-12; /* Removed max-w-7xl mx-auto */
+  @apply w-full px-4 sm:px-6 lg:px-8 py-12;
 }
 
 .hover-lift {
@@ -74,7 +74,7 @@
 /* Banner styles */
 .banner-container {
   position: relative;
-  width: 100vw; /* Changed from 100% to 100vw */
+  width: 100%;
   overflow: hidden;
 }
 
@@ -88,20 +88,35 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 20px;
+  padding: 1rem;
   text-align: center;
   z-index: 10;
 }
 
 .banner-title {
-  font-size: 2.5rem;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
   font-weight: 700;
-  margin-bottom: 1.5rem; /* Adjusted to match 20-30px spacing */
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .banner-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 1.5rem;
+  }
 }
 
 .banner-subtitle {
-  font-size: 1.2rem;
-  max-width: 800px;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  max-width: 90%;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  .banner-subtitle {
+    max-width: 800px;
+  }
 }
 
 /* Animation classes */

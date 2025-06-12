@@ -45,7 +45,7 @@ const BlogPostDetail = () => {
       
       <article className="w-full pt-16 pb-16">
         {/* Hero Section with Background Image */}
-        <div className="banner-container h-96 md:h-[500px] relative">
+        <div className="banner-container h-64 sm:h-80 md:h-96 lg:h-[500px] relative">
           {post.imageUrl && (
             <img 
               src={post.imageUrl} 
@@ -56,10 +56,10 @@ const BlogPostDetail = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
           
           <div className="banner-overlay">
-            <div className="container mx-auto px-4">
-              <div className="max-w-4xl mx-auto">
-                <Link to="/blog" className="inline-flex items-center text-gray-300 hover:text-white mb-6 transition-colors">
-                  <ArrowLeft className="mr-2 h-4 w-4" />
+            <div className="container mx-auto px-4 w-full">
+              <div className="max-w-4xl mx-auto w-full">
+                <Link to="/blog" className="inline-flex items-center text-gray-300 hover:text-white mb-4 sm:mb-6 transition-colors text-sm sm:text-base">
+                  <ArrowLeft className="mr-2 h-3 w-3 sm:h-4 sm:w-4" />
                   Back to Blog
                 </Link>
                 
@@ -67,16 +67,16 @@ const BlogPostDetail = () => {
                   {post.title}
                 </h1>
                 
-                <div className="flex flex-wrap items-center gap-6 text-gray-300 mb-8">
-                  <div className="flex items-center">
-                    <Calendar className="mr-2 h-4 w-4" />
+                <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-3 sm:gap-6 text-gray-300 mb-6 sm:mb-8">
+                  <div className="flex items-center text-sm sm:text-base">
+                    <Calendar className="mr-2 h-3 w-3 sm:h-4 sm:w-4" />
                     {post.date}
                   </div>
-                  <div className="flex items-center">
-                    <User className="mr-2 h-4 w-4" />
+                  <div className="flex items-center text-sm sm:text-base">
+                    <User className="mr-2 h-3 w-3 sm:h-4 sm:w-4" />
                     {post.author}
                   </div>
-                  <div className="px-3 py-1 bg-white/10 rounded-full text-sm font-medium">
+                  <div className="px-3 py-1 bg-white/10 rounded-full text-xs sm:text-sm font-medium">
                     {post.category}
                   </div>
                 </div>
@@ -90,7 +90,7 @@ const BlogPostDetail = () => {
         </div>
 
         {/* Article Content */}
-        <div className="container mx-auto px-4 py-16">
+        <div className="container mx-auto px-4 py-8 sm:py-12 md:py-16">
           <div className="max-w-4xl mx-auto">
             <EnhancedBlogContent content={post.content} />
           </div>
