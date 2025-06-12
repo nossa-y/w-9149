@@ -13,7 +13,7 @@ export interface BlogPost {
 }
 
 export interface ContentSection {
-  type: 'paragraph' | 'heading' | 'subheading' | 'list' | 'quote' | 'table' | 'stats' | 'chart' | 'icon-list';
+  type: 'paragraph' | 'heading' | 'subheading' | 'list' | 'quote' | 'table' | 'stats' | 'chart' | 'icon-list' | 'bibliography';
   content?: string;
   items?: string[];
   tableData?: {
@@ -59,63 +59,43 @@ export const blogPosts: BlogPost[] = [
     content: [
       {
         type: 'paragraph',
-        content: 'Every worker deserves to go home safe at the end of their shift. That fundamental principle drives the evolution of workplace safety technology, where protecting people has always been the primary goal. What\'s remarkable about today\'s wearable safety technology is how it achieves this mission while also delivering tangible business benefits—proving that doing right by workers and running a profitable operation aren\'t mutually exclusive.'
+        content: 'Every worker deserves to go home safe at the end of their shift. That fundamental principle drives the evolution of workplace safety technology, where protecting people has always been the primary goal. What\'s remarkable about today\'s wearable safety technology is how it achieves this mission while also delivering tangible business benefits. Protecting workers and running a profitable operation aren\'t mutually exclusive.'
       },
       {
         type: 'heading',
-        content: 'The Human Cost Behind the Numbers'
+        content: 'Understanding the Real Cost of Workplace Injuries'
       },
       {
         type: 'paragraph',
-        content: 'Behind every workplace injury statistic is a person—someone\'s parent, partner, or child. The National Safety Council reports that work injuries affect millions of families each year, with the average medically consulted injury costing $43,000 in 2023. But the real cost goes far beyond medical bills: lost time with family, rehabilitation challenges, and the emotional impact on both workers and their colleagues.'
-      },
-      {
-        type: 'stats',
-        statsData: [
-          {
-            value: '2.2M',
-            label: 'Workers injured annually in private industry',
-            icon: 'Users'
-          },
-          {
-            value: '54%',
-            label: 'Reduction in OSHA recordables with wearables',
-            icon: 'Shield'
-          },
-          {
-            value: '88%',
-            label: 'Fewer lost workdays reported',
-            icon: 'TrendingUp'
-          }
-        ]
+        content: 'Behind every workplace injury statistic is a person: someone\'s parent, partner, or child. The data tells a sobering story about workplace safety in America. According to the Bureau of Labor Statistics, private industry employers reported approximately 2.2 workplace injuries per 100 full-time equivalent workers in 2023 [2]. The National Safety Council reports that the average medically consulted injury costs $43,000 in direct costs alone [1].'
       },
       {
         type: 'paragraph',
-        content: 'These statistics represent real improvements in worker safety and quality of life. When we can prevent injuries before they happen, we\'re not just protecting company assets—we\'re preserving families and communities.'
+        content: 'To put this in perspective: a company with 200 workers would statistically expect about four or five recordable injuries annually, representing approximately $189,200 in direct costs (2.2 injuries per 100 FTE × 200 workers = 4.4 injuries; 4.4 × $43,000 = $189,200) [1] [2]. This calculation doesn\'t include indirect costs like lost productivity, replacement worker training, or the emotional impact on teams.'
+      },
+      {
+        type: 'paragraph',
+        content: 'The OSHA Safety Pays calculator demonstrates how these injury costs translate to required additional sales revenue to maintain profit margins [3]. When we can prevent injuries before they happen, we\'re not just protecting company assets. We\'re preserving families and communities.'
       },
       {
         type: 'heading',
-        content: 'Real Workers, Real Results'
+        content: 'Real Results from Wearable Safety Technology'
       },
       {
         type: 'paragraph',
-        content: 'The power of wearable safety technology becomes clear when we look at real workplace implementations. These aren\'t laboratory experiments—they\'re actual workers in demanding environments, using technology that helps them stay safe while doing their jobs effectively.'
+        content: 'The effectiveness of wearable safety technology becomes clear when we examine documented case studies and vendor-reported results. These implementations show real workers in demanding environments using technology that helps them stay safe while doing their jobs effectively.'
       },
       {
         type: 'subheading',
-        content: 'Warehouse Success Story'
+        content: 'Documented Industry Results'
       },
       {
         type: 'paragraph',
-        content: 'At a national distribution center, warehouse staff were fitted with posture sensors for three weeks. The results spoke volumes about both worker engagement and safety improvement. Sixty-two percent of workers reduced risky movements by half, and overall ergonomic hazards dropped by thirty-nine percent. Workers reported feeling more aware of their movements and appreciated the gentle vibration reminders that helped them maintain safer postures throughout their shifts.'
-      },
-      {
-        type: 'subheading',
-        content: 'Large-Scale Safety Transformation'
+        content: 'Digi International reports a customer case study showing a 58 percent lower injury rate and 54 percent lower claims cost among workers using wearable safety devices (Digi, 2024) [4]. An Insurance Journal analysis found that early implementations showed vendor-reported injury reductions of 62 percent and claims cost reductions of 49 percent (Insurance Journal, 2021) [5].'
       },
       {
         type: 'paragraph',
-        content: 'A major US insurance carrier partnered with over twenty-one thousand policyholders to implement wearable safety technology. The results were remarkable: fifty-four percent fewer OSHA recordable incidents and eighty-eight percent reduction in lost workdays. Most importantly, thousands of workers went home healthy instead of injured.'
+        content: 'Using our earlier example: if wearable technology achieves a 50 percent reduction in workplace injuries, that same 200-worker company could potentially save approximately $94,600 annually in direct injury costs alone (50% of $189,200) [1] [2]. Early data suggests these improvements often extend beyond direct cost savings to include better safety culture and worker engagement.'
       },
       {
         type: 'heading',
@@ -123,7 +103,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: 'The beautiful thing about effective safety technology is that protecting workers naturally leads to business benefits. When injuries decrease, so do workers\' compensation claims, replacement worker costs, and operational disruptions. It\'s a virtuous cycle where prioritizing people creates positive business outcomes.'
+        content: 'Effective safety technology creates a virtuous cycle where prioritizing people leads to positive business outcomes. When injuries decrease, so do workers\' compensation claims, replacement worker costs, and operational disruptions.'
       },
       {
         type: 'table',
@@ -139,19 +119,19 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: 'Insurance companies are recognizing this alignment too. Many carriers now include wearable devices in workers\' compensation packages, understanding that prevention is more cost-effective than treatment. This shift represents a fundamental change in how we approach workplace safety—from reactive to proactive, from treating injuries to preventing them.'
+        content: 'Insurance companies are recognizing this alignment. According to Carrier Management, some major insurers now bundle wearable devices with workers\' compensation policies when utilization rates remain high (Carrier Management, 2021) [6]. This shift represents a fundamental change in approach: from reactive treatment to proactive prevention.'
       },
       {
         type: 'heading',
-        content: 'Growing Demand for Worker-Centered Safety'
+        content: 'Growing Market for Worker-Centered Safety'
       },
       {
         type: 'paragraph',
-        content: 'The market for wearable safety technology is expanding rapidly, driven not just by cost considerations but by a genuine commitment to worker wellbeing. Companies are recognizing that their most valuable assets are their people, and investing in technology that protects those people makes both ethical and business sense.'
+        content: 'The market for wearable safety technology is expanding rapidly. Markets and Markets reports the wearable sensors market grew from $1.6 billion in 2023 and projects it will reach $4.2 billion by 2028, representing a 21 percent compound annual growth rate (Markets and Markets, 2024) [7].'
       },
       {
         type: 'paragraph',
-        content: 'This growth reflects a broader cultural shift toward prioritizing worker safety and wellbeing, with technology serving as an enabler rather than a replacement for human judgment and care.'
+        content: 'This growth reflects a cultural shift toward prioritizing worker safety and wellbeing, with technology serving as an enabler rather than a replacement for human judgment and care.'
       },
       {
         type: 'heading',
@@ -176,19 +156,35 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'heading',
-        content: 'Let\'s Start a Conversation'
+        content: 'Let\'s Calculate Your Potential Impact'
       },
       {
         type: 'paragraph',
-        content: 'We\'d love to learn about your safety goals and challenges. Whether you\'re looking to reduce specific types of injuries, improve safety culture, or explore how technology can support your existing programs, we\'re here to listen and collaborate.'
+        content: 'We\'d love to learn about your safety goals and specific challenges. Whether you\'re looking to reduce particular types of injuries, improve safety culture, or explore how technology can support your existing programs, we\'re here to listen and collaborate.'
       },
       {
         type: 'paragraph',
-        content: 'Share your safety priorities with us, and we\'ll work together to explore how wearable technology might fit into your comprehensive safety strategy. No hard sell, no one-size-fits-all solutions—just an honest conversation about protecting the people who make your organization successful.'
+        content: 'Bring your organization\'s injury and loss data, and we\'ll work together to calculate potential cost savings using your actual numbers. We can help you explore how wearable technology might fit into your comprehensive safety strategy using tools like the OSHA Safety Pays calculator [3]. No hard sell, no one-size-fits-all solutions: just an honest conversation about protecting the people who make your organization successful.'
       },
       {
         type: 'quote',
         content: 'Great safety partnerships start with shared values: putting workers first, building trust through transparency, and believing that everyone deserves to work in an environment where they can thrive safely.'
+      },
+      {
+        type: 'heading',
+        content: 'Sources and References'
+      },
+      {
+        type: 'bibliography',
+        items: [
+          '[1] National Safety Council, Work Injury Costs, Injury Facts, 2024 edition. Available at: injuryfacts.nsc.org',
+          '[2] US Bureau of Labor Statistics, Employer-Reported Workplace Injuries and Illnesses, 2023, Table 1. Available at: bls.gov',
+          '[3] Occupational Safety and Health Administration, Safety Pays Individual Injury Estimator. Available at: osha.gov',
+          '[4] Digi International, "Kinetic Creates an Innovative Wearable That Reduces Workplace Injuries," customer story, 2024. Available at: digi.com',
+          '[5] "Want Wearable Tech With That Workers\' Comp Policy?" Insurance Journal, 2021. Available at: insurancejournal.com',
+          '[6] "Nationwide, Kinetic Team on Wearable Workplace Safety Technology," Carrier Management, 2021. Available at: carriermanagement.com',
+          '[7] Markets and Markets, "Wearable Sensors Market Size, Share, Industry Report," 2024 update. Available at: marketsandmarkets.com'
+        ]
       }
     ]
   },

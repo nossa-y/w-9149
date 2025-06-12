@@ -73,6 +73,19 @@ const EnhancedBlogContent: React.FC<EnhancedBlogContentProps> = ({ content }) =>
             })}
           </div>
         );
+
+      case 'bibliography':
+        return (
+          <div key={index} className="mb-8">
+            <ol className="list-none space-y-3">
+              {section.items?.map((item, itemIndex) => (
+                <li key={itemIndex} className="text-gray-800 leading-relaxed text-sm bg-gray-50 p-3 rounded border-l-4 border-black">
+                  {item}
+                </li>
+              ))}
+            </ol>
+          </div>
+        );
       
       case 'stats':
         return (
