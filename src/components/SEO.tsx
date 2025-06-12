@@ -34,7 +34,7 @@ const SEO: React.FC<SEOProps> = ({
   const currentUrl = `https://wrlds.com${location.pathname}`;
   const absoluteImageUrl = imageUrl.startsWith('http') ? imageUrl : `https://wrlds.com${imageUrl}`;
 
-  // Enhanced keywords for Smart PPE post
+  // Enhanced keywords for specific posts
   const enhancedKeywords = location.pathname.includes('smart-ppe-revolution') 
     ? [
         ...keywords,
@@ -48,6 +48,23 @@ const SEO: React.FC<SEOProps> = ({
         'worker protection systems',
         'smart hard hats',
         'connected safety equipment'
+      ]
+    : location.pathname.includes('wearable-safety-tech-saves-money')
+    ? [
+        ...keywords,
+        'workplace injury costs',
+        'safety ROI',
+        'workers compensation savings',
+        'ergonomic sensors',
+        'workplace safety investment',
+        'safety technology ROI',
+        'industrial wearables',
+        'safety cost reduction',
+        'occupational safety economics',
+        'safety technology partnerships',
+        'workplace injury statistics',
+        'safety equipment financing',
+        'injury prevention technology'
       ]
     : keywords;
 
@@ -142,6 +159,38 @@ const SEO: React.FC<SEOProps> = ({
     ]
   } : null;
 
+  // Add FAQ structured data for Wearable Safety Tech ROI post
+  const wearableSafetyROIFAQData = location.pathname.includes('wearable-safety-tech-saves-money') ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'How much do workplace injuries cost?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'According to the National Safety Council, the average cost for a medically consulted work injury is $43,000 in 2023. With 2.2 injuries per 100 full-time workers, a 200-person site can expect about $215,000 in injury costs annually before accounting for downtime or replacement training.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'What ROI can wearable safety technology deliver?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Real-world deployments show significant returns: one study found 54% lower OSHA recordables and 88% fewer lost workdays. Another warehouse study showed 62% of workers reduced risky movements by half, with total ergonomic hazards falling 39%.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Do insurance companies support wearable safety technology?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes, many insurers now bundle wearable device costs into workers compensation premiums. Employers keep the hardware as long as usage stays high because fewer claims leave insurers ahead financially. Regional carriers are expanding similar rebate schemes.'
+        }
+      }
+    ]
+  } : null;
+
   // Combine keywords with any additional category terms
   const keywordString = category 
     ? [...enhancedKeywords, category.toLowerCase()].join(', ') 
@@ -205,6 +254,12 @@ const SEO: React.FC<SEOProps> = ({
       {smartPPEFAQData && (
         <script type="application/ld+json">
           {JSON.stringify(smartPPEFAQData)}
+        </script>
+      )}
+      
+      {wearableSafetyROIFAQData && (
+        <script type="application/ld+json">
+          {JSON.stringify(wearableSafetyROIFAQData)}
         </script>
       )}
     </Helmet>

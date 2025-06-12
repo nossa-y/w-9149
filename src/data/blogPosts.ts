@@ -24,6 +24,133 @@ export interface ContentSection {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: '6',
+    title: 'Wearable Safety Tech: Proof It Saves Money, Not Just Spines',
+    slug: 'wearable-safety-tech-saves-money-spines',
+    excerpt: 'A WRLDS viewpoint for would-be partners on how wearable safety technology delivers measurable ROI through injury prevention and cost reduction in the workplace.',
+    date: 'June 12, 2025',
+    author: 'WRLDS Technologies',
+    category: 'Business',
+    imageUrl: '/lovable-uploads/a22f76e3-a8f1-4074-abd7-cb871ea55a44.png',
+    keywords: [
+      'wearable safety technology',
+      'workplace injury costs',
+      'safety ROI',
+      'injury prevention',
+      'workers compensation savings',
+      'ergonomic sensors',
+      'workplace safety investment',
+      'safety technology ROI',
+      'industrial wearables',
+      'safety cost reduction',
+      'occupational safety economics',
+      'safety technology partnerships',
+      'workplace injury statistics',
+      'safety equipment financing',
+      'injury prevention technology'
+    ],
+    metaDescription: 'Discover how wearable safety technology delivers proven ROI by reducing workplace injuries and cutting costs. Real field data shows 54% fewer OSHA recordables and significant savings for businesses.',
+    content: [
+      {
+        type: 'paragraph',
+        content: 'In the world of workplace safety, the conversation has shifted from simply protecting workers to demonstrating clear financial returns. Wearable safety technology is proving that injury prevention isn\'t just about doing the right thing—it\'s about protecting the bottom line with measurable, data-driven results.'
+      },
+      {
+        type: 'heading',
+        content: 'Injuries Still Bite the Bottom Line'
+      },
+      {
+        type: 'paragraph',
+        content: 'The numbers tell a stark story. The National Safety Council puts the average price for a medically consulted work injury at $43,000 in 2023. Private industry recorded 2.2 injuries for every hundred full-time workers the same year, according to the US Bureau of Labor Statistics. If you run a two-hundred-person site, the spreadsheet says five recordables a year worth about $215,000 before you even talk downtime or replacement training.'
+      },
+      {
+        type: 'paragraph',
+        content: 'These aren\'t just statistics—they represent real costs that eat into profit margins, disrupt operations, and impact productivity across industries from construction to manufacturing.'
+      },
+      {
+        type: 'heading',
+        content: 'Field Data That Exposes the Upside'
+      },
+      {
+        type: 'paragraph',
+        content: 'Real-world implementations are delivering impressive results that go far beyond laboratory demonstrations. The data from actual workplace deployments shows the tangible impact of wearable safety technology.'
+      },
+      {
+        type: 'subheading',
+        content: 'Warehouse Case Study'
+      },
+      {
+        type: 'paragraph',
+        content: 'A national distribution group fitted posture sensors to warehouse staff for three weeks. The results were remarkable: sixty-two percent of workers cut risky moves by half and total ergonomic hazard fell thirty-nine percent. This wasn\'t a controlled experiment—it was a busy facility where a silent vibration on the belt beat every poster in the break room.'
+      },
+      {
+        type: 'subheading',
+        content: 'Large-Scale Insurance Carrier Study'
+      },
+      {
+        type: 'paragraph',
+        content: 'A large US insurance carrier rolled out wearables to more than twenty-one thousand policy-holders. They reported fifty-four percent lower OSHA recordables and eighty-eight percent fewer lost workdays. These aren\'t projections or estimates—they\'re actual recorded outcomes from real workplaces.'
+      },
+      {
+        type: 'heading',
+        content: 'Insurers Are Starting to Pay for Prevention'
+      },
+      {
+        type: 'paragraph',
+        content: 'The insurance industry is recognizing the value proposition. That same carrier now bundles the device cost inside the workers comp premium. Employers keep the hardware as long as usage stays high because fewer claims still leave the insurer ahead. Similar rebate schemes are quietly spreading among regional carriers, a sign that finance departments can treat wearables as an operating expense rather than a capital gamble.'
+      },
+      {
+        type: 'paragraph',
+        content: 'This shift represents a fundamental change in how safety investments are viewed—from cost centers to profit protectors.'
+      },
+      {
+        type: 'heading',
+        content: 'The Market Is Warming Up Fast'
+      },
+      {
+        type: 'paragraph',
+        content: 'Market momentum is building rapidly. Analysts expect the global wearable sensor market to jump from $1.6 billion in 2023 to $4.2 billion by 2028, a twenty-one percent annual growth clip. In other words, buyers have moved from curiosity to budget line items.'
+      },
+      {
+        type: 'paragraph',
+        content: 'This growth reflects increasing recognition that wearable safety technology delivers measurable returns, not just safety improvements.'
+      },
+      {
+        type: 'heading',
+        content: 'Where WRLDS Fits In'
+      },
+      {
+        type: 'paragraph',
+        content: 'We\'re not pitching another boxed gadget. We\'re offering a building block that lets brands, OEMs and carriers launch their own risk-reduction service without waiting two years for a proof of concept.'
+      },
+      {
+        type: 'subheading',
+        content: 'Our Platform Advantages'
+      },
+      {
+        type: 'list',
+        items: [
+          'Sensor tech without vendor lock-in – our platform lets partners white-label their own apps or tie data into existing dashboards',
+          'Garment or gear integration – sew-in modules for uniforms, belts or PPE so nobody forgets to clip on a tag',
+          'Asia supply chain already validated – tier-one factories, pre-negotiated test labs and back-to-back component options that cut time risk',
+          'Insurer-ready data model – alerts, exposure minutes and compliance scores exported in formats underwriters already use'
+        ]
+      },
+      {
+        type: 'heading',
+        content: 'Next Step'
+      },
+      {
+        type: 'paragraph',
+        content: 'Send us last year\'s injury log and headcount. We will return a one-page saving estimate, citation-linked and formatted for the CFO. If the numbers look soft, tell us why. Skepticism is welcome; it sharpens the model.'
+      },
+      {
+        type: 'quote',
+        content: 'Partnership beats rivalry. Let\'s see if our platform can turn your safety goal into cash in the bank.'
+      }
+    ]
+  },
+  {
     id: '5',
     title: 'Smart PPE Revolution: How Safety Technology is Transforming Worker Protection',
     slug: 'smart-ppe-revolution-safety-technology',

@@ -1,3 +1,4 @@
+
 import PageLayout from '@/components/PageLayout';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -8,8 +9,8 @@ import BlogPostCard from '@/components/BlogPostCard';
 import { blogPosts } from '@/data/blogPosts';
 
 const Blog = () => {
-  // Get the newest blog post for the featured post section
-  const featuredPost = blogPosts.find(post => post.id === '4') || blogPosts[0]; // Feature the new post about sensor technology
+  // Get the newest blog post for the featured post section (the new post with id '6')
+  const featuredPost = blogPosts.find(post => post.id === '6') || blogPosts[0];
   // Get the rest of the blog posts for the grid section
   const otherPosts = blogPosts.filter(post => post.id !== featuredPost?.id);
   
