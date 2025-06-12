@@ -393,7 +393,7 @@ export const blogPosts: BlogPost[] = [
     date: 'May 15, 2025',
     author: 'WRLDS Technologies',
     category: 'Process',
-    imageUrl: '/lovable-uploads/498050108023-c5249f4df085.jpg',
+    imageUrl: '/lovable-uploads/5262afdb-dd24-4d5e-be66-7c6717adbca9.png',
     keywords: [
       'product development',
       'smart product design',
