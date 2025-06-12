@@ -56,8 +56,8 @@ const BlogPostDetail = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80"></div>
           
           <div className="banner-overlay">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full h-full flex items-center">
-              <div className="w-full max-w-4xl mx-auto">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 w-full h-full flex items-center justify-start md:justify-center">
+              <div className="w-full max-w-4xl mx-auto text-left md:text-center">
                 <Link to="/blog" className="inline-flex items-center text-gray-300 hover:text-white mb-4 transition-colors text-sm">
                   <ArrowLeft className="mr-2 h-3 w-3" />
                   Back to Blog
@@ -70,7 +70,7 @@ const BlogPostDetail = () => {
                 
                 {/* Compact mobile metadata */}
                 <div className="flex flex-col gap-3 text-gray-300 mb-4 sm:mb-6">
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-start md:justify-center gap-2 sm:gap-6">
                     <div className="flex items-center text-xs sm:text-base">
                       <Calendar className="mr-2 h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
                       <span>{post.date}</span>
@@ -81,7 +81,7 @@ const BlogPostDetail = () => {
                     </div>
                   </div>
                   
-                  <div className="flex">
+                  <div className="flex justify-start md:justify-center">
                     <div className="px-3 py-1 sm:px-4 sm:py-2 bg-white/15 backdrop-blur-sm rounded-full text-xs sm:text-sm font-medium border border-white/20">
                       {post.category}
                     </div>
@@ -89,7 +89,7 @@ const BlogPostDetail = () => {
                 </div>
                 
                 {/* Mobile-optimized excerpt */}
-                <p className="text-gray-200 text-sm sm:text-lg md:text-xl leading-relaxed max-w-3xl font-light">
+                <p className="text-gray-200 text-sm sm:text-lg md:text-xl leading-relaxed max-w-3xl mx-auto font-light">
                   {post.excerpt}
                 </p>
               </div>
