@@ -502,7 +502,7 @@ export const blogPosts: BlogPost[] = [
     date: 'May 8, 2025',
     author: 'WRLDS Technologies',
     category: 'Innovation',
-    imageUrl: '/lovable-uploads/photo-1605810230434-7631ac76ec81.jpg',
+    imageUrl: '/lovable-uploads/4187f423-ba69-4043-be76-c43098488348.png',
     keywords: [
       'AI uniforms',
       'emergency response',
