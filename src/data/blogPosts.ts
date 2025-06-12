@@ -13,12 +13,21 @@ export interface BlogPost {
 }
 
 export interface ContentSection {
-  type: 'paragraph' | 'heading' | 'subheading' | 'list' | 'quote' | 'table';
+  type: 'paragraph' | 'heading' | 'subheading' | 'list' | 'quote' | 'table' | 'stats' | 'chart' | 'icon-list';
   content?: string;
   items?: string[];
   tableData?: {
     headers: string[];
     rows: string[][];
+  };
+  statsData?: {
+    value: string;
+    label: string;
+    icon?: string;
+  }[];
+  chartData?: {
+    title: string;
+    data: { name: string; value: number; }[];
   };
 }
 
@@ -31,7 +40,7 @@ export const blogPosts: BlogPost[] = [
     date: 'June 12, 2025',
     author: 'WRLDS Technologies',
     category: 'Business',
-    imageUrl: '/lovable-uploads/a22f76e3-a8f1-4074-abd7-cb871ea55a44.png',
+    imageUrl: '/lovable-uploads/078a129e-0f98-4d91-af61-873687db1a04.png',
     keywords: [
       'wearable safety technology',
       'workplace injury costs',
@@ -60,6 +69,26 @@ export const blogPosts: BlogPost[] = [
         content: 'Injuries Still Bite the Bottom Line'
       },
       {
+        type: 'stats',
+        statsData: [
+          {
+            value: '$43,000',
+            label: 'Average cost per work injury (2023)',
+            icon: 'DollarSign'
+          },
+          {
+            value: '2.2',
+            label: 'Injuries per 100 full-time workers',
+            icon: 'Users'
+          },
+          {
+            value: '$215,000',
+            label: 'Annual injury costs for 200-person site',
+            icon: 'TrendingUp'
+          }
+        ]
+      },
+      {
         type: 'paragraph',
         content: 'The numbers tell a stark story. The National Safety Council puts the average price for a medically consulted work injury at $43,000 in 2023. Private industry recorded 2.2 injuries for every hundred full-time workers the same year, according to the US Bureau of Labor Statistics. If you run a two-hundred-person site, the spreadsheet says five recordables a year worth about $215,000 before you even talk downtime or replacement training.'
       },
@@ -80,12 +109,32 @@ export const blogPosts: BlogPost[] = [
         content: 'Warehouse Case Study'
       },
       {
+        type: 'chart',
+        chartData: {
+          title: 'Warehouse Safety Improvements',
+          data: [
+            { name: 'Workers reducing risky moves by 50%', value: 62 },
+            { name: 'Total ergonomic hazard reduction', value: 39 }
+          ]
+        }
+      },
+      {
         type: 'paragraph',
         content: 'A national distribution group fitted posture sensors to warehouse staff for three weeks. The results were remarkable: sixty-two percent of workers cut risky moves by half and total ergonomic hazard fell thirty-nine percent. This wasn\'t a controlled experiment—it was a busy facility where a silent vibration on the belt beat every poster in the break room.'
       },
       {
         type: 'subheading',
         content: 'Large-Scale Insurance Carrier Study'
+      },
+      {
+        type: 'chart',
+        chartData: {
+          title: 'Insurance Carrier Results (21,000+ Workers)',
+          data: [
+            { name: 'Reduction in OSHA recordables', value: 54 },
+            { name: 'Reduction in lost workdays', value: 88 }
+          ]
+        }
       },
       {
         type: 'paragraph',
@@ -108,6 +157,16 @@ export const blogPosts: BlogPost[] = [
         content: 'The Market Is Warming Up Fast'
       },
       {
+        type: 'chart',
+        chartData: {
+          title: 'Global Wearable Sensor Market Growth',
+          data: [
+            { name: '2023', value: 1.6 },
+            { name: '2028 (Projected)', value: 4.2 }
+          ]
+        }
+      },
+      {
         type: 'paragraph',
         content: 'Market momentum is building rapidly. Analysts expect the global wearable sensor market to jump from $1.6 billion in 2023 to $4.2 billion by 2028, a twenty-one percent annual growth clip. In other words, buyers have moved from curiosity to budget line items.'
       },
@@ -128,7 +187,7 @@ export const blogPosts: BlogPost[] = [
         content: 'Our Platform Advantages'
       },
       {
-        type: 'list',
+        type: 'icon-list',
         items: [
           'Sensor tech without vendor lock-in – our platform lets partners white-label their own apps or tie data into existing dashboards',
           'Garment or gear integration – sew-in modules for uniforms, belts or PPE so nobody forgets to clip on a tag',
