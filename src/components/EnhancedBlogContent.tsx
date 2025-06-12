@@ -136,7 +136,7 @@ const EnhancedBlogContent: React.FC<EnhancedBlogContentProps> = ({ content }) =>
                         cy="50%"
                         outerRadius={80}
                         dataKey="value"
-                        label={({ name, value }) => `${name}: ${value}%`}
+                        label={(entry) => `${entry.name}: ${entry.value}%`}
                       >
                         {section.chartData.data.map((entry, index) => (
                           <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
