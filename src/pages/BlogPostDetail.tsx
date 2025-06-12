@@ -93,17 +93,6 @@ const BlogPostDetail = () => {
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto">
             <EnhancedBlogContent content={post.content} />
-            
-            {/* Call to Action */}
-            <div className="mt-16 p-8 bg-black text-white rounded-lg text-center">
-              <h3 className="text-2xl font-bold mb-4">Ready to Transform Your Safety Strategy?</h3>
-              <p className="text-gray-300 mb-6">
-                Let's discuss how WRLDS can help you implement wearable safety technology that delivers real ROI.
-              </p>
-              <Button variant="secondary" size="lg" className="bg-white text-black hover:bg-gray-100">
-                Get in Touch
-              </Button>
-            </div>
           </div>
         </div>
       </article>
