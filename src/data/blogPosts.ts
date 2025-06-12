@@ -90,10 +90,6 @@ export const blogPosts: BlogPost[] = [
         content: 'Behind every workplace injury statistic is a person: someone\'s parent, partner, or child. The data tells a sobering story about workplace safety in America. When we can prevent injuries before they happen, we\'re not just protecting company assets. We\'re preserving families and communities.'
       },
       {
-        type: 'paragraph',
-        content: 'Workplace injuries impose significant costs across multiple areas. Direct medical expenses typically account for about 35% of total injury costs, while lost productivity represents another 25%. Training replacement workers adds 20% to the cost burden, and administrative expenses round out the remaining 20%. Understanding these cost distributions helps organizations make informed decisions about safety investments.'
-      },
-      {
         type: 'heading',
         content: 'Real Results from Wearable Safety Technology'
       },
