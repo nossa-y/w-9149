@@ -44,8 +44,8 @@ const BlogPostDetail = () => {
       />
       
       <article className="w-full pt-16 pb-16">
-        {/* Hero Section - Medium height for mobile */}
-        <div className="banner-container h-80 sm:h-96 md:h-[450px] lg:h-[500px] relative">
+        {/* Hero Section - Taller to accommodate text content */}
+        <div className="banner-container h-96 sm:h-[450px] md:h-[500px] lg:h-[550px] relative">
           {post.imageUrl && (
             <img 
               src={post.imageUrl} 
