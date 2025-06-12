@@ -43,7 +43,7 @@ const BlogPostDetail = () => {
         type="article"
       />
       
-      <article className="w-full pt-24 pb-16">
+      <article className="w-full pt-16 pb-16">
         {/* Hero Section with Background Image */}
         <div className="banner-container h-96 md:h-[500px] relative">
           {post.imageUrl && (

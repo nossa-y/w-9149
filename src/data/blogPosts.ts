@@ -401,7 +401,7 @@ export const blogPosts: BlogPost[] = [
     date: 'May 15, 2025',
     author: 'WRLDS Technologies',
     category: 'Process',
-    imageUrl: '/lovable-uploads/idea_to_launch_blog_post_pic',
+    imageUrl: '/lovable-uploads/498050108023-c5249f4df085.jpg',
     keywords: [
       'product development',
       'smart product design',
@@ -510,7 +510,7 @@ export const blogPosts: BlogPost[] = [
     date: 'May 8, 2025',
     author: 'WRLDS Technologies',
     category: 'Innovation',
-    imageUrl: '/lovable-uploads/700e27d7-0513-4bfa-8ac4-f7fd6087594c.png',
+    imageUrl: '/lovable-uploads/photo-1605810230434-7631ac76ec81.jpg',
     keywords: [
       'AI uniforms',
       'emergency response',
