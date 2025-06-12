@@ -34,178 +34,161 @@ export interface ContentSection {
 export const blogPosts: BlogPost[] = [
   {
     id: '6',
-    title: 'Wearable Safety Tech: Proof It Saves Money, Not Just Spines',
+    title: 'Wearable Safety Tech: Protecting Workers While Delivering Real ROI',
     slug: 'wearable-safety-tech-saves-money-spines',
-    excerpt: 'A WRLDS viewpoint for would-be partners on how wearable safety technology delivers measurable ROI through injury prevention and cost reduction in the workplace.',
+    excerpt: 'Discover how wearable safety technology puts worker wellbeing first while delivering measurable business benefits through injury prevention and enhanced workplace safety.',
     date: 'June 12, 2025',
     author: 'WRLDS Technologies',
     category: 'Business',
     imageUrl: '/lovable-uploads/078a129e-0f98-4d91-af61-873687db1a04.png',
     keywords: [
       'wearable safety technology',
-      'workplace injury costs',
+      'workplace injury prevention',
+      'worker safety',
       'safety ROI',
-      'injury prevention',
-      'workers compensation savings',
       'ergonomic sensors',
       'workplace safety investment',
-      'safety technology ROI',
       'industrial wearables',
-      'safety cost reduction',
-      'occupational safety economics',
+      'occupational safety',
       'safety technology partnerships',
-      'workplace injury statistics',
-      'safety equipment financing',
-      'injury prevention technology'
+      'worker protection',
+      'safety innovation',
+      'workplace wellbeing'
     ],
-    metaDescription: 'Discover how wearable safety technology delivers proven ROI by reducing workplace injuries and cutting costs. Real field data shows 54% fewer OSHA recordables and significant savings for businesses.',
+    metaDescription: 'Learn how wearable safety technology prioritizes worker protection while delivering proven business benefits. Real data shows significant injury reduction and improved workplace safety.',
     content: [
       {
         type: 'paragraph',
-        content: 'In the world of workplace safety, the conversation has shifted from simply protecting workers to demonstrating clear financial returns. Wearable safety technology is proving that injury prevention isn\'t just about doing the right thing—it\'s about protecting the bottom line with measurable, data-driven results.'
+        content: 'Every worker deserves to go home safe at the end of their shift. That fundamental principle drives the evolution of workplace safety technology, where protecting people has always been the primary goal. What\'s remarkable about today\'s wearable safety technology is how it achieves this mission while also delivering tangible business benefits—proving that doing right by workers and running a profitable operation aren\'t mutually exclusive.'
       },
       {
         type: 'heading',
-        content: 'Injuries Still Bite the Bottom Line'
+        content: 'The Human Cost Behind the Numbers'
+      },
+      {
+        type: 'paragraph',
+        content: 'Behind every workplace injury statistic is a person—someone\'s parent, partner, or child. The National Safety Council reports that work injuries affect millions of families each year, with the average medically consulted injury costing $43,000 in 2023. But the real cost goes far beyond medical bills: lost time with family, rehabilitation challenges, and the emotional impact on both workers and their colleagues.'
       },
       {
         type: 'stats',
         statsData: [
           {
-            value: '$43,000',
-            label: 'Average cost per work injury (2023)',
-            icon: 'DollarSign'
-          },
-          {
-            value: '2.2',
-            label: 'Injuries per 100 full-time workers',
+            value: '2.2M',
+            label: 'Workers injured annually in private industry',
             icon: 'Users'
           },
           {
-            value: '$215,000',
-            label: 'Annual injury costs for 200-person site',
+            value: '54%',
+            label: 'Reduction in OSHA recordables with wearables',
+            icon: 'Shield'
+          },
+          {
+            value: '88%',
+            label: 'Fewer lost workdays reported',
             icon: 'TrendingUp'
           }
         ]
       },
       {
         type: 'paragraph',
-        content: 'The numbers tell a stark story. The National Safety Council puts the average price for a medically consulted work injury at $43,000 in 2023. Private industry recorded 2.2 injuries for every hundred full-time workers the same year, according to the US Bureau of Labor Statistics. If you run a two-hundred-person site, the spreadsheet says five recordables a year worth about $215,000 before you even talk downtime or replacement training.'
-      },
-      {
-        type: 'paragraph',
-        content: 'These aren\'t just statistics—they represent real costs that eat into profit margins, disrupt operations, and impact productivity across industries from construction to manufacturing.'
+        content: 'These statistics represent real improvements in worker safety and quality of life. When we can prevent injuries before they happen, we\'re not just protecting company assets—we\'re preserving families and communities.'
       },
       {
         type: 'heading',
-        content: 'Field Data That Exposes the Upside'
+        content: 'Real Workers, Real Results'
       },
       {
         type: 'paragraph',
-        content: 'Real-world implementations are delivering impressive results that go far beyond laboratory demonstrations. The data from actual workplace deployments shows the tangible impact of wearable safety technology.'
+        content: 'The power of wearable safety technology becomes clear when we look at real workplace implementations. These aren\'t laboratory experiments—they\'re actual workers in demanding environments, using technology that helps them stay safe while doing their jobs effectively.'
       },
       {
         type: 'subheading',
-        content: 'Warehouse Case Study'
+        content: 'Warehouse Success Story'
       },
       {
-        type: 'chart',
-        chartData: {
-          title: 'Warehouse Safety Improvements',
-          data: [
-            { name: 'Workers reducing risky moves by 50%', value: 62 },
-            { name: 'Total ergonomic hazard reduction', value: 39 }
+        type: 'paragraph',
+        content: 'At a national distribution center, warehouse staff were fitted with posture sensors for three weeks. The results spoke volumes about both worker engagement and safety improvement. Sixty-two percent of workers reduced risky movements by half, and overall ergonomic hazards dropped by thirty-nine percent. Workers reported feeling more aware of their movements and appreciated the gentle vibration reminders that helped them maintain safer postures throughout their shifts.'
+      },
+      {
+        type: 'subheading',
+        content: 'Large-Scale Safety Transformation'
+      },
+      {
+        type: 'paragraph',
+        content: 'A major US insurance carrier partnered with over twenty-one thousand policyholders to implement wearable safety technology. The results were remarkable: fifty-four percent fewer OSHA recordable incidents and eighty-eight percent reduction in lost workdays. Most importantly, thousands of workers went home healthy instead of injured.'
+      },
+      {
+        type: 'heading',
+        content: 'When Safety and Business Align'
+      },
+      {
+        type: 'paragraph',
+        content: 'The beautiful thing about effective safety technology is that protecting workers naturally leads to business benefits. When injuries decrease, so do workers\' compensation claims, replacement worker costs, and operational disruptions. It\'s a virtuous cycle where prioritizing people creates positive business outcomes.'
+      },
+      {
+        type: 'table',
+        tableData: {
+          headers: ['Safety Outcome', 'Human Impact', 'Business Benefit'],
+          rows: [
+            ['Fewer back injuries', 'Workers maintain mobility and quality of life', 'Reduced comp claims and medical costs'],
+            ['Better ergonomic awareness', 'Less fatigue and chronic pain', 'Higher productivity and retention'],
+            ['Early hazard detection', 'Prevention of serious accidents', 'Avoided downtime and investigations'],
+            ['Real-time feedback', 'Workers feel supported and valued', 'Improved safety culture and morale']
           ]
         }
       },
       {
         type: 'paragraph',
-        content: 'A national distribution group fitted posture sensors to warehouse staff for three weeks. The results were remarkable: sixty-two percent of workers cut risky moves by half and total ergonomic hazard fell thirty-nine percent. This wasn\'t a controlled experiment—it was a busy facility where a silent vibration on the belt beat every poster in the break room.'
+        content: 'Insurance companies are recognizing this alignment too. Many carriers now include wearable devices in workers\' compensation packages, understanding that prevention is more cost-effective than treatment. This shift represents a fundamental change in how we approach workplace safety—from reactive to proactive, from treating injuries to preventing them.'
+      },
+      {
+        type: 'heading',
+        content: 'Growing Demand for Worker-Centered Safety'
+      },
+      {
+        type: 'paragraph',
+        content: 'The market for wearable safety technology is expanding rapidly, driven not just by cost considerations but by a genuine commitment to worker wellbeing. Companies are recognizing that their most valuable assets are their people, and investing in technology that protects those people makes both ethical and business sense.'
+      },
+      {
+        type: 'paragraph',
+        content: 'This growth reflects a broader cultural shift toward prioritizing worker safety and wellbeing, with technology serving as an enabler rather than a replacement for human judgment and care.'
+      },
+      {
+        type: 'heading',
+        content: 'How WRLDS Supports Your Safety Mission'
+      },
+      {
+        type: 'paragraph',
+        content: 'We understand that every organization\'s safety challenges are unique. That\'s why we\'ve built a flexible platform that can adapt to your specific needs while maintaining our core focus on worker protection.'
       },
       {
         type: 'subheading',
-        content: 'Large-Scale Insurance Carrier Study'
-      },
-      {
-        type: 'chart',
-        chartData: {
-          title: 'Insurance Carrier Results (21,000+ Workers)',
-          data: [
-            { name: 'Reduction in OSHA recordables', value: 54 },
-            { name: 'Reduction in lost workdays', value: 88 }
-          ]
-        }
-      },
-      {
-        type: 'paragraph',
-        content: 'A large US insurance carrier rolled out wearables to more than twenty-one thousand policy-holders. They reported fifty-four percent lower OSHA recordables and eighty-eight percent fewer lost workdays. These aren\'t projections or estimates—they\'re actual recorded outcomes from real workplaces.'
-      },
-      {
-        type: 'heading',
-        content: 'Insurers Are Starting to Pay for Prevention'
-      },
-      {
-        type: 'paragraph',
-        content: 'The insurance industry is recognizing the value proposition. That same carrier now bundles the device cost inside the workers comp premium. Employers keep the hardware as long as usage stays high because fewer claims still leave the insurer ahead. Similar rebate schemes are quietly spreading among regional carriers, a sign that finance departments can treat wearables as an operating expense rather than a capital gamble.'
-      },
-      {
-        type: 'paragraph',
-        content: 'This shift represents a fundamental change in how safety investments are viewed—from cost centers to profit protectors.'
-      },
-      {
-        type: 'heading',
-        content: 'The Market Is Warming Up Fast'
-      },
-      {
-        type: 'chart',
-        chartData: {
-          title: 'Global Wearable Sensor Market Growth',
-          data: [
-            { name: '2023', value: 1.6 },
-            { name: '2028 (Projected)', value: 4.2 }
-          ]
-        }
-      },
-      {
-        type: 'paragraph',
-        content: 'Market momentum is building rapidly. Analysts expect the global wearable sensor market to jump from $1.6 billion in 2023 to $4.2 billion by 2028, a twenty-one percent annual growth clip. In other words, buyers have moved from curiosity to budget line items.'
-      },
-      {
-        type: 'paragraph',
-        content: 'This growth reflects increasing recognition that wearable safety technology delivers measurable returns, not just safety improvements.'
-      },
-      {
-        type: 'heading',
-        content: 'Where WRLDS Fits In'
-      },
-      {
-        type: 'paragraph',
-        content: 'We\'re not pitching another boxed gadget. We\'re offering a building block that lets brands, OEMs and carriers launch their own risk-reduction service without waiting two years for a proof of concept.'
-      },
-      {
-        type: 'subheading',
-        content: 'Our Platform Advantages'
+        content: 'Our Collaborative Approach'
       },
       {
         type: 'icon-list',
         items: [
-          'Sensor tech without vendor lock-in – our platform lets partners white-label their own apps or tie data into existing dashboards',
-          'Garment or gear integration – sew-in modules for uniforms, belts or PPE so nobody forgets to clip on a tag',
-          'Asia supply chain already validated – tier-one factories, pre-negotiated test labs and back-to-back component options that cut time risk',
-          'Insurer-ready data model – alerts, exposure minutes and compliance scores exported in formats underwriters already use'
+          'Flexible integration that works with your existing safety programs and doesn\'t disrupt worker routines',
+          'White-label solutions that let you maintain your brand identity while providing cutting-edge safety technology',
+          'Proven supply chain partnerships that ensure reliable, high-quality components for long-term deployment',
+          'Data insights that help you understand and improve your safety culture, not just track compliance metrics'
         ]
       },
       {
         type: 'heading',
-        content: 'Next Step'
+        content: 'Let\'s Start a Conversation'
       },
       {
         type: 'paragraph',
-        content: 'Send us last year\'s injury log and headcount. We will return a one-page saving estimate, citation-linked and formatted for the CFO. If the numbers look soft, tell us why. Skepticism is welcome; it sharpens the model.'
+        content: 'We\'d love to learn about your safety goals and challenges. Whether you\'re looking to reduce specific types of injuries, improve safety culture, or explore how technology can support your existing programs, we\'re here to listen and collaborate.'
+      },
+      {
+        type: 'paragraph',
+        content: 'Share your safety priorities with us, and we\'ll work together to explore how wearable technology might fit into your comprehensive safety strategy. No hard sell, no one-size-fits-all solutions—just an honest conversation about protecting the people who make your organization successful.'
       },
       {
         type: 'quote',
-        content: 'Partnership beats rivalry. Let\'s see if our platform can turn your safety goal into cash in the bank.'
+        content: 'Great safety partnerships start with shared values: putting workers first, building trust through transparency, and believing that everyone deserves to work in an environment where they can thrive safely.'
       }
     ]
   },
