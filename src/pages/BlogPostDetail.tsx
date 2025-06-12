@@ -44,8 +44,8 @@ const BlogPostDetail = () => {
       />
       
       <article className="w-full pt-16 pb-16">
-        {/* Hero Section - Much shorter mobile height */}
-        <div className="banner-container h-64 sm:h-80 md:h-96 lg:h-[500px] relative">
+        {/* Hero Section - Medium height for mobile */}
+        <div className="banner-container h-80 sm:h-96 md:h-[450px] lg:h-[500px] relative">
           {post.imageUrl && (
             <img 
               src={post.imageUrl} 
@@ -64,7 +64,7 @@ const BlogPostDetail = () => {
                 </Link>
                 
                 {/* Mobile-optimized title */}
-                <h1 className="text-white text-lg sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight break-words max-w-full">
+                <h1 className="text-white text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight break-words max-w-full">
                   {post.title}
                 </h1>
                 
