@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
@@ -49,7 +48,7 @@ const SEO: React.FC<SEOProps> = ({
         'smart hard hats',
         'connected safety equipment'
       ]
-    : location.pathname.includes('wearable-safety-tech-saves-money')
+    : location.pathname.includes('wearable-safety-tech-protecting-workers-roi')
     ? [
         ...keywords,
         'workplace injury costs',
@@ -160,7 +159,7 @@ const SEO: React.FC<SEOProps> = ({
   } : null;
 
   // Add FAQ structured data for Wearable Safety Tech ROI post
-  const wearableSafetyROIFAQData = location.pathname.includes('wearable-safety-tech-saves-money') ? {
+  const wearableSafetyROIFAQData = location.pathname.includes('wearable-safety-tech-protecting-workers-roi') ? {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: [

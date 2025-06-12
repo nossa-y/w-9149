@@ -35,7 +35,7 @@ export const blogPosts: BlogPost[] = [
   {
     id: '6',
     title: 'Wearable Safety Tech: Protecting Workers While Delivering Real ROI',
-    slug: 'wearable-safety-tech-saves-money-spines',
+    slug: 'wearable-safety-tech-protecting-workers-roi',
     excerpt: 'Discover how wearable safety technology puts worker wellbeing first while delivering measurable business benefits through injury prevention and enhanced workplace safety.',
     date: 'June 12, 2025',
     author: 'WRLDS Technologies',
