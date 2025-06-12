@@ -90,16 +90,8 @@ export const blogPosts: BlogPost[] = [
         content: 'Behind every workplace injury statistic is a person: someone\'s parent, partner, or child. The data tells a sobering story about workplace safety in America. When we can prevent injuries before they happen, we\'re not just protecting company assets. We\'re preserving families and communities.'
       },
       {
-        type: 'chart',
-        chartData: {
-          title: 'Injury Cost Breakdown',
-          data: [
-            { name: 'Direct Medical', value: 35 },
-            { name: 'Lost Productivity', value: 25 },
-            { name: 'Training Replacement', value: 20 },
-            { name: 'Administrative', value: 20 }
-          ]
-        }
+        type: 'paragraph',
+        content: 'Workplace injuries impose significant costs across multiple areas. Direct medical expenses typically account for about 35% of total injury costs, while lost productivity represents another 25%. Training replacement workers adds 20% to the cost burden, and administrative expenses round out the remaining 20%. Understanding these cost distributions helps organizations make informed decisions about safety investments.'
       },
       {
         type: 'heading',
@@ -151,18 +143,8 @@ export const blogPosts: BlogPost[] = [
         content: 'The market for wearable safety technology is expanding rapidly, reflecting a cultural shift toward prioritizing worker safety and wellbeing. Technology serves as an enabler rather than a replacement for human judgment and care.'
       },
       {
-        type: 'chart',
-        chartData: {
-          title: 'Wearable Safety Market Growth',
-          data: [
-            { name: '2023', value: 1.6 },
-            { name: '2024', value: 2.1 },
-            { name: '2025', value: 2.7 },
-            { name: '2026', value: 3.3 },
-            { name: '2027', value: 3.8 },
-            { name: '2028', value: 4.2 }
-          ]
-        }
+        type: 'paragraph',
+        content: 'Industry analysts project substantial growth in the wearable safety market over the coming years. Starting from a market value of $1.6 billion in 2023, the sector is expected to grow steadily to $2.1 billion in 2024, reaching $2.7 billion by 2025. This growth trajectory continues with projections of $3.3 billion in 2026, $3.8 billion in 2027, and $4.2 billion by 2028. This expansion reflects increasing organizational commitment to worker safety and the proven value of wearable safety solutions.'
       },
       {
         type: 'heading',
