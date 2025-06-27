@@ -1,15 +1,16 @@
 
-import PageLayout from '@/components/PageLayout';
 import HotProspectHero from '@/components/HotProspectHero';
 import HotProspectFeatures from '@/components/HotProspectFeatures';
 import HotProspectChatInterface from '@/components/HotProspectChatInterface';
+import HotProspectCalendar from '@/components/HotProspectCalendar';
 import HotProspectSocialProof from '@/components/HotProspectSocialProof';
 import HotProspectCTA from '@/components/HotProspectCTA';
+import HotProspectFooter from '@/components/HotProspectFooter';
 import SEO from '@/components/SEO';
 
 const Index = () => {
   return (
-    <PageLayout showContact={false}>
+    <div className="min-h-screen bg-white w-full max-w-[100vw] overflow-x-hidden">
       <SEO 
         title="HotProspect - AI-Powered SDR Platform" 
         description="Stop wasting time on repetitive sales tasks. One simple AI chatbot handles prospecting, cold emails, and calls - no dashboards, no complexity."
@@ -18,10 +19,12 @@ const Index = () => {
       />
       <HotProspectHero />
       <HotProspectChatInterface />
+      <HotProspectCalendar />
       <HotProspectFeatures />
       <HotProspectSocialProof />
       <HotProspectCTA />
-    </PageLayout>
+      <HotProspectFooter />
+    </div>
   );
 };
 
