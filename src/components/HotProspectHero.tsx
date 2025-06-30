@@ -36,13 +36,20 @@ const HotProspectHero = () => {
                 AI-Powered Sales Development
               </div>
 
+              {/* Brand Name - Now Prominent */}
+              <div className="mb-6">
+                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-blue-600 bg-clip-text text-transparent mb-4">
+                  HotProspect
+                </h1>
+              </div>
+
               {/* Main Headline */}
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                 Stop wasting time on
-                <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-blue-600 bg-clip-text text-transparent">
+                <span className="block text-gray-300">
                   repetitive sales tasks
                 </span>
-              </h1>
+              </h2>
 
               {/* Subheadline */}
               <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
