@@ -1,4 +1,5 @@
 
+import HotProspectHeader from '@/components/HotProspectHeader';
 import HotProspectHero from '@/components/HotProspectHero';
 import HotProspectFeatures from '@/components/HotProspectFeatures';
 import HotProspectChatInterface from '@/components/HotProspectChatInterface';
@@ -17,13 +18,16 @@ const Index = () => {
         imageUrl="/lovable-uploads/526dc38a-25fa-40d4-b520-425b23ae0464.png"
         keywords={['AI SDR', 'sales automation', 'cold email', 'lead generation', 'sales development', 'prospecting', 'AI chatbot']}
       />
-      <HotProspectHero />
-      <HotProspectChatInterface />
-      <HotProspectCalendar />
-      <HotProspectFeatures />
-      <HotProspectSocialProof />
-      <HotProspectCTA />
-      <HotProspectFooter />
+      <HotProspectHeader />
+      <div className="pt-16">
+        <HotProspectHero />
+        <HotProspectChatInterface />
+        <HotProspectCalendar />
+        <HotProspectFeatures />
+        <HotProspectSocialProof />
+        <HotProspectCTA />
+        <HotProspectFooter />
+      </div>
     </div>
   );
 };
