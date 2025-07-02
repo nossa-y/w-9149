@@ -7,7 +7,7 @@ const HotProspectSocialProof = () => {
     {
       name: "Sarah Chen",
       role: "Founder, TechFlow",
-      content: "HotProspect replaced our entire SDR team. We're booking 3x more meetings with half the effort.",
+      content: "Anax replaced our entire SDR team. We're booking 3x more meetings with half the effort.",
       rating: 5
     },
     {
@@ -37,7 +37,7 @@ const HotProspectSocialProof = () => {
             What founders are saying
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            See how other founders are using HotProspect to automate their sales process
+            See how other founders are using Anax to automate their sales process
           </p>
         </motion.div>
 

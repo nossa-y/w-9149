@@ -105,7 +105,7 @@ const HotProspectFeatures = () => {
         >
           <div className="text-center mb-12">
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
-              Why founders choose HotProspect
+              Why founders choose Anax
             </h3>
             <p className="text-gray-300 text-lg max-w-2xl mx-auto">
               Built specifically for busy founders and lean sales teams who need results, not complexity.

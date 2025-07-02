@@ -26,7 +26,7 @@ const HotProspectFooter = () => {
     setTimeout(() => {
       toast({
         title: "Success!",
-        description: "Thank you for subscribing to HotProspect updates.",
+        description: "Thank you for subscribing to Anax updates.",
         variant: "default"
       });
       
@@ -40,7 +40,7 @@ const HotProspectFooter = () => {
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 pb-10 border-b border-gray-700">
           <div className="lg:col-span-2">
-            <h3 className="text-2xl font-bold mb-4">HotProspect</h3>
+            <h3 className="text-2xl font-bold mb-4">Anax</h3>
             <p className="text-gray-300 mb-6">
               The AI-powered SDR platform that handles prospecting, cold emails, and calls. 
               No dashboards, no complexity - just results.
@@ -84,7 +84,7 @@ const HotProspectFooter = () => {
         
         <div className="pt-8 text-center">
           <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} HotProspect. All rights reserved.
+            © {new Date().getFullYear()} Anax. All rights reserved.
           </p>
         </div>
       </div>
