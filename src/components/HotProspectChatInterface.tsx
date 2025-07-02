@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 
 const HotProspectChatInterface = () => {
   const [selectedPrompt, setSelectedPrompt] = useState<string | null>(null);
+  const [selectedPromptType, setSelectedPromptType] = useState<string | null>(null);
   const [showDemo, setShowDemo] = useState(false);
   const [demoStep, setDemoStep] = useState(0);
 
@@ -15,25 +16,28 @@ const HotProspectChatInterface = () => {
       title: "Mail SDR",
       description: "Find my ICPs and send personalized cold emails",
       prompt: "Find 50 SaaS founders in Series A companies and send them personalized cold emails about our sales automation platform",
-      color: "from-blue-500 to-blue-600"
+      color: "from-blue-500 to-blue-600",
+      type: "mail"
     },
     {
       icon: Phone,
       title: "Call SDR", 
       description: "Make AI voice calls to my prospects",
       prompt: "Call the top 20 prospects from my lead list and pitch our AI SDR solution using our proven script",
-      color: "from-green-500 to-green-600"
+      color: "from-green-500 to-green-600",
+      type: "call"
     },
     {
       icon: TrendingUp,
       title: "Lead Gen SDR",
       description: "Create viral content based on industry trends",
       prompt: "Write 5 LinkedIn posts about the latest sales automation trends that will drive inbound leads to our business",
-      color: "from-purple-500 to-purple-600"
+      color: "from-purple-500 to-purple-600",
+      type: "leadgen"
     }
   ];
 
-  const demoSteps = [
+  const mailDemoSteps = [
     {
       type: "ai",
       content: "I'll help you find SaaS founders and send personalized emails. Let me start by researching your ideal prospects...",
@@ -61,24 +65,108 @@ const HotProspectChatInterface = () => {
     },
     {
       type: "ai",
-      content: "🎉 Campaign Complete!\n✅ 50 emails sent\n✅ 12 replies already (24% response rate)\n✅ 3 meetings booked\n\nNext batch of prospects is ready when you are!",
+      content: "🎉 Campaign Complete!\n✅ 50 emails sent",
+      status: "completed"
+    },
+    {
+      type: "ai",
+      content: "✅ 12 replies already (24% response rate)\n✅ 3 meetings booked\n\nNext batch of prospects is ready when you are!",
       status: "completed"
     }
   ];
 
+  const callDemoSteps = [
+    {
+      type: "ai",
+      content: "I'll start making AI voice calls to your top prospects. Analyzing your lead list now...",
+      status: "processing"
+    },
+    {
+      type: "ai",
+      content: "✅ Found 20 high-priority prospects\n• Michael Torres - VP Sales at TechScale\n• Jennifer Liu - Head of Growth at DataCorp\n• Robert Kim - Sales Director at CloudFlow",
+      status: "completed"
+    },
+    {
+      type: "ai",
+      content: "Making AI voice calls using your proven script...",
+      status: "processing"
+    },
+    {
+      type: "ai",
+      content: "📞 Called Michael Torres - Interested in demo\n📞 Called Jennifer Liu - Requested proposal\n📞 Called Robert Kim - Scheduled follow-up",
+      status: "completed"
+    },
+    {
+      type: "ai",
+      content: "🎉 Call Campaign Complete!\n✅ 20 calls made\n✅ 60% connection rate",
+      status: "completed"
+    },
+    {
+      type: "ai",
+      content: "✅ 8 interested prospects\n✅ 4 demos scheduled\n\nReady for the next batch of calls!",
+      status: "completed"
+    }
+  ];
+
+  const leadgenDemoSteps = [
+    {
+      type: "ai",
+      content: "I'll create viral LinkedIn content based on current sales automation trends. Researching trending topics...",
+      status: "processing"
+    },
+    {
+      type: "ai",
+      content: "✅ Found trending topics:\n• AI replacing traditional SDRs\n• Sales automation ROI metrics\n• Future of B2B prospecting",
+      status: "completed"
+    },
+    {
+      type: "ai",
+      content: "Writing engaging LinkedIn posts...",
+      status: "processing"
+    },
+    {
+      type: "ai",
+      content: "✅ Post 1: \"Why 90% of SDRs will be AI by 2025 (and why that's great news)\"\n✅ Post 2: \"We replaced 5 SDRs with 1 AI agent. Here's what happened...\"\n✅ Post 3: \"The $50K mistake every sales team is making\"",
+      status: "completed"
+    },
+    {
+      type: "ai",
+      content: "🎉 Content Created!\n✅ 5 LinkedIn posts ready",
+      status: "completed"
+    },
+    {
+      type: "ai",
+      content: "✅ Optimized for engagement\n✅ Scheduled for peak times\n\nExpected reach: 10,000+ sales professionals",
+      status: "completed"
+    }
+  ];
+
+  const getDemoSteps = () => {
+    switch (selectedPromptType) {
+      case "call":
+        return callDemoSteps;
+      case "leadgen":
+        return leadgenDemoSteps;
+      default:
+        return mailDemoSteps;
+    }
+  };
+
   useEffect(() => {
+    const demoSteps = getDemoSteps();
     if (showDemo && demoStep < demoSteps.length) {
       const timer = setTimeout(() => {
         setDemoStep(prev => prev + 1);
       }, demoStep === 0 ? 1000 : 2500);
       return () => clearTimeout(timer);
     }
-  }, [showDemo, demoStep]);
+  }, [showDemo, demoStep, selectedPromptType]);
 
-  const startDemo = () => {
+  const startDemo = (promptType: string, prompt: string) => {
     setShowDemo(true);
     setDemoStep(0);
-    setSelectedPrompt(prompts[0].prompt);
+    setSelectedPrompt(prompt);
+    setSelectedPromptType(promptType);
   };
 
   return (
@@ -113,7 +201,7 @@ const HotProspectChatInterface = () => {
                 <div className="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
                 <div className="w-3 h-3 bg-yellow-500 rounded-full mr-2"></div>
                 <div className="w-3 h-3 bg-green-500 rounded-full mr-4"></div>
-                <span className="text-white font-medium">HotProspect AI</span>
+                <span className="text-white font-medium">Anax AI</span>
               </div>
             </div>
 
@@ -143,7 +231,7 @@ const HotProspectChatInterface = () => {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5, delay: 0.1 * index }}
                       className="cursor-pointer transition-all duration-300 hover:transform hover:scale-105"
-                      onClick={startDemo}
+                      onClick={() => startDemo(prompt.type, prompt.prompt)}
                     >
                       <div className={`bg-gradient-to-r ${prompt.color} p-0.5 rounded-xl`}>
                         <div className="bg-white rounded-xl p-4 h-full">
@@ -174,7 +262,7 @@ const HotProspectChatInterface = () => {
                   </div>
 
                   {/* AI Responses */}
-                  {demoSteps.slice(0, demoStep + 1).map((step, index) => (
+                  {getDemoSteps().slice(0, demoStep + 1).map((step, index) => (
                     <motion.div
                       key={index}
                       initial={{ opacity: 0, y: 20 }}
@@ -207,13 +295,14 @@ const HotProspectChatInterface = () => {
               )}
 
               {/* Reset Demo Button */}
-              {showDemo && demoStep >= demoSteps.length && (
+              {showDemo && demoStep >= getDemoSteps().length && (
                 <div className="text-center mt-6">
                   <Button
                     onClick={() => {
                       setShowDemo(false);
                       setDemoStep(0);
                       setSelectedPrompt(null);
+                      setSelectedPromptType(null);
                     }}
                     variant="outline"
                     className="px-6 py-2"
