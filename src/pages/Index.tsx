@@ -13,7 +13,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white w-full max-w-[100vw] overflow-x-hidden">
       <SEO 
-        title="Anax - AI-Powered SDR Platform" 
+        title="HotProspect - AI-Powered SDR Platform" 
         description="Stop wasting time on repetitive sales tasks. One simple AI chatbot handles prospecting, cold emails, and calls - no dashboards, no complexity."
         imageUrl="/lovable-uploads/526dc38a-25fa-40d4-b520-425b23ae0464.png"
         keywords={['AI SDR', 'sales automation', 'cold email', 'lead generation', 'sales development', 'prospecting', 'AI chatbot']}

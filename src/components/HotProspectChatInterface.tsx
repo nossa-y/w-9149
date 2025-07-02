@@ -61,12 +61,7 @@ const HotProspectChatInterface = () => {
     },
     {
       type: "ai",
-      content: "🎉 Campaign Complete!\n✅ 50 emails sent",
-      status: "completed"
-    },
-    {
-      type: "ai",
-      content: "✅ 12 replies already (24% response rate)\n✅ 3 meetings booked\n\nNext batch of prospects is ready when you are!",
+      content: "🎉 Campaign Complete!\n✅ 50 emails sent\n✅ 12 replies already (24% response rate)\n✅ 3 meetings booked\n\nNext batch of prospects is ready when you are!",
       status: "completed"
     }
   ];
@@ -80,10 +75,10 @@ const HotProspectChatInterface = () => {
     }
   }, [showDemo, demoStep]);
 
-  const startDemo = (promptIndex: number) => {
+  const startDemo = () => {
     setShowDemo(true);
     setDemoStep(0);
-    setSelectedPrompt(prompts[promptIndex].prompt);
+    setSelectedPrompt(prompts[0].prompt);
   };
 
   return (
@@ -118,7 +113,7 @@ const HotProspectChatInterface = () => {
                 <div className="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
                 <div className="w-3 h-3 bg-yellow-500 rounded-full mr-2"></div>
                 <div className="w-3 h-3 bg-green-500 rounded-full mr-4"></div>
-                <span className="text-white font-medium">Anax AI</span>
+                <span className="text-white font-medium">HotProspect AI</span>
               </div>
             </div>
 
@@ -148,7 +143,7 @@ const HotProspectChatInterface = () => {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5, delay: 0.1 * index }}
                       className="cursor-pointer transition-all duration-300 hover:transform hover:scale-105"
-                      onClick={() => startDemo(index)}
+                      onClick={startDemo}
                     >
                       <div className={`bg-gradient-to-r ${prompt.color} p-0.5 rounded-xl`}>
                         <div className="bg-white rounded-xl p-4 h-full">

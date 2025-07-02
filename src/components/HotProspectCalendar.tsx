@@ -38,39 +38,27 @@ const HotProspectCalendar = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="max-w-4xl mx-auto"
         >
-          {/* Google Calendar Style Header */}
-          <div className="bg-white border border-gray-300 rounded-t-lg shadow-sm">
-            <div className="flex items-center justify-between p-4 border-b border-gray-200">
+          {/* Calendar Header */}
+          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-t-2xl p-6 text-white">
+            <div className="flex items-center justify-between">
               <div className="flex items-center">
-                <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
-                  <Calendar className="w-4 h-4 text-white" />
-                </div>
-                <h3 className="text-lg font-medium text-gray-900">December 2024</h3>
+                <Calendar className="w-6 h-6 mr-3" />
+                <h3 className="text-xl font-semibold">Your Sales Calendar</h3>
               </div>
-              <div className="flex items-center space-x-4">
-                <div className="flex items-center text-gray-600">
-                  <Users className="w-4 h-4 mr-2" />
-                  <span className="text-sm">6 meetings</span>
-                </div>
-                <div className="flex space-x-1">
-                  <button className="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100">
-                    <span className="text-gray-600">‹</span>
-                  </button>
-                  <button className="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100">
-                    <span className="text-gray-600">›</span>
-                  </button>
-                </div>
+              <div className="flex items-center text-blue-100">
+                <Users className="w-4 h-4 mr-2" />
+                <span className="text-sm">6 meetings this week</span>
               </div>
             </div>
           </div>
 
           {/* Calendar Content */}
-          <div className="bg-white border-l border-r border-b border-gray-300 rounded-b-lg shadow-sm">
+          <div className="bg-white border-l-2 border-r-2 border-b-2 border-gray-200 rounded-b-2xl">
             {/* Today */}
-            <div className="p-4 border-b border-gray-100">
-              <div className="flex items-center mb-3 pb-2 border-b border-gray-100">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
-                <h4 className="text-base font-medium text-gray-900">Today • December 27</h4>
+            <div className="p-6 border-b border-gray-100">
+              <div className="flex items-center mb-4">
+                <div className="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
+                <h4 className="text-lg font-semibold text-gray-900">Today - December 27</h4>
               </div>
               <div className="space-y-4">
                 {todayMeetings.map((meeting, index) => (
@@ -79,10 +67,10 @@ const HotProspectCalendar = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 * index }}
-                    className="flex items-center p-3 border-l-4 border-blue-500 bg-blue-50 rounded-r-lg hover:bg-blue-100 transition-colors mb-2"
+                    className="flex items-center p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
                   >
-                    <div className="flex items-center justify-center w-10 h-10 bg-blue-500 rounded-full mr-3 text-white text-xs font-medium">
-                      {meeting.time.split(':')[0]}
+                    <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mr-4">
+                      <Clock className="w-5 h-5 text-blue-600" />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center justify-between">
@@ -95,7 +83,7 @@ const HotProspectCalendar = () => {
                         </div>
                         <div className="text-right">
                           <div className="text-sm font-medium text-gray-900">{meeting.time}</div>
-                          <div className="text-xs text-gray-500">30 min • Video call</div>
+                          <div className="text-xs text-gray-500">30 min</div>
                         </div>
                       </div>
                     </div>
@@ -105,10 +93,10 @@ const HotProspectCalendar = () => {
             </div>
 
             {/* Tomorrow */}
-            <div className="p-4">
-              <div className="flex items-center mb-3 pb-2 border-b border-gray-100">
-                <div className="w-2 h-2 bg-gray-400 rounded-full mr-3"></div>
-                <h4 className="text-base font-medium text-gray-900">Tomorrow • December 28</h4>
+            <div className="p-6">
+              <div className="flex items-center mb-4">
+                <div className="w-3 h-3 bg-blue-500 rounded-full mr-3"></div>
+                <h4 className="text-lg font-semibold text-gray-900">Tomorrow - December 28</h4>
               </div>
               <div className="space-y-4">
                 {tomorrowMeetings.map((meeting, index) => (
@@ -117,10 +105,10 @@ const HotProspectCalendar = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 * index }}
-                    className="flex items-center p-3 border-l-4 border-gray-400 bg-gray-50 rounded-r-lg hover:bg-gray-100 transition-colors mb-2"
+                    className="flex items-center p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
                   >
-                    <div className="flex items-center justify-center w-10 h-10 bg-gray-500 rounded-full mr-3 text-white text-xs font-medium">
-                      {meeting.time.split(':')[0]}
+                    <div className="flex items-center justify-center w-12 h-12 bg-purple-100 rounded-lg mr-4">
+                      <Clock className="w-5 h-5 text-purple-600" />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center justify-between">
@@ -133,7 +121,7 @@ const HotProspectCalendar = () => {
                         </div>
                         <div className="text-right">
                           <div className="text-sm font-medium text-gray-900">{meeting.time}</div>
-                          <div className="text-xs text-gray-500">30 min • Video call</div>
+                          <div className="text-xs text-gray-500">30 min</div>
                         </div>
                       </div>
                     </div>
