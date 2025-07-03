@@ -11,6 +11,10 @@ const HotProspectHero = () => {
     }
   };
 
+  const openCalendlyDemo = () => {
+    window.open('https://calendly.com/nossa-iyamu1/anax-demo-with-nossa-iyamu', '_blank');
+  };
+
   return (
     <motion.div 
       className="relative w-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden"
@@ -50,7 +54,7 @@ const HotProspectHero = () => {
                 <span className="block mt-2 font-semibold text-white">No dashboards. No complexity. Just results.</span>
               </p>
 
-              {/* CTA Buttons */}
+              {/* CTA Buttons - Made same size */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
                 <Button 
                   onClick={scrollToChatInterface}
@@ -60,8 +64,11 @@ const HotProspectHero = () => {
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
                 
-                <button className="w-full sm:w-auto px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold text-lg rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300">
-                  Watch 2-min Demo
+                <button 
+                  onClick={openCalendlyDemo}
+                  className="w-full sm:w-auto px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold text-lg rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300"
+                >
+                  Book a Demo
                 </button>
               </div>
 

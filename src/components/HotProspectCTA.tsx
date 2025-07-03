@@ -11,6 +11,10 @@ const HotProspectCTA = () => {
     "Cancel anytime"
   ];
 
+  const openCalendlyDemo = () => {
+    window.open('https://calendly.com/nossa-iyamu1/anax-demo-with-nossa-iyamu', '_blank');
+  };
+
   return (
     <div className="w-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-16 sm:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
@@ -46,21 +50,20 @@ const HotProspectCTA = () => {
             ))}
           </div>
 
-          {/* CTA Buttons */}
+          {/* Single CTA Button */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
+            className="flex justify-center items-center mb-8"
           >
-            <Button className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold text-lg rounded-xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105">
+            <Button 
+              onClick={openCalendlyDemo}
+              className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold text-lg rounded-xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105"
+            >
               Start Prospecting Now
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-            
-            <button className="w-full sm:w-auto px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold text-lg rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300">
-              Book a Demo
-            </button>
           </motion.div>
 
           {/* Trust Message */}

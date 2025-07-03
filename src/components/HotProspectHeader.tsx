@@ -2,11 +2,8 @@
 import { Button } from "@/components/ui/button";
 
 const HotProspectHeader = () => {
-  const scrollToChatInterface = () => {
-    const chatSection = document.getElementById('chat-interface');
-    if (chatSection) {
-      chatSection.scrollIntoView({ behavior: 'smooth' });
-    }
+  const openCalendlyDemo = () => {
+    window.open('https://calendly.com/nossa-iyamu1/anax-demo-with-nossa-iyamu', '_blank');
   };
 
   return (
@@ -22,7 +19,7 @@ const HotProspectHeader = () => {
 
           {/* CTA Button */}
           <Button 
-            onClick={scrollToChatInterface}
+            onClick={openCalendlyDemo}
             className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-lg shadow-sm hover:shadow-md transition-all duration-300"
           >
             Get Started
