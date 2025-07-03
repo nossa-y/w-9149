@@ -54,11 +54,11 @@ const HotProspectHero = () => {
                 <span className="block mt-2 font-semibold text-white">No dashboards. No complexity. Just results.</span>
               </p>
 
-              {/* CTA Buttons - Made same size */}
+              {/* CTA Buttons - Same size and dimensions */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
                 <Button 
                   onClick={scrollToChatInterface}
-                  className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold text-lg rounded-xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105"
+                  className="w-full sm:w-64 h-14 px-8 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold text-lg rounded-xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
                 >
                   Try the Agent Now
                   <ArrowRight className="ml-2 w-5 h-5" />
@@ -66,7 +66,7 @@ const HotProspectHero = () => {
                 
                 <button 
                   onClick={openCalendlyDemo}
-                  className="w-full sm:w-auto px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold text-lg rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300"
+                  className="w-full sm:w-64 h-14 px-8 bg-white/10 backdrop-blur-sm text-white font-semibold text-lg rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 flex items-center justify-center"
                 >
                   Book a Demo
                 </button>

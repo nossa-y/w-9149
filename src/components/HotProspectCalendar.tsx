@@ -16,15 +16,13 @@ const HotProspectCalendar = () => {
   const todayMeetings = meetings.filter(m => m.day === "Today");
   const tomorrowMeetings = meetings.filter(m => m.day === "Tomorrow");
 
-  // Updated calendar days - Monday to Friday only (no weekend meetings)
+  // Updated calendar days - Monday to Friday only with proper spacing
   const calendarDays = [
-    { day: 25, dayName: 'Mon', isToday: false, meetings: 2 },
-    { day: 26, dayName: 'Tue', isToday: false, meetings: 1 },
-    { day: 27, dayName: 'Wed', isToday: true, meetings: 3 },
-    { day: 28, dayName: 'Thu', isToday: false, meetings: 3 },
-    { day: 29, dayName: 'Fri', isToday: false, meetings: 0 },
-    { day: 30, dayName: 'Mon', isToday: false, meetings: 2 },
-    { day: 31, dayName: 'Tue', isToday: false, meetings: 1 },
+    { day: 23, dayName: 'Mon', isToday: false, meetings: 2 },
+    { day: 24, dayName: 'Tue', isToday: false, meetings: 1 },
+    { day: 25, dayName: 'Wed', isToday: true, meetings: 3 },
+    { day: 26, dayName: 'Thu', isToday: false, meetings: 3 },
+    { day: 27, dayName: 'Fri', isToday: false, meetings: 0 },
   ];
 
   return (
@@ -80,37 +78,45 @@ const HotProspectCalendar = () => {
               </div>
             </div>
 
-            {/* Mini Calendar View - Improved Mobile */}
+            {/* Mini Calendar View - Fixed to prevent wrapping */}
             <div className="p-3 sm:p-6 border-b border-gray-100">
-              <div className="grid grid-cols-7 gap-1 sm:gap-2 mb-3 sm:mb-4">
-                {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
-                  <div key={day} className="text-center text-xs sm:text-sm font-medium text-gray-500 py-1 sm:py-2">
-                    <span className="hidden sm:inline">{day}</span>
-                    <span className="sm:hidden">{day[0]}</span>
-                  </div>
-                ))}
+              <div className="flex justify-between items-center mb-3 sm:mb-4 text-xs sm:text-sm font-medium text-gray-500">
+                <div className="text-center flex-1">Sun</div>
+                <div className="text-center flex-1">Mon</div>
+                <div className="text-center flex-1">Tue</div>
+                <div className="text-center flex-1">Wed</div>
+                <div className="text-center flex-1">Thu</div>
+                <div className="text-center flex-1">Fri</div>
+                <div className="text-center flex-1">Sat</div>
               </div>
-              <div className="grid grid-cols-7 gap-1 sm:gap-2">
-                {/* Empty cells for Sunday and Saturday */}
-                <div className="aspect-square"></div>
+              <div className="flex justify-between items-center">
+                {/* Empty cell for Sunday */}
+                <div className="flex-1 flex justify-center">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10"></div>
+                </div>
+                {/* Weekday cells */}
                 {calendarDays.map((date, index) => (
-                  <div
-                    key={index}
-                    className={`aspect-square flex flex-col items-center justify-center rounded-md sm:rounded-lg text-xs sm:text-sm cursor-pointer transition-colors ${
-                      date.isToday
-                        ? 'bg-blue-600 text-white'
-                        : 'hover:bg-gray-100 text-gray-700'
-                    }`}
-                  >
-                    <span className="font-medium">{date.day}</span>
-                    {date.meetings > 0 && (
-                      <div className={`w-1 h-1 rounded-full mt-0.5 sm:mt-1 ${
-                        date.isToday ? 'bg-white' : 'bg-blue-500'
-                      }`} />
-                    )}
+                  <div key={index} className="flex-1 flex justify-center">
+                    <div
+                      className={`w-8 h-8 sm:w-10 sm:h-10 flex flex-col items-center justify-center rounded-md sm:rounded-lg text-xs sm:text-sm cursor-pointer transition-colors ${
+                        date.isToday
+                          ? 'bg-blue-600 text-white'
+                          : 'hover:bg-gray-100 text-gray-700'
+                      }`}
+                    >
+                      <span className="font-medium">{date.day}</span>
+                      {date.meetings > 0 && (
+                        <div className={`w-1 h-1 rounded-full mt-0.5 ${
+                          date.isToday ? 'bg-white' : 'bg-blue-500'
+                        }`} />
+                      )}
+                    </div>
                   </div>
                 ))}
-                <div className="aspect-square"></div>
+                {/* Empty cell for Saturday */}
+                <div className="flex-1 flex justify-center">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10"></div>
+                </div>
               </div>
             </div>
 
@@ -118,7 +124,7 @@ const HotProspectCalendar = () => {
             <div className="p-3 sm:p-6 border-b border-gray-100">
               <div className="flex items-center mb-3 sm:mb-4">
                 <div className="w-2 h-2 sm:w-3 sm:h-3 bg-blue-600 rounded-full mr-2 sm:mr-3"></div>
-                <h4 className="text-base sm:text-lg font-semibold text-gray-900">Today - December 27</h4>
+                <h4 className="text-base sm:text-lg font-semibold text-gray-900">Today - December 25</h4>
                 <span className="ml-auto text-xs sm:text-sm text-gray-500">{todayMeetings.length} meetings</span>
               </div>
               <div className="space-y-2 sm:space-y-3">
@@ -154,7 +160,7 @@ const HotProspectCalendar = () => {
             <div className="p-3 sm:p-6">
               <div className="flex items-center mb-3 sm:mb-4">
                 <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full mr-2 sm:mr-3"></div>
-                <h4 className="text-base sm:text-lg font-semibold text-gray-900">Tomorrow - December 28</h4>
+                <h4 className="text-base sm:text-lg font-semibold text-gray-900">Tomorrow - December 26</h4>
                 <span className="ml-auto text-xs sm:text-sm text-gray-500">{tomorrowMeetings.length} meetings</span>
               </div>
               <div className="space-y-2 sm:space-y-3">
@@ -194,7 +200,7 @@ const HotProspectCalendar = () => {
                 </p>
                 <div className="flex items-center text-xs sm:text-sm text-gray-500">
                   <Users className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
-                  <span>6 meetings this week</span>
+                  <span>5 meetings this week</span>
                 </div>
               </div>
             </div>
