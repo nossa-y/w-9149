@@ -30,8 +30,8 @@ const SEO: React.FC<SEOProps> = ({
   isBlogPost = false
 }) => {
   const location = useLocation();
-  const currentUrl = `https://nossa.github.io/w-9149${location.pathname}`;
-  const absoluteImageUrl = imageUrl.startsWith('http') ? imageUrl : `https://nossa.github.io/w-9149${imageUrl}`;
+  const currentUrl = `https://wrlds.com${location.pathname}`;
+  const absoluteImageUrl = imageUrl.startsWith('http') ? imageUrl : `https://wrlds.com${imageUrl}`;
 
   // Enhanced keywords for specific posts
   const enhancedKeywords = location.pathname.includes('smart-ppe-revolution') 
@@ -72,8 +72,8 @@ const SEO: React.FC<SEOProps> = ({
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'WRLDS Technologies',
-    url: 'https://nossa.github.io/w-9149',
-    logo: 'https://nossa.github.io/w-9149/lovable-uploads/14ea3fe0-19d6-425c-b95b-4117bc41f3ca.png',
+    url: 'https://wrlds.com',
+    logo: 'https://wrlds.com/lovable-uploads/14ea3fe0-19d6-425c-b95b-4117bc41f3ca.png',
     description: 'Pioneering smart engineering solutions with textile sensors',
     contactPoint: {
       '@type': 'ContactPoint',
@@ -106,18 +106,18 @@ const SEO: React.FC<SEOProps> = ({
     author: {
       '@type': 'Organization',
       name: author || 'WRLDS Technologies',
-      url: 'https://nossa.github.io/w-9149'
+      url: 'https://wrlds.com'
     },
     publisher: {
       '@type': 'Organization',
       name: 'WRLDS Technologies',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://nossa.github.io/w-9149/lovable-uploads/14ea3fe0-19d6-425c-b95b-4117bc41f3ca.png',
+        url: 'https://wrlds.com/lovable-uploads/14ea3fe0-19d6-425c-b95b-4117bc41f3ca.png',
         width: 512,
         height: 512
       },
-      url: 'https://nossa.github.io/w-9149'
+      url: 'https://wrlds.com'
     },
     description: description,
     keywords: enhancedKeywords.join(', '),
@@ -216,7 +216,7 @@ const SEO: React.FC<SEOProps> = ({
       {isBlogPost && category && <meta property="article:section" content={category} />}
       {isBlogPost && publishDate && <meta property="article:published_time" content={publishDate} />}
       {isBlogPost && modifiedDate && <meta property="article:modified_time" content={modifiedDate} />}
-      {isBlogPost && <meta property="article:publisher" content="https://nossa.github.io/w-9149" />}
+      {isBlogPost && <meta property="article:publisher" content="https://wrlds.com" />}
       
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
