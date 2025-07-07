@@ -1,38 +1,9 @@
 
 import { ArrowRight } from "lucide-react";
-import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
 
 const HotProspectFooter = () => {
-  const [email, setEmail] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-
-  const handleSubscribe = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!email) {
-      toast({
-        title: "Error",
-        description: "Please enter your email address.",
-        variant: "destructive"
-      });
-      return;
-    }
-    
-    setIsSubmitting(true);
-    
-    // Simulate subscription
-    setTimeout(() => {
-      toast({
-        title: "Success!",
-        description: "Thank you for subscribing to Anax updates.",
-        variant: "default"
-      });
-      
-      setEmail("");
-      setIsSubmitting(false);
-    }, 1000);
+  const handleSubscribe = () => {
+    window.open('https://docs.google.com/forms/d/e/1FAIpQLSeSMswKtyYj3wSYLwGk0fdmblK5ksE8rwyGuAhwmcZ9BXcuoQ/viewform', '_blank');
   };
 
   return (
@@ -55,30 +26,13 @@ const HotProspectFooter = () => {
             <p className="text-gray-300 mb-4 text-sm">
               Get notified when we launch and receive sales automation tips.
             </p>
-            <form className="space-y-4" onSubmit={handleSubscribe}>
-              <div>
-                <input 
-                  type="email" 
-                  placeholder="Your email" 
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-600 text-white placeholder-gray-400"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  disabled={isSubmitting}
-                />
-              </div>
-              <button 
-                type="submit" 
-                className="w-full px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-600 transition-colors flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Subscribing..." : (
-                  <>
-                    Subscribe
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </>
-                )}
-              </button>
-            </form>
+            <button 
+              onClick={handleSubscribe}
+              className="w-full px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-600 transition-colors flex items-center justify-center"
+            >
+              Subscribe
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </button>
           </div>
         </div>
         

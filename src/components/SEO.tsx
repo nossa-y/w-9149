@@ -10,6 +10,10 @@ interface SEOProps {
   name?: string;
   imageUrl?: string;
   keywords?: string[];
+  isBlogPost?: boolean;
+  publishDate?: string;
+  author?: string;
+  category?: string;
 }
 
 const SEO: React.FC<SEOProps> = ({
@@ -18,7 +22,11 @@ const SEO: React.FC<SEOProps> = ({
   type = 'website',
   name = 'Anax',
   imageUrl = '/lovable-uploads/526dc38a-25fa-40d4-b520-425b23ae0464.png',
-  keywords = ['Anax', 'AnaxHQ', 'AI SDR', 'sales automation', 'cold email', 'lead generation', 'sales development', 'prospecting', 'AI chatbot', 'sales AI', 'automated prospecting']
+  keywords = ['Anax', 'AnaxHQ', 'AI SDR', 'sales automation', 'cold email', 'lead generation', 'sales development', 'prospecting', 'AI chatbot', 'sales AI', 'automated prospecting'],
+  isBlogPost = false,
+  publishDate,
+  author,
+  category
 }) => {
   const location = useLocation();
   const currentUrl = `https://www.anaxhq.com${location.pathname}`;
@@ -46,6 +54,33 @@ const SEO: React.FC<SEOProps> = ({
       url: 'https://www.anaxhq.com'
     }
   };
+
+  // Blog post structured data (only if it's a blog post)
+  const blogPostStructuredData = isBlogPost ? {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description: description,
+    image: absoluteImageUrl,
+    author: {
+      '@type': 'Person',
+      name: author || 'Anax Team'
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Anax',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://www.anaxhq.com/lovable-uploads/526dc38a-25fa-40d4-b520-425b23ae0464.png'
+      }
+    },
+    datePublished: publishDate,
+    dateModified: publishDate,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': currentUrl
+    }
+  } : null;
 
   return (
     <Helmet>
@@ -93,6 +128,13 @@ const SEO: React.FC<SEOProps> = ({
       <script type="application/ld+json">
         {JSON.stringify(organizationStructuredData)}
       </script>
+      
+      {/* Blog post structured data if applicable */}
+      {blogPostStructuredData && (
+        <script type="application/ld+json">
+          {JSON.stringify(blogPostStructuredData)}
+        </script>
+      )}
     </Helmet>
   );
 };
