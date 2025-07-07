@@ -4,7 +4,6 @@ import HotProspectHero from '@/components/HotProspectHero';
 import HotProspectFeatures from '@/components/HotProspectFeatures';
 import HotProspectChatInterface from '@/components/HotProspectChatInterface';
 import HotProspectCalendar from '@/components/HotProspectCalendar';
-import HotProspectSocialProof from '@/components/HotProspectSocialProof';
 import HotProspectCTA from '@/components/HotProspectCTA';
 import HotProspectFooter from '@/components/HotProspectFooter';
 import SEO from '@/components/SEO';
@@ -24,7 +23,6 @@ const Index = () => {
         <HotProspectChatInterface />
         <HotProspectCalendar />
         <HotProspectFeatures />
-        <HotProspectSocialProof />
         <HotProspectCTA />
         <HotProspectFooter />
       </div>
