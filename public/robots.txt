@@ -3,7 +3,21 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://wrlds.com/sitemap.xml
+Sitemap: https://www.anaxhq.com/sitemap.xml
 
-# Optimize crawling
-Crawl-delay: 10
+# Optimize crawling for search engines
+Crawl-delay: 1
+
+# Block access to admin or sensitive areas (if any exist)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Allow all major search engine bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
