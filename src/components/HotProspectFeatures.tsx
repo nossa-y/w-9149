@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Mail, Phone, TrendingUp, Clock, Target, Zap } from "lucide-react";
+import { Mail, Phone, TrendingUp, Clock, DollarSign, Zap } from "lucide-react";
 
 const HotProspectFeatures = () => {
   const features = [
@@ -31,9 +31,9 @@ const HotProspectFeatures = () => {
       description: "Complete prospecting tasks in minutes, not hours"
     },
     {
-      icon: Target,
-      title: "Higher Accuracy",
-      description: "AI finds better prospects with precise targeting"
+      icon: DollarSign,
+      title: "Startup Friendly Pricing",
+      description: "Affordable plans designed for growing businesses"
     },
     {
       icon: Zap,
